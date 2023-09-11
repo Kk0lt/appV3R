@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UsagersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*-----------------------Usagers------------------------*/
+
+Route::get('formConnexion', 
+[UsagersController::class, 'formConnexion'])->name('usagers.formConnexion');

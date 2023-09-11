@@ -1,0 +1,59 @@
+.custom-bg {
+    background-color: #ED8C00; /* Couleur de fond inversée */
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    background-color: #dbdbdb;
+}
+
+.imgLogoV3R {
+    width: 70px;
+    margin-top: 0; 
+    margin-left: 20px;
+}
+
+
+.custom-title {
+    color: #0B2341; 
+    font-family: 'Alumni Sans', sans-serif; 
+    font-weight: 900; 
+    font-size: 50px;
+}
+
+.navbar-custom{
+    background-color: #0B2341;
+}
+.custom-text {
+    color: #0B2341; 
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.custom-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.custom-row {
+    padding: 0px;
+}
+
+.custom-btn {
+    background-color: #0B2341; /* Couleur de fond statique pour les boutons */
+    color: #ED8C00; /* Couleur du texte statique pour les boutons */
+}
+
+.container{
+    margin-top: 50px;
+
+}
+
+.custom-footer{
+    margin-top: 50px;
+    padding-top: 0px;
+    margin: 20px;
+    background-color: #dbdbdb;
+    border-top:1px solid black ;
+    
+}
