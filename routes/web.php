@@ -21,5 +21,5 @@ Route::get('/', function () {
 
 /*-----------------------Usagers------------------------*/
 
-Route::get('formConnexion', 
+Route::get('/formConnexion', 
 [UsagersController::class, 'formConnexion'])->name('usagers.formConnexion');

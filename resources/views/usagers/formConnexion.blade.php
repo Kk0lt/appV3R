@@ -59,8 +59,8 @@
  
             </form>
             <div class="text-center mb-4">
-            <button type="submit" class="m-2 btn btn-primary ">Connexion</button>
-                <a href="#" class="btn btn-dark">Création de compte</a>
+            <button type="submit" class="m-2 btn btn-connexion ">Connexion</button>
+                <a href="#" class="btn btn-creation">Création de compte</a>
             </div>
 
             
@@ -78,20 +78,21 @@
 
 
     <!-- FOOTER -->
-<footer class="custom-footer text-center">
-  <div class="container p-4">
-    <div class="row">
-      <!-- Grid column for "V3R.NET" -->
-      <div class="col-6 mb-4">
-        <h5 class="custom-text">V3R.NET</h5>
+<footer class="custom-footer text-center ">
+<div class="row">
+      <div class="col-xl-3 offset-xl-2 ">
+        <h3>Liens:</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">v3r.net</a></li>
+        </ul>
       </div>
-      <!-- Grid column for "311" -->
-      <div class="col-6 mb-4">
-        <h5 class="custom-text">311</h5>
+
+      <div class="col-xl-3 offset-xl-1  aide">
+          <h3>Besoin d'aide ? </h3>
+          <h6>Contactez-nous : 311</h6>
       </div>
     </div>
-  </div>
-
+      <p>© Ville de Trois-Rivières. Tous droits réservés.</p>
 </footer>
 
   </div>
