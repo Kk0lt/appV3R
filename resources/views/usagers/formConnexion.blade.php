@@ -6,7 +6,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
+    <script src="https://kit.fontawesome.com/c7d7f880b6.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -83,13 +83,13 @@
       <div class="col-xl-3 offset-xl-2 ">
         <h3>Liens:</h3>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">v3r.net</a></li>
+          <li class="nav-item mb-2"><a href="https://www.v3r.net/" class="nav-link p-0 v3rLink">v3r.net</a></li>
         </ul>
       </div>
 
       <div class="col-xl-3 offset-xl-1  aide">
           <h3>Besoin d'aide ? </h3>
-          <h6>Contactez-nous : 311</h6>
+          <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
       </div>
     </div>
       <p>© Ville de Trois-Rivières. Tous droits réservés.</p>

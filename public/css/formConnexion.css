@@ -13,6 +13,7 @@ h3,p,li{
 
 .wrapper{
     margin-bottom: 100px;
+    margin-top: 100px;
 }
 .imgLogoV3R {
     width:7%;
@@ -63,13 +64,12 @@ h3,p,li{
     margin: 20px;
     background-color: #dbdbdb;
     border-top:1px solid black ;
+    font-size: 15px;
+    margin-top: 15%;
+    
     
 }
-.custom-footer p{
-    font-size: 17px;
-    margin-top: 20px;
-    
-}
+
 
 .btn-connexion{
     background-color: #0B2341; 
@@ -79,4 +79,7 @@ h3,p,li{
 .btn-creation{
     background-color: #ED8C00; 
     color: #0B2341; 
+}
+.v3rLink {
+    color: black;
 }
