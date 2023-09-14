@@ -1,0 +1,186 @@
+:root
+{
+    --orange: #ED8C00;
+    --blue: #0B2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+}
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh;
+    background-color: var(--white);
+  }
+  
+  .side-navbar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: var(--blue);
+    transition: 0.5s;
+    max-height: 100%; 
+    overflow-y: auto; 
+  }
+  
+  .nav-link:active,
+  .nav-link:focus,
+  .nav-link:hover {
+    background-color: var(--orange);
+  }
+
+  .nav-link2:active,
+  .nav-link2:focus,
+
+
+  .nav-link:active,
+  .nav-link:focus,
+  .nav-link:hover {
+    background-color: var(--orange);
+  }
+
+.nav-link:active span,
+.nav-link:focus span,
+.nav-link:hover span,
+.nav-link:active i,
+.nav-link:focus i,
+.nav-link:hover i
+{
+    color: var(--white);
+}
+  
+  .white{
+    color: var(--white);
+  }
+
+  .orange
+  {
+    color: var(--orange);
+  }
+
+  .my-container {
+    transition: 0.4s;
+  }
+  
+  .active-nav {
+    margin-left: 0;
+  }
+  
+  /* for main section */
+  .active-cont {
+    margin-left: 250px;
+  }
+  
+  #menu-btn {
+    background-color: var(--darkGrey);
+    color: var(--white);
+    margin-left: -62px;
+  }
+  
+  .my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+  }
+  
+  .logoVille
+  {
+    height: 85px;
+    width: auto;
+  }
+
+  .logoUser
+  {
+    height: 30px;
+    width: auto;
+    padding-left: 75px;
+  }
+
+  .pad
+  {
+    padding-left: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .pad2
+  {
+    padding-left: 15px;
+    padding-top: 8px;
+  }
+
+  .pad3
+  {
+    padding-left: 35px;
+  }
+
+
+.v3r
+{
+    outline: none;
+    color: var(--white);
+    font-size: 20px;
+    transition: color 0.1s;
+}
+
+.phone
+{
+    outline: none;
+    color: var(--white);
+    font-size: 20px;
+    transition: color 0.1s;
+}
+
+.v3r:hover{
+    color: var(--orange);
+}
+
+.phone:hover{
+    color: var(--orange);
+}
+
+
+.liens{
+    text-decoration: none;
+}
+.lienNav
+{
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+}
+
+.disconnect
+{
+    background-color: var(--orange);
+    color: var(--white);
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    margin-top: 0%;
+}
+
+hr{
+    border: 1px solid var(--white);
+}
+
+.titre
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+.titre a{
+    text-decoration-color: var(--orange);
+}
