@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0B2341;
+    padding: 30px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+/* Style pour le formulaire */
+form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* Style pour les titres */
+h1 {
+    font-family: 'Alumni Sans', sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    text-align: center;
+    color: #ED8C00;
+}
+
+/* Style pour les étiquettes */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style pour les champs de texte et les zones de texte */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ED8C00;
+    border-radius: 3px;
+}
+
+/* Style pour les cases à cocher et les boutons radio */
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style pour le bouton Soumettre */
+input[type="submit"] {
+    background-color: #0B2341;
+    color: #ED8C00;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Style pour le bouton Soumettre au survol */
+input[type="submit"]:hover {
+    background-color: #ED8C00;
+    color: #0B2341;
+}
+
+/* Style pour les messages d'erreur */
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+.checkbox-group{
+    margin-bottom: 20px;
+    
+}
+
+
+/* Media query pour les appareils mobiles */
+@media screen and (max-width: 480px) {
+    form {
+        max-width: 100%;
+    }
+
+    /* Nouveau style pour les checkboxes et radios */
+    .checkbox-group label,
+    .temoin-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .checkbox-group input[type="checkbox"],
+    .temoin-group input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    /* Nouveau style pour le groupe Oui/Non du témoin */
+    .temoin-group {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .temoin-group label {
+        margin-right: 10px;
+    }
+}
