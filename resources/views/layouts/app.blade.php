@@ -48,7 +48,7 @@
       </div>
         <hr>
       <div href="#" class="nav-link ">
-      <i class="fa-solid fa-file-lines orange"></i>
+      <i class="fa-solid fa-file-lines"></i>
             <a class="orange titre" href=""><span class="mx-2">Documents:</span></a>
             <div class="pt-3 px-3">
                 <h6><a class="liens" href="">Procédures de travail</a></h6>
@@ -76,15 +76,15 @@
     </nav>
 
 
-    @yield('contenuDuMilieu')
 
 
     <!--End Top Nav -->
   </div>
 
+  @yield('contenuDuMilieu')
 
 
-@yield('contenuDuMilieu')
+
 
 
 <script src="{{ asset('js/sidebar.js') }}"></script>
