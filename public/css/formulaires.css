@@ -5,13 +5,17 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #0B2341;
-    padding: 30px;
+    padding: 40px;
 }
+
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
+
+
 /* Style pour le formulaire */
 form {
     background-color: #fff;
@@ -30,6 +34,15 @@ h1 {
     color: #ED8C00;
 }
 
+h5 {
+    font-family: 'Alumni Sans', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    font-size: 30px;
+    border-bottom:1px solid #0B2341;
+    margin: 20px;
+    margin-bottom: 40px;
+}
 /* Style pour les étiquettes */
 label {
     display: block;
@@ -59,14 +72,15 @@ label {
 
 
 /* Partie absences*/
-.absence_container{
+
+.absence{
     margin: 10px;
     display: flex;
     flex-direction: row;
 }
-.absence_container input[type="radio"] {
+.absence input[type="radio"] {
     margin-right: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 30x;
 }
 
 /* Partie superieur*/

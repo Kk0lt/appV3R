@@ -16,6 +16,11 @@
 <body>
     <h1>Déclaration d'accident de travail</h1>
     <form action="traitement.php" method="POST">
+
+    <!--Description de l'évenement-->
+
+    <h5>Description de l'évenement</h5>
+
         <label for="date">Date de l'accident :</label>
         <input type="date" name="date" required><br><br>
 
@@ -39,6 +44,7 @@
         <label for="secteur">Secteur d'activité :</label>
         <input type="text" name="secteur" required><br><br>
 
+        <!---->
         <div class="checkbox-group">
         <label>Nature et site de la blessure (cochez s'il y a lieu, côté droit ou côté gauche) :</label>
         
@@ -157,16 +163,17 @@
         <label for="secouriste">Nom du secouriste :</label>
         <input type="text" name="secouriste"><br><br>
 
-        <label>Absence (cochez l'une des options) :</label><br>
-
-        <div class="absence_container">
+        <!--Détails sur le durée de l'absence-->
+        <div class = "absence_container">
+        <h5>Détails sur le durée de l'absence</h5>
+        <label>Absence (cochez l'une des options) :</label>
+        <div class="absence">
         <input type="radio" name="absence" value="aucune_absence" id="absence_aucune">
-        <label for="absence_aucune">Accident nécessitant aucune absence</label><br>
+        <label for="absence_aucune">Accident nécessitant aucune absence</label>
         </div>
-
-        <div class="absence_container">
+        <div class="absence">
         <input type="radio" name="absence" value="absence" id="absence">
-        <label for="absence_consultation">Accident nécessitant une consultation</label><br><br>
+        <label for="absence_consultation">Accident nécessitant une consultation</label>
         </div>
 
         <input type="text" name="superieur" ><br><br>
@@ -176,10 +183,13 @@
                         <input type="radio" name="checkbox_sup" value="Oui" id="sup_oui">
                         <label for="sup_oui" id="label_sup_oui">Oui</label>
                         <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
-routes                        <label for="sup_non" id="label_sup_non">Non</label>   
+                        <label for="sup_non" id="label_sup_non">Non</label>   
             </div>
         </div>
 
+
+        
+        </div>
         <input type="submit" value="Soumettre">
     </form>
 </body>
