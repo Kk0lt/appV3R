@@ -37,6 +37,55 @@ label {
     font-weight: bold;
     color: #333;
 }
+.container_blessure{
+    margin-top:15px ;
+    margin-bottom:15px ;
+}
+/* Partie des témoins*/
+.temoin_checkbox {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.temoin_checkbox input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+#label_temoin_oui{
+    margin-right: 20px;
+}
+
+
+/* Partie absences*/
+.absence_container{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.absence_container input[type="radio"] {
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+/* Partie superieur*/
+.checkbox_sup {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox_sup input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+#label_sup_oui{
+    margin-right: 20px;
+}
+
+
 
 /* Style pour les champs de texte et les zones de texte */
 input[type="text"],
