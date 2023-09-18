@@ -35,8 +35,34 @@
                     <label for="temoin_non">Non</label>
                 </div>
             </div>
-        <label for="temoins">Nom du/des témoins :</label>
-        <input type="text" name="temoins"><br><br>
+    <!-- Champ de saisie du nom du témoin -->
+    <div id="temoin_nom" style="display: none;">
+        <label for="nom_temoin">Nom du témoin/des témoins :</label>
+        <input type="text" id="nom_temoin" name="nom_temoin">
+    </div>
+
+    <script>
+        // Récupérer les éléments HTML pertinents
+        const temoinOui = document.getElementById('temoin_oui');
+        const temoinNon = document.getElementById('temoin_non');
+        const temoinNom = document.getElementById('temoin_nom');
+
+        // Ajouter des gestionnaires d'événements de changement pour les boutons radio "Oui" et "Non"
+        temoinOui.addEventListener('change', function() {
+            // Si "Oui" est sélectionné, afficher le champ de saisie du nom du témoin
+            if (this.checked) {
+                temoinNom.style.display = 'block';
+            }
+        });
+
+        temoinNon.addEventListener('change', function() {
+            // Si "Non" est sélectionné, cacher le champ de saisie du nom du témoin
+            if (this.checked) {
+                temoinNom.style.display = 'none';
+            }
+        });
+    </script>
+
 
         <label for="endroit">Endroit de l'accident :</label>
         <input type="text" name="endroit" required><br><br>
@@ -176,19 +202,17 @@
         <label for="absence_consultation">Accident nécessitant une consultation</label>
         </div>
 
-        <input type="text" name="superieur" ><br><br>
         <div class="superieur-group">
             <label for="superieur">J'ai avisé mon supérieur immédiat :</label>
             <div class="checkbox_sup">
-                        <input type="radio" name="checkbox_sup" value="Oui" id="sup_oui">
-                        <label for="sup_oui" id="label_sup_oui">Oui</label>
-                        <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
-                        <label for="sup_non" id="label_sup_non">Non</label>   
+                <input type="radio" name="checkbox_sup" value="Oui" id="sup_oui">
+                <label for="sup_oui" id="label_sup_oui">Oui</label>
+                <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
+                <label for="sup_non" id="label_sup_non">Non</label>   
             </div>
         </div>
-
-
         
+    
         </div>
         <input type="submit" value="Soumettre">
     </form>

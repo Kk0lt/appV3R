@@ -100,16 +100,29 @@ label {
 }
 
 
-
+#nom_temoin{
+   
+}
 /* Style pour les champs de texte et les zones de texte */
 input[type="text"],
 textarea {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ED8C00;
     border-radius: 3px;
+    transition: width 0.4s ease-in-out;
+
 }
+input[type=text]:focus {
+    width: 75%;
+  }
+
+  textarea:focus {
+    width: 75%;
+  }
+
+/* Style pour les champs text area et les zones de texte */
 
 /* Style pour les cases à cocher et les boutons radio */
 input[type="checkbox"],
