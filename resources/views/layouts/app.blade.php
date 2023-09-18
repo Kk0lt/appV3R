@@ -22,6 +22,13 @@
 
   <!-- Side-Nav -->
 <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+
+<div class="navbar">
+    <a class="menu-btn" id="menu-btn">
+    <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+  </a>
+</div>
+
     <ul class="nav flex-column text-white w-100">
         <li class="nav-link2 pad">
             <img id="Logo" class="logoVille img-fluid "src="{{ asset('img/LogoVille.png') }}" alt="">
@@ -58,7 +65,7 @@
       
       <div class="px-3">
         <button class="btnD disconnect">Fermer la session</button>
-        </div>
+      </div>
 
         <span href="#" class="nav-link2 h4 w-100 mb-5 pad3 pt-3">
         <a class="v3r" href=""><i class= "white bx bx-link"></i>v3r.net</a>
@@ -66,20 +73,11 @@
         </span>
 
     </ul>
+
+
 </div>
-
-  <!-- Main Wrapper -->
-  <div class="p-1 my-container active-cont">
-    <!-- Top Nav -->
-    <nav class="navbar top-navbar navbar-light bg-light px-5">
-      <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
-    </nav>
-
-
-
-
     <!--End Top Nav -->
-  </div>
+
 
   @yield('contenuDuMilieu')
 
