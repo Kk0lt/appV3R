@@ -92,7 +92,7 @@
           <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
       </div>
     </div>
-      <p>© Ville de Trois-Rivières. Tous droits réservés.</p>
+      <p class="padFoot">© Ville de Trois-Rivières. Tous droits réservés.</p>
 </footer>
 
   </div>

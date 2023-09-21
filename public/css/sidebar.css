@@ -31,7 +31,7 @@
     transition: 0.5s;
     max-height: 100%; 
     overflow-y: auto; 
-    z-index: 1;
+    z-index: 2;
     top: 0px;
   }
   
@@ -68,6 +68,11 @@
     color: var(--white);
   }
 
+  .black
+  {
+    color: var(--black);
+  }
+  
   .orange
   {
     color: var(--orange);
@@ -134,7 +139,7 @@
 
   .pad2
   {
-    padding-left: 15px;
+    padding-left: 5px;
     padding-top: 8px;
   }
 
