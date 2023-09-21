@@ -5,7 +5,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #0B2341;
-    padding: 40px;
+    padding: 45px;
 }
 
 
@@ -89,7 +89,10 @@ label {
     display: flex;
     flex-direction: row;
 }
-
+.superieur-group{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
 .checkbox_sup input[type="radio"] {
     margin-left: 10px;
     margin-right: 10px;
