@@ -1,10 +1,22 @@
+:root
+{
+    --orange: #ED8C00;
+    --blue: #0B2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+}
+
+
+
+
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #0B2341;
+    background-color: var(--blue);;
     padding: 45px;
 }
 
@@ -31,7 +43,7 @@ h1 {
     font-weight: 900;
     font-size: 45px;
     text-align: center;
-    color: #ED8C00;
+    color: var(--orange);;
 }
 
 h5 {
@@ -39,7 +51,7 @@ h5 {
     font-weight: 900;
     text-align: center;
     font-size: 30px;
-    border-bottom:1px solid #0B2341;
+    border-bottom:2px solid var(--blue);;
     margin: 20px;
     margin-bottom: 40px;
 }
@@ -106,13 +118,26 @@ label {
 #nom_temoin{
    
 }
+
+
+/* Style pour les champs d'heure */
+
+input[type="time"],
+input[type="date"]{
+    margin-bottom: 10px;
+    border: 2px solid var(--orange);;
+    border-radius: 3px;
+    padding: 5px;
+
+}
+
 /* Style pour les champs de texte et les zones de texte */
 input[type="text"],
 textarea {
     width: 50%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ED8C00;
+    border: 2px solid var(--orange);;
     border-radius: 3px;
     transition: width 0.4s ease-in-out;
 
@@ -131,12 +156,13 @@ input[type=text]:focus {
 input[type="checkbox"],
 input[type="radio"] {
     margin-right: 5px;
+    
 }
 
 /* Style pour le bouton Soumettre */
 input[type="submit"] {
-    background-color: #0B2341;
-    color: #ED8C00;
+    background-color: var(--blue);;
+    color: var(--orange);;
     border: none;
     padding: 10px 20px;
     border-radius: 3px;
@@ -146,8 +172,8 @@ input[type="submit"] {
 
 /* Style pour le bouton Soumettre au survol */
 input[type="submit"]:hover {
-    background-color: #ED8C00;
-    color: #0B2341;
+    background-color: var(--orange);;
+    color: var(--blue);;
 }
 
 /* Style pour les messages d'erreur */

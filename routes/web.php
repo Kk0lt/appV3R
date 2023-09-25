@@ -33,6 +33,9 @@ Route::get('/Formulaire-Déclaration-d\'Accident-de-Travail',
 Route::get('/Signalement-d\'une-Situation-Dangereuse', 
 [FormulairesController::class, 'formSituationDangereuse'])->name('formulaires.formSituationDangereuse');
 
+Route::get('/Grille-Audit-SST', 
+[FormulairesController::class, 'grilleAuditSST'])->name('formulaires.grilleAuditSST');
+
 
 /*-----------------------Employés------------------------*/
 Route::get('/accueil', 

@@ -24,6 +24,10 @@ class FormulairesController extends Controller
     public function formSituationDangereuse()
     {
         return view ('formulaires.formSituationDangereuse' );
+    }    
+    public function grilleAuditSST()
+    {
+        return view ('formulaires.grilleAuditSST' );
     }
     /**
      * Show the form for creating a new resource.
