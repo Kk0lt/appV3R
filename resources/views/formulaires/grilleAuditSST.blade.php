@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <h1>Déclaration d'accident de travail</h1>
+    <h1>Grille Audit SST</h1>
     <form action="traitement.php" method="POST">
 
     <!--Description de l'évenement-->

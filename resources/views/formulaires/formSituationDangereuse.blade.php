@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <h1>Déclaration d'accident de travail</h1>
+    <h1>Signalement d'une situation dangereuse, d'un acte de violence ou d'un "passé proche"</h1>
     <form action="traitement.php" method="POST">
     <!--Description de l'évenement-->
         <h5>Description de l'évenement</h5>
