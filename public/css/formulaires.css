@@ -1,30 +1,26 @@
-:root
-{
-    --orange: #ED8C00;
-    --blue: #0B2341;
+:root {
+    --orange: #ed8c00;
+    --blue: #0b2341;
     --white: #ffffff;
     --black: #000000;
     --darkGrey: #100901;
 }
-
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     background-color: var(--blue);
     padding: 45px;
 }
-
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-  }
-
+}
 
 /* Style pour le formulaire */
 form {
@@ -37,19 +33,19 @@ form {
 
 /* Style pour les titres */
 h1 {
-    font-family: 'Alumni Sans', sans-serif;
+    font-family: "Alumni Sans", sans-serif;
     font-weight: 900;
     font-size: 47px;
     text-align: center;
-    color: var(--orange);;
+    color: var(--orange);
 }
 
 h5 {
-    font-family: 'Alumni Sans', sans-serif;
+    font-family: "Alumni Sans", sans-serif;
     font-weight: 900;
     text-align: center;
     font-size: 32px;
-    border-bottom:2px solid var(--blue);;
+    border-bottom: 2px solid var(--blue);
     margin: 20px;
     margin-bottom: 40px;
 }
@@ -60,9 +56,9 @@ label {
     font-weight: bold;
     color: #333;
 }
-.container_blessure{
-    margin-top:15px ;
-    margin-bottom:15px ;
+.container_blessure {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 /* Partie des témoins*/
 .temoin_checkbox {
@@ -76,14 +72,13 @@ label {
     margin-right: 10px;
     margin-bottom: 5px;
 }
-#label_temoin_oui{
+#label_temoin_oui {
     margin-right: 20px;
 }
 
-
 /* Partie absences*/
 
-.absence{
+.absence {
     margin: 10px;
     display: flex;
     flex-direction: row;
@@ -99,7 +94,7 @@ label {
     display: flex;
     flex-direction: row;
 }
-.superieur-group{
+.superieur-group {
     margin-top: 20px;
     margin-bottom: 30px;
 }
@@ -108,26 +103,22 @@ label {
     margin-right: 10px;
     margin-bottom: 5px;
 }
-#label_sup_oui{
+#label_sup_oui {
     margin-right: 20px;
 }
 
-
-#nom_temoin{
-   
+#nom_temoin {
 }
-
 
 /* Style pour les champs d'heure */
 
 input[type="time"],
 input[type="date"],
-select{
+select {
     margin-bottom: 10px;
-    border: 2px solid var(--orange);;
+    border: 2px solid var(--orange);
     border-radius: 3px;
     padding: 5px;
-
 }
 
 /* Style pour les champs de texte et les zones de texte */
@@ -136,18 +127,17 @@ textarea {
     width: 50%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 2px solid var(--orange);;
+    border: 2px solid var(--orange);
     border-radius: 3px;
     transition: width 0.4s ease-in-out;
-
 }
-input[type=text]:focus {
+input[type="text"]:focus {
     width: 75%;
-  }
+}
 
-  textarea:focus {
+textarea:focus {
     width: 75%;
-  }
+}
 
 /* Style pour les champs text area et les zones de texte */
 
@@ -155,13 +145,12 @@ input[type=text]:focus {
 input[type="checkbox"],
 input[type="radio"] {
     margin-right: 5px;
-    
 }
 
 /* Style pour le bouton Soumettre */
 input[type="submit"] {
-    background-color: var(--blue);;
-    color: var(--orange);;
+    background-color: var(--blue);
+    color: var(--orange);
     border: none;
     padding: 10px 20px;
     border-radius: 3px;
@@ -171,8 +160,8 @@ input[type="submit"] {
 
 /* Style pour le bouton Soumettre au survol */
 input[type="submit"]:hover {
-    background-color: var(--orange);;
-    color: var(--blue);;
+    background-color: var(--orange);
+    color: var(--blue);
 }
 
 /* Style pour les messages d'erreur */
@@ -180,11 +169,9 @@ input[type="submit"]:hover {
     color: red;
     margin-top: 5px;
 }
-.checkbox-group{
+.checkbox-group {
     margin-bottom: 20px;
-    
 }
-
 
 /* Media query pour les appareils mobiles */
 @media screen and (max-width: 480px) {
@@ -209,7 +196,7 @@ input[type="submit"]:hover {
         flex-direction: row;
         align-items: center;
     }
-    
+
     .temoin-group label {
         margin-right: 10px;
     }
