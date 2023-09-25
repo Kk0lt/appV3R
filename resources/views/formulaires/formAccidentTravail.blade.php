@@ -61,7 +61,7 @@
         <input type="checkbox" name="blessure_tete" value="gauche"> Gauche
         <input type="checkbox" name="blessure_tete" value="droit"> Droit
         <input type="checkbox" name="blessure_tete" value="aucun" id="blessure_tete_aucun"> Aucun<br>
-    </div>
+        </div>
         <div class="container_blessure">
         <label for="blessure_epaule">Torse :</label>
         <input type="checkbox" name="blessure_torse" value="gauche"> Gauche
