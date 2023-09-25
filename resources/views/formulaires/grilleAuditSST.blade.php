@@ -149,6 +149,7 @@
 
 
 
+    <script src="{{ asset('js/grilleAuditSST.js') }}"></script>
     <script src="{{ asset('js/formulaire.js') }}"></script>
 
 </body>
