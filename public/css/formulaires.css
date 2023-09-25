@@ -14,7 +14,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--blue);;
+    background-color: var(--blue);
     padding: 45px;
 }
 
@@ -121,7 +121,8 @@ label {
 /* Style pour les champs d'heure */
 
 input[type="time"],
-input[type="date"]{
+input[type="date"],
+select{
     margin-bottom: 10px;
     border: 2px solid var(--orange);;
     border-radius: 3px;

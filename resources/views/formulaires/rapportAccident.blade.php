@@ -25,7 +25,9 @@
     <input type="text" name="noUnite" id="noUnite">
     
     <label for="departement">Departement:</label>
-    <input type="text" name="departement" id="departement">
+    <select name="taille_id" id="taille_id" class="taille-produit" >
+    <option value="">Departement</option>
+    </select>
 
     <label for="noPermis">Numero de permis de conduire:</label>
     <input type="text" name="noPermis" id="noPermis">
