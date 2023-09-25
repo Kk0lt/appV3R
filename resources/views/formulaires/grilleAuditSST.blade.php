@@ -35,87 +35,112 @@
         
         <div class="container_element">
         <label for="epi">EPI</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
         <div class="container_element">
         <label for="tenue_des_lieux">Tenue des lieux</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
         <div class="container_element">
         <label for="comportement_securitaire">Comportement sécuritaire</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
         <div class="container_element">
         <label for="signalisation">Signalisation</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
         <div class="container_element">
         <label for="fiches_signalitique">Fiches signalétiques</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
         <div class="container_element">
         <label for="travaux_excavation">Travaux - Excavation</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
         <div class="container_element">
         <label for="espace_clos">Espace clos</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
         <div class="container_element">
         <label for="methode_de_travail">Méthode de travail</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
+
         </div>
 
         <div class="container_element">
         <label for="autres">Autre(s): <br>
         <input type="text" id="autresTravaux" name="autre"></label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
 
     <h5>Covid-19</h5>
 
         <div class="container_element">
         <label for="distanciation">Respect de la distanciation</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
         <div class="container_element">
         <label for="port_epi">Port des EPI (masque/visière)</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
         <div class="container_element">
         <label for="procedures_covid">Respect des procédures établies:</label>
-        <input type="checkbox" name="conforme" value="conforme">Conforme
-        <input type="checkbox" name="non_conforme" value="non_conforme">Non conforme
-        <input type="checkbox" name="na" value="na" id="na"> N/A<br>
+        <ul>
+        <li><input type="checkbox" name="conforme" value="conforme">Conforme</li>
+        <li><input type="checkbox" name="non_conforme" value="non_conforme">Non conforme</li>
+        <li><input type="checkbox" name="na" value="na" id="na"> N/A<br></li>
+        </ul>
         </div>
     </div>
 

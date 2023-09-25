@@ -41,7 +41,7 @@ form {
 h1 {
     font-family: 'Alumni Sans', sans-serif;
     font-weight: 900;
-    font-size: 45px;
+    font-size: 47px;
     text-align: center;
     color: var(--orange);;
 }
@@ -50,7 +50,7 @@ h5 {
     font-family: 'Alumni Sans', sans-serif;
     font-weight: 900;
     text-align: center;
-    font-size: 30px;
+    font-size: 32px;
     border-bottom:2px solid var(--blue);;
     margin: 20px;
     margin-bottom: 40px;
