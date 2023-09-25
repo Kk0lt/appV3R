@@ -30,6 +30,10 @@ Route::get('/formConnexion',
 Route::get('/Formulaire-Déclaration-d\'Accident-de-Travail', 
 [FormulairesController::class, 'formAccidentTravail'])->name('formulaires.formAccidentTravail');
 
+Route::get('/Signalement-d\'une-Situation-Dangereuse', 
+[FormulairesController::class, 'formSituationDangereuse'])->name('formulaires.formSituationDangereuse');
+
+
 /*-----------------------Employés------------------------*/
 Route::get('/accueil', 
 [EmployesController::class, 'accueil'])->name('employes.accueil');

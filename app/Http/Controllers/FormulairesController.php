@@ -21,7 +21,10 @@ class FormulairesController extends Controller
     {
         return view ('formulaires.formAccidentTravail' );
     }
-
+    public function formSituationDangereuse()
+    {
+        return view ('formulaires.formSituationDangereuse' );
+    }
     /**
      * Show the form for creating a new resource.
      */
