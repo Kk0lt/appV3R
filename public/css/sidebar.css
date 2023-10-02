@@ -31,7 +31,7 @@
     transition: 0.5s;
     max-height: 100%; 
     overflow-y: auto; 
-    z-index: 1;
+    z-index: 2;
     top: 0px;
   }
   
@@ -68,6 +68,11 @@
     color: var(--white);
   }
 
+  .black
+  {
+    color: var(--black);
+  }
+  
   .orange
   {
     color: var(--orange);
@@ -118,6 +123,14 @@
     width: auto;
   }
 
+  .logoBoule
+  {
+    position: absolute;
+    z-index: -1;
+    translate: -72.5% -20%;
+    scale: 115%;
+  }
+
   .logoUser
   {
     height: 30px;
@@ -125,20 +138,20 @@
     padding-left: 75px;
   }
 
-  .pad
+  .padNav
   {
     padding-left: 40px;
     padding-top: 5px;
     padding-bottom: 5px;
   }
 
-  .pad2
+  .padNav2
   {
-    padding-left: 15px;
+    padding-left: 5px;
     padding-top: 8px;
   }
 
-  .pad3
+  .padNav3
   {
     padding-left: 35px;
   }
@@ -195,13 +208,13 @@ hr{
     border: 1px solid var(--white);
 }
 
-.titre
+.titreNav
 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 20px;
 }
-.titre a{
+.titreNav a{
     text-decoration-color: var(--orange);
 }
 
