@@ -7,8 +7,14 @@
     --black: #000000;
     --darkGrey: #100901;
     --beige: #D9D9D8;
+    --darkBeige: #b4b4b4cc;
 }
 
+
+html
+{
+    overflow-x: hidden;
+}
 
 .bg {
     min-height: 100%;
@@ -17,7 +23,7 @@
 
 .bonjour
 {
-    padding-left: 8rem;
+    padding-left: 5rem;
     padding-top: 3rem;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
@@ -26,8 +32,9 @@
 
 .com
 {
-    padding-left: 6.5rem;
+    padding-left: 4.5rem;
     padding-top: 1rem;
+    font-size: 25px;
 
     text-decoration: underline;
     color: var(--black);
@@ -35,25 +42,74 @@
 
 .titreForm
 {
-    padding-left: 5.2rem;
+    padding-left: 4.5rem;
     padding-top: 1rem;
 
+    font-size: 25px;
     text-decoration: underline;
     color: var(--black);
 }
 
-.form
+
+
+.orangeLogo
 {
-    padding-top: 0.2rem;
-
-    color: var(--black);
+    color: var(--orange);
+    font-size: 50px;
 }
 
-.form-container{
-    display: flex;
-    flex-direction: row;
+
+.horizontal-scroll {
+    overflow-x: auto; /* Permet le défilement horizontal */
+    white-space: nowrap; /* Empêche le retour à la ligne automatique */
+    width: 100%; /* Ajustez la largeur de la bande à votre convenance */
+    border: 1px solid var(--darkBeige); /* Bordure pour la bande (facultatif) */
+    padding: 10px; /* Espace intérieur (facultatif) */
 }
-.form-container i{
- margin-right: 10px;
- margin-left: 10px;
+
+.mesForms
+{
+
+    width: 100%; /* Ajustez la largeur de la bande à votre convenance */
+    border: 1px solid var(--darkBeige); /* Bordure pour la bande (facultatif) */
+    padding: 10px; /* Espace intérieur (facultatif) */
+}
+
+.card {
+    display: inline-block; /* Les cartes sont disposées en ligne */
+    width: 300px; /* Ajustez la largeur des cartes à votre convenance */
+    margin-right: 10px; /* Marge entre les cartes (facultatif) */
+    vertical-align: top; /* Alignement vertical en haut (facultatif) */
+    border: 1px solid #ddd; /* Bordure pour les cartes (facultatif) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour les cartes (facultatif) */
+    background-color: #fff; /* Couleur de fond pour les cartes (facultatif) */
+    text-align: center; /* Alignement du contenu au centre (facultatif) */
+}
+
+
+.horizontal-scroll a{
+    color: var(--blue);
+}
+
+.mesForms a{
+    color: var(--blue);
+}
+
+
+.card-link {
+    background-color: var(--beige); /* Fond blanc pour masquer le débordement */
+    margin-right: 10px; /* Espace entre les cartes */
+    text-decoration: none; /* Supprimer la décoration du lien */
+}
+
+
+
+
+/* Utilisez un media query pour appliquer des styles spécifiques aux écrans larges */
+@media screen and (max-width: 768px) {
+    /* Sélectionnez votre image par son ID ou sa classe, par exemple */
+    img#Boucle {
+        max-width: 100%; /* Définissez la largeur maximale de l'image pour qu'elle soit égale à la largeur de la fenêtre du navigateur */
+        height: auto; /* Garantit que l'image conserve son aspect ratio */
+    }
 }

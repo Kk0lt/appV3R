@@ -4,30 +4,117 @@
 
 <body class="bg">
 <div>
-    <img src="/img/bouleOrange.png" alt="Logo Image" class="" ></a>
+    <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
 </div>
 
-<div>
     <h6 class="bonjour">Bonjour X</h6>
 
-    <h5 class="com">Communiqués</h5>
-    <div>
+    <!-- Début card mes formulaires -->
+
+    <h5 class="com mt-5">Communiqués</h5>
+    <div class="horizontal-scroll">
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
         
+
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+        <!-- Fin card communiqué -->
+
+        <!-- Début card mes formulaires -->        
+    
+    <h3 class="titreForm mt-5">Mes formulaires:</h3>
+    <div class="mesForms">
+        <div class="marginForm">
+
+            <a href="" class="card-link">
+                <div class="card">
+                    <i class="fa-solid fa-list-check orangeLogo my-1"></i>
+                    <div class="card-body">    
+                        <h6 class="card-title">Déclaration d'accident: Reçus</h6>
+                        <h6 class="card-title">YYYY-MM-JJ</h6>
+                    </div>
+                </div>
+            </a>
+
     </div>
 
+        <!-- Fin card mes formulaires -->
 
-    <h3 class="titreForm">Mes formulaires:</h3>
-<div class="form">
-        <div class="form-container">
-            <i class="fa-solid fa-list-check"></i>    
-            <h6>Déclaration d'accident: Reçus</h6>
-        </div>
-    <h6>YYYY-MM-JJ</h6>
-</div>
-    
+   
 
-    
-</div>
 
 @endsection
+
+
+
+
 </body>
