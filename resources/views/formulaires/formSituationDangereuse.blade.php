@@ -42,11 +42,11 @@
 
     <h5>Description de la situation dangereuse ou du passée proche</h5>
 
-    <label for="soin"> Description:</label>
-    <textarea name="soin" rows="4" cols="50"></textarea><br><br>
+    <label for="description"> Description:</label>
+    <textarea name="description" rows="4" cols="50"></textarea><br><br>
     
     <label>Correction(s) ou amélioration(s) proposée(s):</label>
-    <textarea name="soin" rows="4" cols="50"></textarea><br><br>
+    <textarea name="corrections" rows="4" cols="50"></textarea><br><br>
 
     <div class="superieur-group">
             <label for="superieur">J'ai avisé mon supérieur immédiat :</label>

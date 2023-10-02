@@ -66,7 +66,7 @@
         </div>
 
         <div class="container_blessure">
-        <label for="blessure_epaule">Torse :</label>
+        <label for="blessure_torse">Torse :</label>
         <ul>
             <li><input type="checkbox" name="blessure_torse" value="gauche"> Gauche</li>
             <li><input type="checkbox" name="blessure_torse" value="droit"> Droit</li>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="container_blessure">
-        <label for="blessure_bras">Poumon :</label>
+        <label for="blessure_poumon">Poumon :</label>
         <ul>
             <li><input type="checkbox" name="blessure_poumon" value="gauche"> Gauche</li>
             <li><input type="checkbox" name="blessure_poumon" value="droit"> Droit</li>
@@ -93,7 +93,7 @@
         </div>
   
         <div class="container_blessure">
-        <label for="blessure_bras">Poignets, main, doigt :</label>
+        <label for="blessure_poignets">Poignets, main, doigt :</label>
         <ul>
             <li><input type="checkbox" name="blessure_poignets" value="gauche"> Gauche</li>
             <li><input type="checkbox" name="blessure_poignets" value="droit"> Droit</li>
@@ -102,7 +102,7 @@
         </div>
   
         <div class="container_blessure">
-        <label for="blessure_bras">Dos :</label>
+        <label for="blessure_dos">Dos :</label>
         <ul>
             <li><input type="checkbox" name="blessure_dos" value="gauche"> Haut</li>
             <li><input type="checkbox" name="blessure_dos" value="droit"> Bas</li>
@@ -111,7 +111,7 @@
         </div>
 
         <div class="container_blessure">
-        <label for="blessure_bras">Hanche :</label>
+        <label for="blessure_hanche">Hanche :</label>
         <ul>
             <li> <input type="checkbox" name="blessure_hanche" value="gauche"> Gauche</li>
             <li><input type="checkbox" name="blessure_hanche" value="droit"> Droit</li>
@@ -120,7 +120,7 @@
         </div>
   
         <div class="container_blessure">
-        <label for="blessure_bras">Jambe, genou :</label>
+        <label for="blessure_jambe">Jambe, genou :</label>
         <ul>
             <li><input type="checkbox" name="blessure_jambe" value="gauche"> Gauche</li>
             <li><input type="checkbox" name="blessure_jambe" value="droit"> Droit</li>
@@ -129,7 +129,7 @@
         </div>
   
         <div class="container_blessure">
-        <label for="blessure_bras">Pied, orteil, cheville :</label>
+        <label for="blessure_pied">Pied, orteil, cheville :</label>
         <ul>
             <li><input type="checkbox" name="blessure_pied" value="gauche"> Gauche</li>
             <li><input type="checkbox" name="blessure_pied" value="droit"> Droit</li>
@@ -151,26 +151,26 @@
         <div class="checkbox-group">
             <label>Description de la blessure (cochez toutes les blessures pertinentes) :</label>
             <ul>
-            <li><input type="checkbox" name="description[]" value="Brûlure">Brûlure</li>
-            <li><input type="checkbox" name="description[]" value="Écrasement">Écrasement</li>
-            <li><input type="checkbox" name="description[]" value="Commotion cérébrale">Commotion cérébrale</li>
-            <li><input type="checkbox" name="description[]" value="Corps étranger">Corps étranger</li>
-            <li><input type="checkbox" name="description[]" value="Coupure/lacération/déchirure">Coupure/lacération/déchirure</li>
-            <li><input type="checkbox" name="description[]" value="Douleur au dos">Douleur au dos</li>
-            <li><input type="checkbox" name="description[]" value="Égratignures/éraflure/piqûre/écharde">Égratignures/éraflure/piqûre/écharde</li>
-            <li><input type="checkbox" name="description[]" value="Entorse/élongation/contusion/foulure/luxation">Entorse/élongation/contusion/foulure/luxation</li>
-            <li><input type="checkbox" name="description[]" value="Fracture">Fracture</li>
-            <li><input type="checkbox" name="description[]" value="Amputation">Amputation</li>
-            <li><input type="checkbox" name="description[]" value="Irritation/infection">Irritation/infection</li>
-            <li><input type="checkbox" name="description[]" value="Inhalation">Inhalation</li>
-            <li><input type="checkbox" name="description[]" value="Autres">Autres</li>
+            <li><input type="checkbox" name="description_blessure" value="Brûlure">Brûlure</li>
+            <li><input type="checkbox" name="description_blessure" value="Écrasement">Écrasement</li>
+            <li><input type="checkbox" name="description_blessure" value="Commotion cérébrale">Commotion cérébrale</li>
+            <li><input type="checkbox" name="description_blessure" value="Corps étranger">Corps étranger</li>
+            <li><input type="checkbox" name="description_blessure" value="Coupure/lacération/déchirure">Coupure/lacération/déchirure</li>
+            <li><input type="checkbox" name="description_blessure" value="Douleur au dos">Douleur au dos</li>
+            <li><input type="checkbox" name="description_blessure" value="Égratignures/éraflure/piqûre/écharde">Égratignures/éraflure/piqûre/écharde</li>
+            <li><input type="checkbox" name="description_blessure" value="Entorse/élongation/contusion/foulure/luxation">Entorse/élongation/contusion/foulure/luxation</li>
+            <li><input type="checkbox" name="description_blessure" value="Fracture">Fracture</li>
+            <li><input type="checkbox" name="description_blessure" value="Amputation">Amputation</li>
+            <li><input type="checkbox" name="description_blessure" value="Irritation/infection">Irritation/infection</li>
+            <li><input type="checkbox" name="description_blessure" value="Inhalation">Inhalation</li>
+            <li><input type="checkbox" name="description_blessure" value="Autres">Autres</li>
             </ul>    
         </div>
 
         <div class="checkbox-group">
         <label>Violence (cochez s'il y a lieu) :</label>
-        <input type="checkbox" name="violence[]" value="Physique">Physique
-        <input type="checkbox" name="violence[]" value="Verbal">Verbal
+        <input type="checkbox" name="violence" value="Physique">Physique
+        <input type="checkbox" name="violence" value="Verbal">Verbal
         </div>
 
         <label for="tache">Description de la tâche effectuée :</label>

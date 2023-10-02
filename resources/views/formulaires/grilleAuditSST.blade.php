@@ -22,7 +22,7 @@
 
     <h5>Description de l'évenement</h5>
 
-        <label for="date">Lieu(x) des travaux: Aéroport </label>
+        <label for="lieu">Lieu(x) des travaux: Aéroport </label>
         <input type="text" name="lieu" required>
 
         <label for="date">Date :</label>
