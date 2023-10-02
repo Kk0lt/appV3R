@@ -1,0 +1,22 @@
+:root
+{
+    --orange: #ED8C00;
+    --blue: #0B2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+}
+
+
+
+#autresTravaux{
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 25%;
+    
+}
+
+.container_element{
+    margin: 10px;
+}

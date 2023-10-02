@@ -16,6 +16,11 @@
 <body>
     <h1>Déclaration d'accident de travail</h1>
     <form action="traitement.php" method="POST">
+
+    <!--Description de l'évenement-->
+
+    <h5>Description de l'évenement</h5>
+
         <label for="date">Date de l'accident :</label>
         <input type="date" name="date" required><br><br>
 
@@ -30,8 +35,16 @@
                     <label for="temoin_non">Non</label>
                 </div>
             </div>
-        <label for="temoins">Nom du/des témoins :</label>
-        <input type="text" name="temoins"><br><br>
+    <!-- Champ de saisie du nom du témoin -->
+    <div id="temoin_nom" style="display: none;">
+        <label for="nom_temoin">Nom du témoin/des témoins :</label>
+        <input type="text" id="nom_temoin" name="nom_temoin">
+    </div>
+
+    <script>
+
+    </script>
+
 
         <label for="endroit">Endroit de l'accident :</label>
         <input type="text" name="endroit" required><br><br>
@@ -39,84 +52,96 @@
         <label for="secteur">Secteur d'activité :</label>
         <input type="text" name="secteur" required><br><br>
 
+        <!---->
         <div class="checkbox-group">
         <label>Nature et site de la blessure (cochez s'il y a lieu, côté droit ou côté gauche) :</label>
         
         <div class="container_blessure">
         <label for="blessure_tete">Tête, visage, nez, yeux, oreille :</label>
-        <input type="checkbox" name="blessure_tete" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_tete" value="droit"> Droit
-        <input type="checkbox" name="blessure_tete" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_tete" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_tete" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_tete" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_tete" value="aucun" id="blessure_tete_aucun"> Aucun</li>
+        </ul>
         </div>
 
         <div class="container_blessure">
         <label for="blessure_epaule">Torse :</label>
-        <input type="checkbox" name="blessure_torse" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_torse" value="droit"> Droit
-        <input type="checkbox" name="blessure_torse" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_torse" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_torse" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_torse" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_torse" value="aucun" id="blessure_torse_aucun"> Aucun</li>
+        </ul>
         </div>
 
         <div class="container_blessure">
         <label for="blessure_bras">Poumon :</label>
-        <input type="checkbox" name="blessure_poumon" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_poumon" value="droit"> Droit
-        <input type="checkbox" name="blessure_poumon" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_poumon" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_poumon" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_poumon" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_poumon" value="aucun" id="blessure_poumon_aucun"> Aucun</li>
+        </ul>
         </div>
   
         <div class="container_blessure">
         <label for="blessure_bras">Bras, épaule, coude :</label>
-        <input type="checkbox" name="blessure_bras" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_bras" value="droit"> Droit
-        <input type="checkbox" name="blessure_bras" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_bras" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_bras" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_bras" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_bras" value="aucun" id="blessure_bras_aucun"> Aucun</li>
+        </ul>
         </div>
   
         <div class="container_blessure">
         <label for="blessure_bras">Poignets, main, doigt :</label>
-        <input type="checkbox" name="blessure_poignets" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_poignets" value="droit"> Droit
-        <input type="checkbox" name="blessure_poignets" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_poignets" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_poignets" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_poignets" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_poignets" value="aucun" id="blessure_poignets_aucun"> Aucun</li>
+        </ul>
         </div>
   
         <div class="container_blessure">
         <label for="blessure_bras">Dos :</label>
-        <input type="checkbox" name="blessure_dos" value="gauche"> Haut
-        <input type="checkbox" name="blessure_dos" value="droit"> Bas
-        <input type="checkbox" name="blessure_dos" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_dos" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_dos" value="gauche"> Haut</li>
+            <li><input type="checkbox" name="blessure_dos" value="droit"> Bas</li>
+            <li><input type="checkbox" name="blessure_dos" value="aucun" id="blessure_dos_aucun"> Aucun</li>
+        </ul>
         </div>
 
         <div class="container_blessure">
         <label for="blessure_bras">Hanche :</label>
-        <input type="checkbox" name="blessure_hanche" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_hanche" value="droit"> Droit
-        <input type="checkbox" name="blessure_hanche" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_hanche" value="les_deux"> Aucun<br>
+        <ul>
+            <li> <input type="checkbox" name="blessure_hanche" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_hanche" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_hanche" value="aucun" id="blessure_hanche_aucun"> Aucun</li>
+        </ul>
         </div>
   
         <div class="container_blessure">
         <label for="blessure_bras">Jambe, genou :</label>
-        <input type="checkbox" name="blessure_jambe" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_jambe" value="droit"> Droit
-        <input type="checkbox" name="blessure_jambe" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_jambe" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_jambe" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_jambe" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_jambe" value="aucun" id="blessure_jambe_aucun"> Aucun</li>
+        </ul>
         </div>
   
         <div class="container_blessure">
         <label for="blessure_bras">Pied, orteil, cheville :</label>
-        <input type="checkbox" name="blessure_pied" value="gauche"> Gauche
-        <input type="checkbox" name="blessure_pied" value="droit"> Droit
-        <input type="checkbox" name="blessure_pied" value="les_deux"> Les deux<br>
-        <input type="checkbox" name="blessure_pied" value="les_deux"> Aucun<br>
+        <ul>
+            <li><input type="checkbox" name="blessure_pied" value="gauche"> Gauche</li>
+            <li><input type="checkbox" name="blessure_pied" value="droit"> Droit</li>
+            <li><input type="checkbox" name="blessure_pied" value="aucun" id="blessure_pied_aucun"> Aucun</li>
+        </ul>
         </div>
 
         <div class="container_blessure">
         <label for="blessure_autre">Autres :</label>
-        <input type="text" name="blessure_autre" value=""> 
+        <ul>
+            <li><input type="text" name="blessure_autre" value=""> </li>
+        </ul>
         </div>
 
   
@@ -157,31 +182,38 @@
         <label for="secouriste">Nom du secouriste :</label>
         <input type="text" name="secouriste"><br><br>
 
-        <label>Absence (cochez l'une des options) :</label><br>
-
-        <div class="absence_container">
+        <!--Détails sur le durée de l'absence-->
+        <div class = "absence_container">
+        <h5>Détails sur le durée de l'absence</h5>
+        <label>Absence (cochez l'une des options) :</label>
+        <div class="absence">
         <input type="radio" name="absence" value="aucune_absence" id="absence_aucune">
-        <label for="absence_aucune">Accident nécessitant aucune absence</label><br>
+        <label for="absence_aucune">Accident nécessitant aucune absence</label>
         </div>
-
-        <div class="absence_container">
+        <div class="absence">
         <input type="radio" name="absence" value="absence" id="absence">
-        <label for="absence_consultation">Accident nécessitant une consultation</label><br><br>
+        <label for="absence_consultation">Accident nécessitant une consultation</label>
         </div>
 
-        <input type="text" name="superieur" ><br><br>
         <div class="superieur-group">
             <label for="superieur">J'ai avisé mon supérieur immédiat :</label>
             <div class="checkbox_sup">
-                        <input type="radio" name="checkbox_sup" value="Oui" id="sup_oui">
-                        <label for="sup_oui" id="label_sup_oui">Oui</label>
-                        <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
-routes                        <label for="sup_non" id="label_sup_non">Non</label>   
+                <input type="radio" name="checkbox_sup" value="Oui" id="sup_oui">
+                <label for="sup_oui" id="label_sup_oui">Oui</label>
+                <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
+                <label for="sup_non" id="label_sup_non">Non</label>   
             </div>
         </div>
-
+        
+    
+        </div>
         <input type="submit" value="Soumettre">
     </form>
+
+
+
+    <script src="{{ asset('js/formulaire.js') }}"></script>
+
 </body>
 </html>
 
