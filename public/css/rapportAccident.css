@@ -1,0 +1,27 @@
+:root
+{
+    --orange: #ED8C00;
+    --blue: #0B2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+}
+
+
+.checkbox_autre_vehicule {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.autre-vehicule-group{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.checkbox_autre_vehicule input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+#label_oui{
+    margin-right: 20px;
+}

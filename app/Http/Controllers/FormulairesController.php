@@ -21,7 +21,18 @@ class FormulairesController extends Controller
     {
         return view ('formulaires.formAccidentTravail' );
     }
-
+    public function formSituationDangereuse()
+    {
+        return view ('formulaires.formSituationDangereuse' );
+    }    
+    public function grilleAuditSST()
+    {
+        return view ('formulaires.grilleAuditSST' );
+    }
+    public function rapportAccident()
+    {
+        return view ('formulaires.rapportAccident' );
+    }
     /**
      * Show the form for creating a new resource.
      */
