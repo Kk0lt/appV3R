@@ -27,6 +27,9 @@ Route::get('/formConnexion',
 
 
 /*-----------------------Formulaires------------------------*/
+Route::get('/Formulaires', 
+[FormulairesController::class, 'listeForms'])->name('formulaires.listesForm');
+
 Route::get('/Formulaire-Déclaration-d\'Accident-de-Travail', 
 [FormulairesController::class, 'formAccidentTravail'])->name('formulaires.formAccidentTravail');
 

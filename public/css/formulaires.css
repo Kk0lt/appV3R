@@ -108,9 +108,6 @@ label {
     margin-right: 20px;
 }
 
-#nom_temoin {
-}
-
 /* Style pour les champs d'heure */
 
 input[type="time"],
@@ -173,6 +170,40 @@ input[type="submit"]:hover {
 .checkbox-group {
     margin-bottom: 20px;
 }
+
+
+.mesForms2
+{
+
+    width: 100%; /* Ajustez la largeur de la bande à votre convenance */
+    border: 1px solid var(--darkBeige); /* Bordure pour la bande (facultatif) */
+    padding: 10px; /* Espace intérieur (facultatif) */
+}
+
+.mesForms2 a{
+    color: var(--blue);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Media query pour les appareils mobiles */
 @media screen and (max-width: 480px) {
