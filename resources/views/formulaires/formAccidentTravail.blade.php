@@ -15,8 +15,8 @@
 </head>
 <body>
     <h1>Déclaration d'accident de travail</h1>
-    <form action="traitement.php" method="POST">
-
+    <form method="POST" action="{{ route('FormAccidentTravail.store') }}">
+    @csrf
     <!--Description de l'évenement-->
 
     <h5>Description de l'évenement</h5>
