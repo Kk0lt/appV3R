@@ -39,6 +39,8 @@
     <div id="temoin_nom" style="display: none;">
         <label for="nom_temoin">Nom du témoin/des témoins :</label>
         <input type="text" id="nom_temoin" name="nom_temoin">
+            <label for="num_temoin">Numero de téléphone du témoin/des témoins :</label>
+        <input type="text" id="num_temoin" name="num_temoin">
     </div>
 
     <script>
