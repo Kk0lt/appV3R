@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-
+use App\Models\FormAccidentTravail;
 use App\Models\Formulaire;
 
 class FormulairesController extends Controller
@@ -48,7 +48,32 @@ class FormulairesController extends Controller
     {
         //
     }
+  
+    public function storeFormAccidentTravail(Request $request)
+    {
+        try
+        {
+            Log::debug('storeFormAccidentTravail');
 
+            $FormAccidentTravail = new FormAccidentTravail;
+
+            $FormAccidentTravail->date = $request->date;   
+            $FormAccidentTravail->heure = $request->heure; 
+
+
+            $FormAccidentTravail->save();
+
+        }
+        catch(\Throwable $e)
+        {
+            Log::debug($e);
+        return redirect()->route('admins.index')->with('message', "Erreur lors de la création de la campagne.");
+        }
+        
+        return redirect()->route('admins.index');
+    }
+    
+    
     /**
      * Display the specified resource.
      */
