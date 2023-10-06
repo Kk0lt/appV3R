@@ -81,7 +81,7 @@ html
     vertical-align: top; /* Alignement vertical en haut (facultatif) */
     border: 1px solid #ddd; /* Bordure pour les cartes (facultatif) */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour les cartes (facultatif) */
-    background-color: #fff; /* Couleur de fond pour les cartes (facultatif) */
+    background-color: var(--white); /* Couleur de fond pour les cartes (facultatif) */
     text-align: center; /* Alignement du contenu au centre (facultatif) */
 }
 

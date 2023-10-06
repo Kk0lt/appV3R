@@ -120,7 +120,7 @@
         </ul>
       </div>
 
-      <div class="col-xl-3 offset-xl-1  aide">
+      <div class="col-xl-3 offset-xl-1">
           <h3>Besoin d'aide ? </h3>
           <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
       </div>

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/formConnexion.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+
     
     <title>Document</title>
 </head>
@@ -26,7 +27,7 @@
 <div class="side-navbar justify-content-between flex-wrap flex-column" id="sidebar">
 
 <div class="navbar">
-    <a class="menu-btn" id="menu-btn">
+  <a class="menu-btn" id="menu-btn">
     <i class="fa-solid fa-bars" style="color: #000000;"></i>
   </a>
 </div>
@@ -52,7 +53,7 @@
           <i class="fa-regular fa-rectangle-list orange"></i>
               <a class="orange titreNav" href="{{ route('formulaires.listesForm') }}"><span class="mx-2">Formulaires:</span></a>
               <div class="mt-3 mx-3">
-                  <h6><a class="liens" href="">Déclaration d'accident de travail</a></h6>
+                  <h6><a class="liens" href="{{ route('formulaires.formAccidentTravail') }}">Déclaration d'accident de travail</a></h6>
                   <h6><a class="liens" href="{{ route('formulaires.formSituationDangereuse') }}">Signalement de situation d'urgence</a></h6>
                   <h6><a class="liens" href="{{ route('formulaires.grilleAuditSST') }}">Audit SST</a></h6>
                   <h6><a class="liens" href="{{ route('formulaires.rapportAccident') }}">Atelier mécanique -Rapport d'accident</a></h6>
@@ -89,6 +90,7 @@
 
 
 
+<script src="{{ asset('js/admin.js') }}"></script>
 
 <script src="{{ asset('js/sidebar.js') }}"></script>
 
