@@ -37,8 +37,8 @@ class FormAccidentTravailController extends Controller
         $formAccidentTravail->employe_id = $request->employe_id;
         $formAccidentTravail->date = $request->date;
         $formAccidentTravail->heure = $request->heure;
-        $formAccidentTravail->temoin = $request->temoin;
-        $formAccidentTravail->nom_temoin = $request->nom_temoin;
+        // $formAccidentTravail->temoin = $request->temoin;
+        // $formAccidentTravail->nom_temoin = $request->nom_temoin;
         $formAccidentTravail->endroit = $request->endroit;
         $formAccidentTravail->secteur = $request->secteur;
 
