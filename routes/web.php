@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsagersController;
+use App\Http\Controllers\FormAccidentTravailController;
 use App\Http\Controllers\FormulairesController;
 use App\Http\Controllers\EmployesController;
 use App\Http\Controllers\AdminController;
@@ -34,6 +35,11 @@ Route::get('/Formulaires',
 
 Route::get('/Formulaire-Déclaration-d\'Accident-de-Travail', 
 [FormulairesController::class, 'formAccidentTravail'])->name('formulaires.formAccidentTravail');
+
+//Route::post('/form-accident-travail', 'FormAccidentTravailController@store')->name('FormAccidentTravail.store');
+
+Route::post('/form-accident-travail',
+[FormAccidentTravailController::class, 'store'])->name('FormAccidentTravail.store');
 
 Route::get('/Signalement-d\'une-Situation-Dangereuse', 
 [FormulairesController::class, 'formSituationDangereuse'])->name('formulaires.formSituationDangereuse');
