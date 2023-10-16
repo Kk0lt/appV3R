@@ -15,6 +15,8 @@
 
 </head>
 <body>
+<div class="bodycontainer">
+
     <h1>Atelier mécanique - RAPPORT D'ACCIDENT</h1>
     <form action="traitement.php" method="POST">
     <!--Description de l'évenement-->
@@ -46,6 +48,7 @@
     </form>
 
 
+    </div>
 
     <script src="{{ asset('js/formulaire.js') }}"></script>
 

@@ -11,13 +11,13 @@
 }
 
 
-body {
+.bodycontainer {
     font-family: "Poppins", sans-serif;
     background-color: var(--blue);
     padding: 45px;
 }
 
-ul {
+.bodycontainer ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -33,7 +33,7 @@ form {
 }
 
 /* Style pour les titres */
-h1 {
+.bodycontainer h1 {
     font-family: "Alumni Sans", sans-serif;
     font-weight: 900;
     font-size: 47px;
@@ -41,7 +41,7 @@ h1 {
     color: var(--orange);
 }
 
-h5 {
+.bodycontainer h5 {
     font-family: "Alumni Sans", sans-serif;
     font-weight: 900;
     text-align: center;
@@ -51,7 +51,8 @@ h5 {
     margin-bottom: 40px;
 }
 /* Style pour les étiquettes */
-label {
+
+.bodycontainer label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
