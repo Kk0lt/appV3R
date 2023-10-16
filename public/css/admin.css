@@ -1,0 +1,196 @@
+
+:root
+{
+    --orange: #ED8C00;
+    --blue: #0B2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+    --beige: #D9D9D8;
+    --darkBeige: #b4b4b4cc;
+}
+
+
+
+
+
+
+/* Styles par défaut pour votre select */
+.smaller-select {
+    font-size: 20px; /* Réduisez la taille de la police */
+    padding: 5px; /* Réduisez l'espace autour du texte */
+    height: auto; /* Réglez la hauteur automatique pour afficher toutes les options */
+}
+
+/* Styles pour les écrans de téléphone (par exemple, moins de 768px de large) */
+@media screen and (max-width: 1200px) {
+    .smaller-select {
+        font-size: 16px; /* Augmentez la taille de la police pour les téléphones */
+        padding: 10px; /* Augmentez l'espace autour du texte pour les téléphones */
+    }
+}
+
+
+/* Styles pour le select, la barre de recherche et les boutons */
+.menu-form, .btn-group {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Ajoutez d'autres styles pour le select, la barre de recherche et les boutons ici */
+
+/* Styles pour les écrans de téléphone (par exemple, moins de 768px de large) */
+@media screen and (max-width: 1296px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .menu-form, .search-bar, .btn-group {
+        display: block;
+        width: 100%;
+    }
+}
+
+.bg1
+{
+    min-height: 100%;
+    background-color: var(--beige);
+}
+
+/* Réduisez la largeur de la barre de recherche */
+.search-bar {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media screen and (max-width: 1045px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .search-bar{
+        width: 149px;
+    }
+    .search-bar::placeholder {
+        font-size: 17px; /* Réglez la taille de la police souhaitée */
+    }
+    button, input{
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1045px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .search-bar{
+        width: 200px;
+    }
+    .search-bar::placeholder {
+        font-size: 24px; /* Réglez la taille de la police souhaitée */
+    }
+    button, input{
+        font-size: 25px;
+    }
+}
+
+.bonjour2
+{
+    padding-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    color: var(--darkGrey);
+}
+
+.btn-rechercher, .btn-valider {
+    border-color: var(--orange); /* Remplacez par la couleur souhaitée */
+}
+.btn-rechercher:focus, .btn-valider:focus {
+    outline: none;
+}
+
+.bgB
+{
+    background-color: var(--white);
+}
+
+.orangeLogo2
+{
+    color: var(--orange);
+    font-size: 65px;
+}
+@media screen and (max-width: 485px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .orangeLogo2 {
+        font-size: 45;
+    }
+    .bgB h3,button{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .bgB h3,button{
+        font-size: 18px;
+    }
+    .orangeLogo2 {
+        font-size: 40;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .bgB h3,button{
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 393px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .bgB h2{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 352px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .bgB h2{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 323px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .bgB h2{
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (max-width: 376px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .bgB h3,button{
+        font-size: 14px;
+    }
+    .orangeLogo2 {
+        font-size: 35;
+    }
+}
+
+@media screen and (max-width: 345px) {
+    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
+    .bgB h3,button{
+        font-size: 12px;
+    }
+}
+
+.ml-5
+{
+    padding-left: 1rem;
+
+}
+
+/* Styles par défaut pour le conteneur */
+.container {
+    width: 100%; /* Largeur à 100% par défaut */
+    max-width: 1570px; /* Largeur maximale par défaut */
+    margin: 0 auto; /* Centrer le conteneur horizontalement */
+    margin-left: 8px;
+
+}
+

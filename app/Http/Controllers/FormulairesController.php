@@ -16,6 +16,11 @@ class FormulairesController extends Controller
     {
         //
     }
+
+    public function listeForms()
+    {
+        return view('formulaires.formulaires'); 
+    }
     
     public function formAccidentTravail()
     {
