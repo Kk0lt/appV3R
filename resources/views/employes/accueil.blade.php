@@ -93,7 +93,6 @@
     
     <h3 class="titreForm mt-5">Mes formulaires:</h3>
     <div class="mesForms">
-        <div class="marginForm">
 
             <a href="" class="card-link">
                 <div class="card">
@@ -109,10 +108,28 @@
 
         <!-- Fin card mes formulaires -->
 
-   
 
+   
+<!-- FOOTER -->
+<footer class="custom-footer text-center ">
+<div class="row">
+      <div class="col-xl-3 offset-xl-2 ">
+        <h3>Liens:</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="https://www.v3r.net/" class="nav-link p-0 v3rLink">v3r.net</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xl-3 offset-xl-1">
+          <h3>Besoin d'aide ? </h3>
+          <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
+      </div>
+    </div>
+      <p class="padFoot">© Ville de Trois-Rivières. Tous droits réservés.</p>
+</footer>
 
 @endsection
+
 
 
 

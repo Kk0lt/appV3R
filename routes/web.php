@@ -6,6 +6,8 @@ use App\Http\Controllers\UsagersController;
 use App\Http\Controllers\FormAccidentTravailController;
 use App\Http\Controllers\FormulairesController;
 use App\Http\Controllers\EmployesController;
+use App\Http\Controllers\AdminController;
+
 
 
 /*
@@ -28,6 +30,9 @@ Route::get('/formConnexion',
 
 
 /*-----------------------Formulaires------------------------*/
+Route::get('/Formulaires', 
+[FormulairesController::class, 'listeForms'])->name('formulaires.listesForm');
+
 Route::get('/Formulaire-Déclaration-d\'Accident-de-Travail', 
 [FormulairesController::class, 'formAccidentTravail'])->name('formulaires.formAccidentTravail');
 
@@ -49,4 +54,9 @@ Route::get('/Rapport-d\'Accident',
 /*-----------------------Employés------------------------*/
 Route::get('/accueil', 
 [EmployesController::class, 'accueil'])->name('employes.accueil');
+
+
+/*-----------------------Admin------------------------*/
+Route::get('/admin', 
+[AdminController::class, 'accueil'])->name('admins.admin');
 
