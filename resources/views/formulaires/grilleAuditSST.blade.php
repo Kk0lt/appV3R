@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<div class = "bodycontainer ">
     <h1>Grille Audit SST</h1>
     <form action="traitement.php" method="POST">
 
@@ -149,6 +150,7 @@
 
 
 
+    </div>
     <script src="{{ asset('js/grilleAuditSST.js') }}"></script>
     <script src="{{ asset('js/formulaire.js') }}"></script>
 
