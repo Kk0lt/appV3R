@@ -14,6 +14,7 @@
 
 </head>
 <body>
+    <div class = "bodycontainer ">
     <h1>Signalement d'une situation dangereuse, d'un acte de violence ou d'un "passé proche"</h1>
     <form action="traitement.php" method="POST">
     <!--Description de l'évenement-->
@@ -63,8 +64,8 @@
 
 
 
+</div>
     <script src="{{ asset('js/formulaire.js') }}"></script>
-
 </body>
 </html>
 
