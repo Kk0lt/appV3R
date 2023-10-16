@@ -12,6 +12,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call(UsagersSeeder::class);
+        $this->call(AdminsSeeder::class);
+        $this->call(EmployesSeeder::class);
+        
+        $this->call(FormAccidentTravails::class);
+        $this->call(FormulairesSeeder::class);
+        $this->call(ProceduresSeeder::class);
+        $this->call(SuperieursSeeder::class);
+
+
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
