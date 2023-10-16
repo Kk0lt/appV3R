@@ -31,7 +31,10 @@ Route::get('/formConnexion',
 Route::get('/Formulaire-Déclaration-d\'Accident-de-Travail', 
 [FormulairesController::class, 'formAccidentTravail'])->name('formulaires.formAccidentTravail');
 
-Route::post('/form-accident-travail', 'FormAccidentTravailController@store')->name('FormAccidentTravail.store');
+//Route::post('/form-accident-travail', 'FormAccidentTravailController@store')->name('FormAccidentTravail.store');
+
+Route::post('/form-accident-travail',
+[FormAccidentTravailController::class, 'store'])->name('FormAccidentTravail.store');
 
 Route::get('/Signalement-d\'une-Situation-Dangereuse', 
 [FormulairesController::class, 'formSituationDangereuse'])->name('formulaires.formSituationDangereuse');

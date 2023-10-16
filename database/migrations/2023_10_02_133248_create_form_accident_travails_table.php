@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formAccidentTravail', function (Blueprint $table) {
+        Schema::create('form_accident_travails', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employe_id'); //employe qui a rempli
 
@@ -44,7 +44,6 @@ return new class extends Migration
             //Détails sur le durée de l'absence
 
             $table->string('absence', 256);
-            $table->string('absence_consultation', 256);
             $table->string('superieur', 256);
 
             $table->foreign('employe_id')->references('id')->on('employes');
@@ -58,6 +57,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formAccidentTravail');
+        Schema::dropIfExists('form_accident_travails');
     }
 };

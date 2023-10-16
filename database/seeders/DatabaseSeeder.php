@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminsSeeder::class);
         $this->call(EmployesSeeder::class);
         
+        $this->call(FormAccidentTravails::class);
         $this->call(FormulairesSeeder::class);
         $this->call(ProceduresSeeder::class);
         $this->call(SuperieursSeeder::class);

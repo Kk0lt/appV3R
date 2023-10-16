@@ -34,7 +34,7 @@ class FormAccidentTravailController extends Controller
         $formAccidentTravail = new FormAccidentTravail;
 
         // Remplir les propriétés de l'instance avec les données du formulaire
-        $formAccidentTravail->employe_id = $request->employe_id;
+        $formAccidentTravail->employe_id = '1';
         $formAccidentTravail->date = $request->date;
         $formAccidentTravail->heure = $request->heure;
         // $formAccidentTravail->temoin = $request->temoin;
@@ -60,16 +60,16 @@ class FormAccidentTravailController extends Controller
         $formAccidentTravail->soin = $request->soin;
         $formAccidentTravail->secouriste = $request->secouriste;
 
-        $formAccidentTravail->absence = $request->absence;
-        $formAccidentTravail->absence_consultation = $request->absence_consultation;
+        $formAccidentTravail->absence = $request->input('absence');
+
         
-        $formAccidentTravail->superieur = $request->superieur;
+       $formAccidentTravail->superieur = $request->input('checkbox_sup');
 
         // Enregistrez l'instance dans la base de données
         $formAccidentTravail->save();
 
         // Redirigez l'utilisateur vers une page de confirmation ou de succès
-        return redirect()->route('nom_de_la_route_de_confirmation');
+        return redirect()->route('employes.accueil');
         }
 
     /**

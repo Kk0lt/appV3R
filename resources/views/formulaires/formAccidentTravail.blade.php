@@ -189,13 +189,14 @@
         <h5>Détails sur le durée de l'absence</h5>
         <label>Absence (cochez l'une des options) :</label>
         <div class="absence">
-        <input type="radio" name="absence" value="aucune_absence" id="absence_aucune">
-        <label for="absence_aucune">Accident nécessitant aucune absence</label>
+            <input type="radio" name="absence" value="aucune_absence" id="absence_aucune">
+            <label for="absence_aucune">Accident nécessitant aucune absence</label>
         </div>
         <div class="absence">
-        <input type="radio" name="absence" value="absence" id="absence">
-        <label for="absence_consultation">Accident nécessitant une consultation</label>
+            <input type="radio" name="absence" value="absence" id="absence_consultation">
+            <label for="absence_consultation">Accident nécessitant une consultation</label>
         </div>
+
 
         <div class="superieur-group">
             <label for="superieur">J'ai avisé mon supérieur immédiat :</label>
