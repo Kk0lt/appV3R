@@ -14,6 +14,7 @@
 
 </head>
 <body>
+    <div class="bodycontainer">
     <h1>Déclaration d'accident de travail</h1>
     <form method="POST" action="{{ route('FormAccidentTravail.store') }}">
     @csrf
@@ -215,8 +216,8 @@
 
 
 
+</div>
     <script src="{{ asset('js/formulaire.js') }}"></script>
-
 </body>
 </html>
 
