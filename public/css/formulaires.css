@@ -187,7 +187,13 @@ input[type="submit"]:hover {
 
 
 
-
+.LogoBoule
+{
+    position: absolute;
+    z-index: -1;
+    translate: -72.5% -20%;
+    scale: 115%;
+}
 
 
 

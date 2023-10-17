@@ -4,12 +4,10 @@
 <html>
 <head>
     <title>Déclaration d'accident de travail</title>
-    <link rel="stylesheet" href="{{ asset('css/formulaires.css') }} ">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&family=Poppins:wght@500&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('css/formulaires.css') }} ">
 
 
 </head>

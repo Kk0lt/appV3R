@@ -34,7 +34,7 @@
 
     <div class="nav flex-column text-white w-100">
         <div class="nav-link2 padNav">
-            <img class="LogoBoule" src="{{ asset('img/bouleOrange2.png') }}" alt="">
+            <img class="LogoBoule LogoBoule2" src="{{ asset('img/bouleOrange2.png') }}" alt="">
             <img id="Logo" class="logoVille img-fluid "src="{{ asset('img/LogoVille.png') }}" alt="">
         </div>
     
