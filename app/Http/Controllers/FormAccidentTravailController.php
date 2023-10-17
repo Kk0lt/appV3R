@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\FormAccidentTravail;
 use App\Models\Formulaire;
 
+
 class FormAccidentTravailController extends Controller
 {
     /**
@@ -30,6 +31,7 @@ class FormAccidentTravailController extends Controller
      */
     public function store(Request $request)
     {
+        try {
         // Créer une nouvelle instance du modèle FormAccidentTravail
         $formAccidentTravail = new FormAccidentTravail;
 
@@ -69,6 +71,12 @@ class FormAccidentTravailController extends Controller
         $formAccidentTravail->save();
 
         // Redirigez l'utilisateur vers une page de confirmation ou de succès
+        
+        } catch(\Throwable $e) {
+            Log::debug($e);
+            return redirect()->back()->withErrors(["La création a échoué"]); ;
+
+        }
         return redirect()->route('employes.accueil');
         }
 
