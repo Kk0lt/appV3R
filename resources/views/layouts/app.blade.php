@@ -44,6 +44,7 @@
           
               <img class="img-fluid logoUser" src="{{ asset('img/user.png') }}" alt="">
               <h5 class="padNav2">Nom de l'employé</h5>
+              <h6 class="padNav4">Poste de l'employé</h6>
           
         </a>
 
