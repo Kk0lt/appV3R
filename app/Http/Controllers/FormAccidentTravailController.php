@@ -39,8 +39,14 @@ class FormAccidentTravailController extends Controller
         $formAccidentTravail->employe_id = '1';
         $formAccidentTravail->date = $request->date;
         $formAccidentTravail->heure = $request->heure;
-        // $formAccidentTravail->temoin = $request->temoin;
-        // $formAccidentTravail->nom_temoin = $request->nom_temoin;
+        // Vérifiez si la radio "temoin" est cochée à "Oui"
+        if ($request->input('temoin') === 'Oui') {
+            // Enregistrez ce qui est écrit dans "nom_temoin"
+            $formSituationDangereuse->nom_temoin = $request->input('nom_temoin');
+        } else {
+            // Sinon, enregistrez "Aucun temoin" dans "nom_temoin"
+            $formSituationDangereuse->nom_temoin = 'Aucun temoin';
+        }
         $formAccidentTravail->endroit = $request->endroit;
         $formAccidentTravail->secteur = $request->secteur;
 

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 
     
-    <title>Document</title>
+    <title>ProjetV3R</title>
 </head>
 <body>
 
@@ -44,15 +44,15 @@
           
               <img class="img-fluid logoUser" src="{{ asset('img/user.png') }}" alt="">
               <h5 class="padNav2">Nom de l'employé</h5>
-              <h6 class="padNav4">Poste de l'employé</h6>
+              <h6 class="padNav4 grey">Poste de l'employé</h6>
           
         </a>
 
         <hr>
 
         <div href="#" class="nav-link ">
-          <i class="fa-regular fa-rectangle-list orange"></i>
-              <a class="orange titreNav" href="{{ route('formulaires.listesForm') }}"><span class="mx-2">Formulaires:</span></a>
+          <i class="fa-regular fa-rectangle-list white"></i>
+              <a class="white titreNav" href="{{ route('formulaires.listesForm') }}"><span class="mx-2">Formulaires:</span></a>
               <div class="mt-3 mx-3">
                   <h6><a class="liens" href="{{ route('formulaires.formAccidentTravail') }}">Déclaration d'accident de travail</a></h6>
                   <h6><a class="liens" href="{{ route('formulaires.formSituationDangereuse') }}">Signalement de situation d'urgence</a></h6>
@@ -62,8 +62,8 @@
         </div>
         <hr>
         <div href="#" class="nav-link ">
-        <i class="fa-solid fa-file-lines orange"></i>
-            <a class="orange titreNav" href=""><span class="mx-2">Documents:</span></a>
+        <i class="fa-solid fa-file-lines white"></i>
+            <a class="white titreNav" href="{{ route('employes.documents') }}"><span class="mx-2">Documents:</span></a>
             <div class="mt-3 mx-3">
                 <h6><a class="liens" href="">Procédures de travail</a></h6>
             </div>
