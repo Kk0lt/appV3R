@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rapportAccidents', function (Blueprint $table) {
+        Schema::create('rapport_accidents', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employe_id'); //employe qui a rempli
+            //$table->unsignedBigInteger('employe_id'); //employe qui a rempli
             
             $table->string('noUnite', 256);
             $table->string('departement', 256);
             $table->string('noPermis', 256);
-            $table->string('autre_vehicule', 256);
+            $table->string('autres_vehicule', 256);
 
-            $table->foreign('employe_id')->references('id')->on('employes');
+            //$table->foreign('employe_id')->references('id')->on('employes');
             $table->timestamps();
         });
     }

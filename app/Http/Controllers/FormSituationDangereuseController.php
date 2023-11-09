@@ -33,7 +33,7 @@ class FormSituationDangereuseController extends Controller
         try {
             // Créer une nouvelle instance du modèle FormSituationDangereuse
             $formSituationDangereuse = new FormSituationDangereuse;
-            $formSituationDangereuse->employe_id = '1';
+           // $formSituationDangereuse->employe_id = '1';
         
             // Remplir les propriétés de l'instance avec les données du formulaire
             $formSituationDangereuse->date = $request->input('date');
@@ -50,7 +50,7 @@ class FormSituationDangereuseController extends Controller
          
             $formSituationDangereuse->description = $request->input('description');
             $formSituationDangereuse->corrections = $request->input('corrections');
-            $formSituationDangereuse->checkbox_sup = $request->input('checkbox_sup');
+            $formSituationDangereuse->superieur_averti = $request->input('checkbox_sup');
         
             // Enregistrez l'instance dans la base de données
             $formSituationDangereuse->save();

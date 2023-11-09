@@ -18,7 +18,8 @@
 <div class="bodycontainer">
 
     <h1>Atelier mécanique - RAPPORT D'ACCIDENT</h1>
-    <form action="traitement.php" method="POST">
+    <form action="{{ route('RapportAccident.store') }}" method="POST">
+    @csrf
     <!--Description de l'évenement-->
     <h5>Description de l'évenement</h5>
 
