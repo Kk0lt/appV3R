@@ -8,6 +8,7 @@
     --darkGrey: #100901;
     --beige: #D9D9D8;
     --darkBeige: #b4b4b4cc;
+    --grey: #000000;
 }
 
 
@@ -18,7 +19,7 @@ html
 
 .bg {
     min-height: 100%;
-    background-color: var(--beige);
+    background-color: var(--white);
   }
 
 .bonjour
@@ -52,9 +53,9 @@ html
 
 
 
-.orangeLogo
+.logo
 {
-    color: var(--orange);
+    color: var(--black);
     font-size: 50px;
 }
 
@@ -63,14 +64,14 @@ html
     overflow-x: auto; /* Permet le défilement horizontal */
     white-space: nowrap; /* Empêche le retour à la ligne automatique */
     width: 100%; /* Ajustez la largeur de la bande à votre convenance */
-    border: 1px solid var(--darkBeige); /* Bordure pour la bande (facultatif) */
+    border: 1px solid var(--grey); /* Bordure pour la bande (facultatif) */
     padding: 10px; /* Espace intérieur (facultatif) */
 }
 
 .mesForms
 {
     min-width: 100%; /* Ajustez la largeur de la bande à votre convenance */
-    border: 1px solid var(--darkBeige); /* Bordure pour la bande (facultatif) */
+    border: 1px solid var(--grey); /* Bordure pour la bande (facultatif) */
     padding: 10px; /* Espace intérieur (facultatif) */
 }
 
@@ -96,7 +97,7 @@ html
 
 
 .card-link {
-    background-color: var(--beige); /* Fond blanc pour masquer le débordement */
+    background-color: var(--white); /* Fond blanc pour masquer le débordement */
     margin-right: 10px; /* Espace entre les cartes */
     text-decoration: none; /* Supprimer la décoration du lien */
 }

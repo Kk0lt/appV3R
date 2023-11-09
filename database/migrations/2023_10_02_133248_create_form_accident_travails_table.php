@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('date', 256);
             $table->string('heure', 256);
             // $table->string('temoin', 256);
-            // $table->string('nom_temoin', 256);
+            $table->string('nom_temoin', 256);
             $table->string('endroit', 256);
             $table->string('secteur', 256);
 
