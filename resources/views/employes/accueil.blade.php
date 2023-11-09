@@ -7,6 +7,7 @@
     <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
 </div>
 
+<div class="container">
     <h6 class="bonjour">Bonjour X</h6>
 
     <!-- Début card mes formulaires -->
@@ -15,7 +16,7 @@
     <div class="horizontal-scroll">
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -25,7 +26,7 @@
 
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -34,7 +35,7 @@
 
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -43,7 +44,7 @@
 
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -52,7 +53,7 @@
 
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -61,7 +62,7 @@
 
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -70,7 +71,7 @@
 
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -79,7 +80,7 @@
 
         <a href="#" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-clipboard-list orangeLogo my-1"></i>
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
                     <h6 class="card-title">Nouveau formulaire disponible</h6>
                 </div>
@@ -96,7 +97,7 @@
 
             <a href="" class="card-link">
                 <div class="card">
-                    <i class="fa-solid fa-list-check orangeLogo my-1"></i>
+                    <i class="fa-solid fa-list-check logo my-1"></i>
                     <div class="card-body">    
                         <h6 class="card-title">Déclaration d'accident: Reçus</h6>
                         <h6 class="card-title">YYYY-MM-JJ</h6>
@@ -104,6 +105,7 @@
                 </div>
             </a>
 
+    </div>
     </div>
 
         <!-- Fin card mes formulaires -->

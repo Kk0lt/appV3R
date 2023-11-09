@@ -18,6 +18,11 @@ class EmployesController extends Controller
         return view('employes.accueil'); 
     }
 
+    public function documents()
+    {
+        return view('employes.documents');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

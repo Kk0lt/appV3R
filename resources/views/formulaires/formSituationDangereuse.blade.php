@@ -16,7 +16,9 @@
 <body>
     <div class = "bodycontainer ">
     <h1>Signalement d'une situation dangereuse, d'un acte de violence ou d'un "passé proche"</h1>
-    <form action="traitement.php" method="POST">
+    <form action="{{ route('FormSituationDangereuse.store') }}" method="POST">
+    @csrf
+    
     <!--Description de l'évenement-->
         <h5>Description de l'évenement</h5>
 

@@ -17,8 +17,8 @@
 <body>
 <div class = "bodycontainer ">
     <h1>Grille Audit SST</h1>
-    <form action="traitement.php" method="POST">
-
+    <form action="{{ route('GrilleAuditSST.store') }}" method="POST">
+    @csrf
     <!--Description de l'évenement-->
 
     <h5>Description de l'évenement</h5>

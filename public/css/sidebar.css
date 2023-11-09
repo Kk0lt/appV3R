@@ -1,10 +1,12 @@
 :root
 {
     --orange: #ED8C00;
-    --blue: #0B2341;
     --white: #ffffff;
     --black: #000000;
     --darkGrey: #100901;
+    --grey: #e2e2e2;
+    --blue: #0B2341;
+
 }
 
 
@@ -38,18 +40,12 @@
   .nav-link:active,
   .nav-link:focus,
   .nav-link:hover {
-    background-color: var(--orange);
+    background-color: var(--black);
   }
 
   .nav-link2:active,
   .nav-link2:focus,
 
-
-  .nav-link:active,
-  .nav-link:focus,
-  .nav-link:hover {
-    background-color: var(--orange);
-  }
 
 .nav-link:active span,
 .nav-link:focus span,
@@ -190,12 +186,17 @@
 
 .liens{
     text-decoration: none;
+    color: var(--grey);
 }
 .lienNav
 {
     text-decoration: none;
-    color: var(--white);
     font-size: 18px;
+}
+
+.grey
+{
+  color: var(--grey);
 }
 
 .disconnect
@@ -212,7 +213,7 @@
 
 .disconnect:hover
 {
-    color: var(--blue);
+    color: var(--black);
 }
 
 hr{
@@ -224,9 +225,18 @@ hr{
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 20px;
+    color: var(--white);
 }
-.titreNav a{
-    text-decoration-color: var(--orange);
+
+
+.titreNav:hover span
+{
+  color: var(--grey);
+}
+
+.titreNav:hover
+{
+  color: var(--black);
 }
 
 .border
