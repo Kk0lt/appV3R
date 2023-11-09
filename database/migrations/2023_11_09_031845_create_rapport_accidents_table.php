@@ -11,22 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formSituationDangereuse', function (Blueprint $table) {
+        Schema::create('rapportAccidents', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employe_id'); //employe qui a rempli
-
-            $table->string('date', 256);
-            $table->string('heure', 256);
-            //$table->string('temoin', 256);
-            $table->string('nom_temoin', 256);
-            $table->string('description', 256);
-            $table->string('corrections', 256);
-            $table->string('superieur', 256);
-
+            
+            $table->string('noUnite', 256);
+            $table->string('departement', 256);
+            $table->string('noPermis', 256);
+            $table->string('autre_vehicule', 256);
 
             $table->foreign('employe_id')->references('id')->on('employes');
             $table->timestamps();
-
         });
     }
 
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formSituationDangereuse');
+        Schema::dropIfExists('rapportAccidents');
     }
 };

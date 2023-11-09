@@ -1,4 +1,4 @@
-<?php
+s<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rapportAccident', function (Blueprint $table) {
+        Schema::create('formsSituationDangereuses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employe_id'); //employe qui a rempli
-            
-            $table->string('noUnite', 256);
-            $table->string('departement', 256);
-            $table->string('noPermis', 256);
-            $table->string('autre_vehicule', 256);
+
+            $table->string('date', 256);
+            $table->string('heure', 256);
+            //$table->string('temoin', 256);
+            $table->string('nom_temoin', 256);
+            $table->string('description', 256);
+            $table->string('corrections', 256);
+            $table->string('superieur', 256);
+
 
             $table->foreign('employe_id')->references('id')->on('employes');
             $table->timestamps();
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rapportAccident');
+        Schema::dropIfExists('formsSituationDangereuses');
     }
 };

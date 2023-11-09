@@ -29,40 +29,43 @@ class GrilleAuditSstController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    try { 
-    $grilleAuditSst = new GrilleAuditSst;
-    $grilleAuditSst->employe_id = '1';
+    {
+        try { 
 
-    $grilleAuditSst->lieu = $request->input('lieu');
-    $grilleAuditSst->date = $request->input('date');
-    $grilleAuditSst->heure = $request->input('heure');
+    // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
+    $grilleAuditSST = new GrilleAuditSST();
+   
+    //$grilleAuditSST->employe_id = '1';
 
-    // Boucle à travers les éléments de formulaire
-    $elements = ['epi', 'tenue_des_lieux', 'comportement_securitaire', 'signalisation', 'fiches_signalitique', 'travaux_excavation', 'espace_clos', 'methode_de_travail', 'autres', 'distanciation', 'port_epi', 'procedures_covid'];
+    $grilleAuditSST->lieu = $request->lieu;
 
-    foreach ($elements as $element) {
-        $elementValue = $request->input($element);
-        $conforme = in_array('conforme', $elementValue) ? 1 : 0;
-        $nonConforme = in_array('non_conforme', $elementValue) ? 1 : 0;
-        $na = in_array('na', $elementValue) ? 1 : 0;
+    $grilleAuditSST->date = $request->date;
+    $grilleAuditSST->heure = $request->heure;
 
-        $grilleAuditSst->{$element . '_conforme'} = $conforme;
-        $grilleAuditSst->{$element . '_non_conforme'} = $nonConforme;
-        $grilleAuditSst->{$element . '_na'} = $na;
-    }
+    // Enregistrer d'autres champs
+    $grilleAuditSST->epi = $request->epi;
+    $grilleAuditSST->tenue_des_lieux = $request->tenue_des_lieux;
+    $grilleAuditSST->comportement_securitaire = $request->comportement_securitaire;
+    $grilleAuditSST->signalisation = $request->signalisation;
+    $grilleAuditSST->fiches_signalitique = $request->fiches_signalitique;
+    $grilleAuditSST->travaux_excavation = $request->travaux_excavation;
+    $grilleAuditSST->espace_clos = $request->espace_clos;
+    $grilleAuditSST->methode_de_travail = $request->methode_de_travail;
+    $grilleAuditSST->autres = $request->autres;
+    $grilleAuditSST->distanciation = $request->distanciation;
+    $grilleAuditSST->port_epi = $request->port_epi;
+    $grilleAuditSST->procedures_covid = $request->procedures_covid;
 
-    // Enregistrez l'instance dans la base de données
-    $grilleAuditSst->save();
-
-    // Redirigez l'utilisateur vers une page de confirmation ou de succès
-    }catch (\Throwable $e) {
-        Log::debug($e);
-        return redirect()->back()->withErrors(["La création a échoué"]);
+    // Enregistrer les données dans la base de données
+    $grilleAuditSST->save();
+            // Redirigez l'utilisateur vers une page de confirmation ou de succès
+            return redirect()->route('employes.accueil');
+        } catch (\Throwable $e) {
+            Log::debug($e);
+            return redirect()->back()->withErrors(["La création a échoué"]);
+        }
     }
     
-    return redirect()->route('employes.accueil');
-}
 
     /**
      * Display the specified resource.
