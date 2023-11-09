@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formsSituationDangereuses', function (Blueprint $table) {
+        Schema::create('form_situation_dangereuses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employe_id'); //employe qui a rempli
 
             $table->string('date', 256);
             $table->string('heure', 256);
@@ -21,10 +20,9 @@ return new class extends Migration
             $table->string('nom_temoin', 256);
             $table->string('description', 256);
             $table->string('corrections', 256);
-            $table->string('superieur', 256);
+            $table->string('superieur_averti', 256);
 
 
-            $table->foreign('employe_id')->references('id')->on('employes');
             $table->timestamps();
         });
     }
