@@ -3,12 +3,16 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsagersController;
+
 use App\Http\Controllers\FormAccidentTravailController;
 use App\Http\Controllers\FormSituationDangereuseController;
+use App\Http\Controllers\GrilleAuditSstController;
+use App\Http\Controllers\RapportAccidentController;
+
 use App\Http\Controllers\FormulairesController;
+
 use App\Http\Controllers\EmployesController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\GrilleAuditSstController;
 
 
 
@@ -55,15 +59,20 @@ Route::post('/Signalement-d\'une-Situation-Dangereuse/store',
 [FormSituationDangereuseController::class, 'store'])->name('FormSituationDangereuse.store');
 
 
-//FORM AUDIT SST
-Route::post('/GrilleAuditSST/store',
-[GrilleAuditSstController::class, 'store'])->name('GrilleAuditSST.store');
-
+//GRILLE AUDIT SST
 Route::get('/Grille-Audit-SST', 
 [FormulairesController::class, 'grilleAuditSST'])->name('formulaires.grilleAuditSST');
 
+Route::post('/GrilleAuditSST/store',
+[GrilleAuditSstController::class, 'store'])->name('GrilleAuditSST.store');
+
+//RAPPORT D'ACCIDENT
 Route::get('/Rapport-d\'Accident', 
 [FormulairesController::class, 'rapportAccident'])->name('formulaires.rapportAccident');
+
+
+Route::post('/Rapport-d\'Accident/store',
+[RapportAccidentController::class, 'store'])->name('RapportAccident.store');
 
 /*-----------------------Employés------------------------*/
 Route::get('/accueil', 
