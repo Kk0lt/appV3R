@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('grilleAuditSST', function (Blueprint $table) {
+        Schema::create('grille_audit_ssts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employe_id'); //employe qui a rempli
 
             $table->string('lieu', 256);
             $table->string('date', 256);
@@ -21,15 +20,15 @@ return new class extends Migration
             $table->string('epi', 256);
             $table->string('tenue_des_lieux', 256);
             $table->string('comportement_securitaire', 256);
+            $table->string('signalisation', 256);
             $table->string('fiches_signalitique', 256);
             $table->string('travaux_excavation', 256);
             $table->string('espace_clos', 256);
             $table->string('methode_de_travail', 256);
             $table->string('autres', 256);
+            $table->string('distanciation', 256);
             $table->string('port_epi', 256);
             $table->string('procedures_covid', 256);
-
-            $table->foreign('employe_id')->references('id')->on('employes');
 
             $table->timestamps();
         });
@@ -40,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('grilleAuditSST');
+        Schema::dropIfExists('grille_audit_ssts');
     }
 };
