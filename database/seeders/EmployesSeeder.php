@@ -63,5 +63,6 @@ class EmployesSeeder extends Seeder
                 'position' => 'Directeur RH',
             ],
 
-        ]);    }
+        ]);   
+    }
 }

@@ -20,9 +20,9 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',
+[UsagersController::class, 'formConnexion'])->name('usagers.formConnexion');
+
 
 /*-----------------------Usagers------------------------*/
 Route::get('/formConnexion', 
