@@ -13,6 +13,35 @@ class SuperieursSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('employes')->insert([
+
+            [               
+                'nom' => 'Dow',
+                'prenom' => 'Jane',
+                'position' => 'Cheffe d\'équipe TP',
+                
+            ],
+            [               
+                'nom' => 'Morinville',
+                'prenom' => 'Jonathan',
+                'position' => 'Chef de service TP',
+            ],
+            [               
+                'nom' => 'Lizotte',
+                'prenom' => 'Alain',
+                'position' => 'Directeur TP',
+            ],         
+            [               
+                'nom' => 'St-Laurent',
+                'prenom' => 'Josée ',
+                'position' => 'Coordonnatrice SST',
+            ],
+            [               
+                'nom' => 'Belisle',
+                'prenom' => 'Claude  ',
+                'position' => 'Directeur RH',
+            ],
+
+        ]);  
     }
 }
