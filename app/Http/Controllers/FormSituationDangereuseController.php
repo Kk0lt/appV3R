@@ -28,13 +28,20 @@ class FormSituationDangereuseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $employe_id)
     {
         try {
             // Créer une nouvelle instance du modèle FormSituationDangereuse
             $formSituationDangereuse = new FormSituationDangereuse;
-           // $formSituationDangereuse->employe_id = '1';
-        
+            $employe = Employe::find($employe_id);
+
+            // Utiliser la variable $employe pour obtenir le prénom et le nom
+            $employePrenom = $employe->prenom;
+            $employeNom = $employe->nom;
+
+            $employeNomC = $employePrenom . " " . $employeNom;
+
+
             // Remplir les propriétés de l'instance avec les données du formulaire
             $formSituationDangereuse->date = $request->input('date');
             $formSituationDangereuse->heure = $request->input('heure');
@@ -55,15 +62,22 @@ class FormSituationDangereuseController extends Controller
             // Enregistrez l'instance dans la base de données
             $formSituationDangereuse->save();
         
+            // Notifier superviseur direct
+            $supervisorId = '1'; // L'ID du supérieur direct à notifier 
+
+            $notification = new Notification();
+            $notification->user_id = $supervisorId;
+            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNomC . '.';
+            $notification->save();
+    
+
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
-        
-        } catch (\Throwable $e) {
-            Log::debug($e);
-            Log::debug("CA MARCHE PAS");
-            return redirect()->back()->withErrors(["La création a échoué"]);
-        }
-        
-        return redirect()->route('employes.accueil');
+            } catch (\Throwable $e) {
+                Log::debug($e);
+                return redirect()->back()->withErrors(["La création a échoué"]);
+            }
+            
+            return redirect()->route('employes.accueil');
         
     }
 

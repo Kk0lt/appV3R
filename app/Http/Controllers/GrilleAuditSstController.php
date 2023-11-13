@@ -28,42 +28,59 @@ class GrilleAuditSstController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $employe_id)
     {
+    
         try { 
 
-    // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
-    $grilleAuditSST = new GrilleAuditSST();
-   
-    //$grilleAuditSST->employe_id = '1';
+            // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
+            $grilleAuditSST = new GrilleAuditSST();
+            $employe = Employe::find($employe_id);
 
-    $grilleAuditSST->lieu = $request->lieu;
+            // Utiliser la variable $employe pour obtenir le prénom et le nom
+            $employePrenom = $employe->prenom;
+            $employeNom = $employe->nom;
 
-    $grilleAuditSST->date = $request->date;
-    $grilleAuditSST->heure = $request->heure;
+            $employeNomC = $employePrenom . " " . $employeNom;
 
-    // Enregistrer d'autres champs
-    $grilleAuditSST->epi = $request->epi;
-    $grilleAuditSST->tenue_des_lieux = $request->tenue_des_lieux;
-    $grilleAuditSST->comportement_securitaire = $request->comportement_securitaire;
-    $grilleAuditSST->signalisation = $request->signalisation;
-    $grilleAuditSST->fiches_signalitique = $request->fiches_signalitique;
-    $grilleAuditSST->travaux_excavation = $request->travaux_excavation;
-    $grilleAuditSST->espace_clos = $request->espace_clos;
-    $grilleAuditSST->methode_de_travail = $request->methode_de_travail;
-    $grilleAuditSST->autres = $request->autres;
-    $grilleAuditSST->distanciation = $request->distanciation;
-    $grilleAuditSST->port_epi = $request->port_epi;
-    $grilleAuditSST->procedures_covid = $request->procedures_covid;
+            $grilleAuditSST->lieu = $request->lieu;
 
-    // Enregistrer les données dans la base de données
-    $grilleAuditSST->save();
-            // Redirigez l'utilisateur vers une page de confirmation ou de succès
+            $grilleAuditSST->date = $request->date;
+            $grilleAuditSST->heure = $request->heure;
+
+            // Enregistrer d'autres champs
+            $grilleAuditSST->epi = $request->epi;
+            $grilleAuditSST->tenue_des_lieux = $request->tenue_des_lieux;
+            $grilleAuditSST->comportement_securitaire = $request->comportement_securitaire;
+            $grilleAuditSST->signalisation = $request->signalisation;
+            $grilleAuditSST->fiches_signalitique = $request->fiches_signalitique;
+            $grilleAuditSST->travaux_excavation = $request->travaux_excavation;
+            $grilleAuditSST->espace_clos = $request->espace_clos;
+            $grilleAuditSST->methode_de_travail = $request->methode_de_travail;
+            $grilleAuditSST->autres = $request->autres;
+            $grilleAuditSST->distanciation = $request->distanciation;
+            $grilleAuditSST->port_epi = $request->port_epi;
+            $grilleAuditSST->procedures_covid = $request->procedures_covid;
+
+            // Notifier superviseur direct
+            $supervisorId = '1'; // L'ID du supérieur direct à notifier 
+
+            $notification = new Notification();
+            $notification->user_id = $supervisorId;
+            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNomC . '.';
+            $notification->save();
+
+            // Enregistrer les données dans la base de données
+            $grilleAuditSST->save();
+
+
+            // Redirigez l'utilisateur vers une page de confirmation ou de succès    
+            } catch (\Throwable $e) {
+                Log::debug($e);
+                return redirect()->back()->withErrors(["La création a échoué"]);
+            }
+
             return redirect()->route('employes.accueil');
-        } catch (\Throwable $e) {
-            Log::debug($e);
-            return redirect()->back()->withErrors(["La création a échoué"]);
-        }
     }
     
 

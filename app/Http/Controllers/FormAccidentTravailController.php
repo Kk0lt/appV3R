@@ -29,23 +29,32 @@ class FormAccidentTravailController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $employe_id)
     {
         try {
         // Créer une nouvelle instance du modèle FormAccidentTravail
         $formAccidentTravail = new FormAccidentTravail;
+        $employe = Employe::find($employe_id);
+
+        // Utiliser la variable $employe pour obtenir le prénom et le nom
+        $employePrenom = $employe->prenom;
+        $employeNom = $employe->nom;
+
+        $employeNomC = $employePrenom . " " . $employeNom;
+
+
 
         // Remplir les propriétés de l'instance avec les données du formulaire
-        $formAccidentTravail->employe_id = '1';
         $formAccidentTravail->date = $request->date;
         $formAccidentTravail->heure = $request->heure;
+        
         // Vérifiez si la radio "temoin" est cochée à "Oui"
         if ($request->input('temoin') === 'Oui') {
             // Enregistrez ce qui est écrit dans "nom_temoin"
-            $formSituationDangereuse->nom_temoin = $request->input('nom_temoin');
+            $formAccidentTravail->nom_temoin = $request->input('nom_temoin');
         } else {
             // Sinon, enregistrez "Aucun temoin" dans "nom_temoin"
-            $formSituationDangereuse->nom_temoin = 'Aucun temoin';
+            $formAccidentTravail->nom_temoin = 'Aucun temoin';
         }
         $formAccidentTravail->endroit = $request->endroit;
         $formAccidentTravail->secteur = $request->secteur;
@@ -76,6 +85,15 @@ class FormAccidentTravailController extends Controller
         // Enregistrez l'instance dans la base de données
         $formAccidentTravail->save();
 
+        // Notifier superviseur direct
+        $supervisorId = '1';// L'ID du supérieur direct à notifier 
+
+        $notification = new Notification();
+        $notification->user_id = $supervisorId;
+        $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNomC . '.';
+
+        $notification->save();
+
         // Redirigez l'utilisateur vers une page de confirmation ou de succès
         
         } catch(\Throwable $e) {
@@ -83,8 +101,9 @@ class FormAccidentTravailController extends Controller
             return redirect()->back()->withErrors(["La création a échoué"]); ;
 
         }
+
         return redirect()->route('employes.accueil');
-        }
+    }
 
     /**
      * Display the specified resource.
