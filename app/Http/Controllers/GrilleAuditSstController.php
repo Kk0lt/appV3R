@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\GrilleAuditSst;
 use Illuminate\Support\Facades\Log;
+use App\Models\Notification;
+use App\Models\Employe;
 
 
 class GrilleAuditSstController extends Controller
@@ -38,10 +40,7 @@ class GrilleAuditSstController extends Controller
             $employe = Employe::find($employe_id);
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
-            $employePrenom = $employe->prenom;
-            $employeNom = $employe->nom;
-
-            $employeNomC = $employePrenom . " " . $employeNom;
+            $employeNom = $employe->prenom . ' ' . $employe->nom;
 
             $grilleAuditSST->lieu = $request->lieu;
 
@@ -62,12 +61,13 @@ class GrilleAuditSstController extends Controller
             $grilleAuditSST->port_epi = $request->port_epi;
             $grilleAuditSST->procedures_covid = $request->procedures_covid;
 
-            // Notifier superviseur direct
-            $supervisorId = '1'; // L'ID du supérieur direct à notifier 
+            // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+            $superviseurId = $employe->superviseurId;
 
+            // Notifier superviseur direct
             $notification = new Notification();
-            $notification->user_id = $supervisorId;
-            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNomC . '.';
+            $notification->superieur_id = $superviseur_id;
+            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
             $notification->save();
 
             // Enregistrer les données dans la base de données

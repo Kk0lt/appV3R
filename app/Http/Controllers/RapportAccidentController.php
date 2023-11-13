@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RapportAccident;
 use Illuminate\Support\Facades\Log;
+use App\Models\Notification;
+use App\Models\Employe;
+
 
 class RapportAccidentController extends Controller
 {
@@ -35,10 +38,7 @@ class RapportAccidentController extends Controller
             $employe = Employe::find($employe_id);
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
-            $employePrenom = $employe->prenom;
-            $employeNom = $employe->nom;
-
-            $employeNomC = $employePrenom . " " . $employeNom;
+            $employeNom = $employe->prenom . ' ' . $employe->nom;
 
             // Enregistrer les autres champs du rapport d'accident
             $rapportAccident->noUnite = $request->noUnite;
@@ -46,12 +46,13 @@ class RapportAccidentController extends Controller
             $rapportAccident->noPermis = $request->noPermis;
             $rapportAccident->autres_vehicule = $request->input('checkbox_autre_vehicule');
 
-            // Notifier le superviseur direct
-            $supervisorId = '1'; // L'ID du supérieur direct à notifier 
+            // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+            $superviseurId = $employe->superieur_id;
 
+            // Notifier superviseur direct
             $notification = new Notification();
-            $notification->user_id = $supervisorId;
-            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNomC . '.';
+            $notification->superieur_id = $superviseurId;
+            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
             $notification->save();
 
             // Enregistrer les données dans la base de données

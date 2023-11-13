@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\FormSituationDangereuse;
+use App\Models\Notification;
+use App\Models\Employe;
 
 
 class FormSituationDangereuseController extends Controller
@@ -36,11 +38,7 @@ class FormSituationDangereuseController extends Controller
             $employe = Employe::find($employe_id);
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
-            $employePrenom = $employe->prenom;
-            $employeNom = $employe->nom;
-
-            $employeNomC = $employePrenom . " " . $employeNom;
-
+            $employeNom = $employe->prenom . ' ' . $employe->nom;
 
             // Remplir les propriétés de l'instance avec les données du formulaire
             $formSituationDangereuse->date = $request->input('date');
@@ -59,18 +57,18 @@ class FormSituationDangereuseController extends Controller
             $formSituationDangereuse->corrections = $request->input('corrections');
             $formSituationDangereuse->superieur_averti = $request->input('checkbox_sup');
         
+            // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+            $superviseurId = $employe->superieur_id;
+
+            // Notifier superviseur direct
+            $notification = new Notification();
+            $notification->superieur_id = $superviseurId;
+            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
+            $notification->save();
+                    
             // Enregistrez l'instance dans la base de données
             $formSituationDangereuse->save();
-        
-            // Notifier superviseur direct
-            $supervisorId = '1'; // L'ID du supérieur direct à notifier 
-
-            $notification = new Notification();
-            $notification->user_id = $supervisorId;
-            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNomC . '.';
-            $notification->save();
     
-
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
             } catch (\Throwable $e) {
                 Log::debug($e);
