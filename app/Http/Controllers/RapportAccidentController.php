@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RapportAccident;
 use Illuminate\Support\Facades\Log;
+use App\Models\Notification;
+use App\Models\Employe;
+
 
 class RapportAccidentController extends Controller
 {
@@ -27,30 +30,43 @@ class RapportAccidentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $employe_id)
     {
-        try { 
+        try {
+            // Créer une nouvelle instance du modèle RapportAccident et attribuer les valeurs
+            $rapportAccident = new RapportAccident();
+            $employe = Employe::find($employe_id);
 
-    // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
-    $rapportAccident = new RapportAccident();
-   
-    //$rapportAccident->employe_id = '1';
+            // Utiliser la variable $employe pour obtenir le prénom et le nom
+            $employeNom = $employe->prenom . ' ' . $employe->nom;
 
-    $rapportAccident->noUnite = $request->noUnite;
+            // Enregistrer les autres champs du rapport d'accident
+            $rapportAccident->noUnite = $request->noUnite;
+            $rapportAccident->departement = "departement";
+            $rapportAccident->noPermis = $request->noPermis;
+            $rapportAccident->autres_vehicule = $request->input('checkbox_autre_vehicule');
 
-    $rapportAccident->departement = "departement";
-    $rapportAccident->noPermis = $request->noPermis;
-    $rapportAccident->autres_vehicule = $request->input('checkbox_autre_vehicule');
+            // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+            $superviseurId = $employe->superieur_id;
 
-    // Enregistrer les données dans la base de données
-    $rapportAccident->save();
+            // Notifier superviseur direct
+            $notification = new Notification();
+            $notification->superieur_id = $superviseurId;
+            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
+            $notification->save();
+
+            // Enregistrer les données dans la base de données
+            $rapportAccident->save();
+
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
-            return redirect()->route('employes.accueil');
-        } catch (\Throwable $e) {
-            Log::debug($e);
-            return redirect()->back()->withErrors(["La création a échoué"]);
-        }
-    }
+            } catch (\Throwable $e) {
+                Log::debug($e);
+                return redirect()->back()->withErrors(["La création a échoué"]);
+            }
+        
+        return redirect()->route('employes.accueil');
+}
+
 
     /**
      * Display the specified resource.
