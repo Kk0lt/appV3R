@@ -16,6 +16,13 @@ return new class extends Migration
             $table->string('nom', 256);
             $table->string('prenom', 256);
             $table->string('position', 256);
+ 
+            $table->string('superieur_nom', 256);
+            $table->integer('superieur_id')->nullable();
+            
+            $table->string('droit_employe', 256);
+            $table->string('doit_superieur', 256);
+            $table->string('doit_admin', 256);
             $table->timestamps();
         });
     }
