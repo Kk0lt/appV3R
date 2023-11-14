@@ -31,9 +31,27 @@ Route::get('/',
 [UsagersController::class, 'formConnexion'])->name('usagers.formConnexion');
 
 
+
 /*-----------------------Usagers------------------------*/
-Route::get('/formConnexion', 
+
+Route::get('formConnexion', 
 [UsagersController::class, 'formConnexion'])->name('usagers.formConnexion');
+
+Route::post('connexion',
+[UsagersController::class, 'connexion'])->name('usagers.connexion');
+
+// // ENVOIE DE FORMULAIRE
+// Route::post('connexion',
+// [UsagersController::class, 'login'])->name('usagers.login');
+
+// ROUTE DECONNEXION
+Route::get('logout',
+[UsagersController::class, 'logout'])->name('logout');
+
+//  modif pwd
+Route::patch('/usagers',
+[UsagersController::class, 'update'])->name('usagers.update');
+
 
 
 /*-----------------------Formulaires------------------------*/

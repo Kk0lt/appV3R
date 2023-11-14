@@ -113,7 +113,7 @@ class EmployesSeeder extends Seeder
             ],
             [               
                 'nom' => 'Belisle',
-                'prenom' => 'Claude  ',
+                'prenom' => 'Claude',
                 'position' => 'Directeur RH',
 
                 'superieur_nom' => 'aucun',
