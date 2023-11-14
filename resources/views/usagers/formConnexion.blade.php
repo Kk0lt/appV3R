@@ -42,21 +42,21 @@
         <div class="row justify-content-center custom-row">
             <div class="col-md-6 custom-bg">
                 <h2 class="text-center custom-title">CONNEXION</h2>
-                <form method="POST" action="" class="p-4 custom-form">
+                <form method="POST" action="{{ route('usagers.connexion') }}" class="p-4 custom-form">
                     @csrf
                     <div class="form-group">
-                        <label for="email" class="custom-text">Courriel :</label>
-                        <input type="email" class="form-control" id="email" placeholder="Adresse courriel" name="email">
+                        <label for="username" class="custom-text">Nom d'utilisateur :</label>
+                        <input type="text" class="form-control" id="username" placeholder="Adresse courriel" name="username">
                     </div>
                     <div class="form-group">
                         <label for="password" class="custom-text">Mot de passe :</label>
                         <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password">
                     </div>
+                    <div class="text-center mt-2">
+                        <button type="submit" class="m-2 btn btn-connexion">Connexion</button>
+                        <a href="#" class="btn">Mot de passe oublié ?</a>
+                    </div>
                 </form>
-                <div class="text-center mb-4">
-                    <button type="submit" class="m-2 btn btn-connexion">Connexion</button>
-                    <a href="#" class="btn btn-creation">Création de compte</a>
-                </div>
             </div>
         </div>
     </div>

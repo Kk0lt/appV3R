@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsagerRequest;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 use App\Models\Usager;
 
 class UsagersController extends Controller
@@ -20,6 +23,7 @@ class UsagersController extends Controller
     public function formConnexion()
     {
        $usagers = Usager::all();
+
 
         return view ('usagers.formConnexion' );
     }
@@ -84,18 +88,19 @@ class UsagersController extends Controller
 
     public function connexion(UsagerRequest $request)
     {
+        try {
         $reussi = Auth::attempt(['username'=> $request->username, 'password' => $request->password]);
-
         Log::debug(Auth::attempt(['username'=> $request->username, 'password' => $request->password]));
-
+        
         if ($reussi) {
             $user = Auth::user();
-            if ($user->type === 'Admin') {
-                return redirect()->route('admins.index');
-            } elseif ($user->type === 'Client') {
-                return redirect()->route('produits.index');
-            } elseif ($user->type === 'SuperAdmin') {
-                return redirect()->route('superadmins.index');
+            Log::debug($user->type);
+            if ($user->type === 'employe') {
+                return redirect()->route('employes.accueil');
+            } elseif ($user->type === 'superieur') {
+                return redirect()->route('employes.accueil');
+            } elseif ($user->type === 'admin') {
+                return redirect()->route('admins.admin');
             }
         } else {
             Log::debug(Auth::attempt(['username'=> $request->username, 'password' => $request->password]));
@@ -103,13 +108,18 @@ class UsagersController extends Controller
             return redirect()->route('usagers.formConnexion')->withErrors(['username' => 'Les informations d\'identification sont incorrectes. Veuillez réessayer.']);
 
         }
+    } catch (\Throwable $e) {
+        Log::error($e);
+        return redirect()->back()->withErrors(['error' => 'La modification du mot de passe a échoué.']);
+    }
+
     }
     
     // Déconnexion
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('employes.accueil');
+        return redirect()->route('usagers.formConnexion');
     }
 
 

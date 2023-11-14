@@ -43,7 +43,7 @@ class UsagersSeeder extends Seeder
                 'password' => Hash::make('Password123'),
                 'nom' => 'Dow',
                 'prenom' => 'Jane',
-                'type' => 'employe'
+                'type' => 'superieur'
             ],            
             [               
                 'username' => 'jmorinville',
