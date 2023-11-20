@@ -21,47 +21,65 @@
 
         <div class="row text-center">
 
+
+        <!-- resources/views/admins/admin.blade.php -->
+      
+    
+
+            
+            <!------------------------------------------------------>
+
             <div class="col-6 ">
-                <form class="menu-form">
-                    <label for="choix">Trier par:</label>
-                        <select id="choix" name="choix" class="smaller-select">
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                            <!-- Ajoutez d'autres options au besoin -->
-                        </select>
-                    <input class="btn btn-valider" type="submit" value="Valider">
-                </form>
+            <form class="menuForm" id="searchForm" action="{{ route('admins.admin') }}" method="GET">
+            
+            <select name="sort_by" onchange="submitForm()">
+                <option value="date_asc" {{ $currentSortMethod === 'date_asc' ? 'selected' : '' }}>Trier par date (ascendant)</option>
+                <option value="date_desc" {{ $currentSortMethod === 'date_desc' ? 'selected' : '' }}>Trier par date (descendant)</option>
+                <option value="id_asc" {{ $currentSortMethod === 'id_asc' ? 'selected' : '' }}>Trier par ID (ascendant)</option>
+                <option value="id_desc" {{ $currentSortMethod === 'id_desc' ? 'selected' : '' }}>Trier par ID (descendant)</option>
+                <!-- Ajoutez d'autres options selon vos besoins -->
+            </select>
+
+        </form>
+
+        <script>
+            function submitForm() {
+                document.getElementById('searchForm').submit();
+            }
+        </script>
+
             </div>
 
             <div class="col-6">
-                <form action="" method="GET">
-                    <label for="recherche">Rechercher:</label>
-                    <input type="text" id="recherche" class="search-bar" name="q" placeholder="# de formulaire" />
-                    <button type="submit" class="btn btn-rechercher">Rechercher</button>
-                    <!-- request pour limiter seulement au # de formulaire remplis -->
-                </form>
+        <form action="{{ route('admins.admin') }}" method="GET">
+            <input type="text" name="nom" placeholder="Rechercher par nom">
+            <button type="submit"  class="btn btn-rechercher" >Rechercher</button>
+        </form>
+            
             </div>
 
         </div>
 
     </div>
 
+    @if (isset($compagne))
 
 
-    <div class="container bgB">
+    <div class="forms-container bgB">
         <div class="my-5 pt-1">
             <h2>Liste des formulaires remplis :</h2>
         </div>
 
-        <div class="row pb-3">
+        @foreach($formulaires as $formulaire)
+        <div class="row pb-3 formulaire">
 
             <div class="col-2 ml-5">
                 <i class="fa-solid fa-clipboard-list orangeLogo2"></i>
             </div>
 
             <div class="col-4 pt-2">
-                <h3>Declaration d'accident : </h3>
+                <h3>{{ $formulaire->id }}</h3>
+                <h3>{{ $formulaire->nom }} du {{ $formulaire->date }} </h3>
             </div>
 
             <div class="col-3 pt-3">
@@ -71,15 +89,22 @@
 
             <div class="col-2 pt-2">
                 <!-- consulter et confirmer -->
-                <button><i></i>Consulter</button>
+                <button class="btn btn-consulter"><i></i>Consulter</button>
             </div>
-
+            
         </div>
+        @endforeach
 
     </div>
 
 
 
+<!-- resources/views/admins/admin.blade.php -->
+@else
+<div class="forms-container bgB">
+<h1>Aucun formulaire<h1>
+ </div>
+@endif
 
 
 <!-- FOOTER -->

@@ -73,7 +73,7 @@ class EmployesSeeder extends Seeder
                 
                 'droit_employe' => 'oui',
                 'droit_superieur' => 'oui',
-                'droit_admin' => 'non',
+                'droit_admin' => 'oui',
             ],
             [   //6         
                 'nom' => 'Lizotte',
