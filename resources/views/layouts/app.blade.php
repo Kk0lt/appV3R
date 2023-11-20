@@ -56,8 +56,10 @@
               <div class="mt-3 mx-3">
                   <h6><a class="liens" href="{{ route('formulaires.formAccidentTravail') }}">Déclaration d'accident de travail</a></h6>
                   <h6><a class="liens" href="{{ route('formulaires.formSituationDangereuse') }}">Signalement de situation d'urgence</a></h6>
+                  @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'Superieur'))
                   <h6><a class="liens" href="{{ route('formulaires.grilleAuditSST') }}">Audit SST</a></h6>
                   <h6><a class="liens" href="{{ route('formulaires.rapportAccident') }}">Atelier mécanique -Rapport d'accident</a></h6>
+                  @endif
               </div>
         </div>
         <hr>
