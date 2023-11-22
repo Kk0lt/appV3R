@@ -15,7 +15,7 @@
 
         <div class="row text-center">
             <div class="col-12 mt-5">
-                <h1 class="bonjour2">Bonjour X</h1>
+                <h1 class="bonjour2">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h1>
             </div>
         </div>
 
@@ -101,8 +101,8 @@
 
 <!-- resources/views/admins/admin.blade.php -->
 @else
-<div class="forms-container bgB">
-<h1>Aucun formulaire<h1>
+<div class="forms-container bgB ">
+<h1 class="aucun-form">Aucun formulaire à afficher<h1>
  </div>
 @endif
 
@@ -126,5 +126,4 @@
 </footer>
 
 @endsection
-
 </body>

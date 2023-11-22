@@ -8,7 +8,7 @@
 </div>
 
 <div class="container">
-    <h6 class="bonjour">Bonjour X</h6>
+    <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
 
     <!-- Début card mes formulaires -->
 

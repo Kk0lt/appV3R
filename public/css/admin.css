@@ -82,7 +82,11 @@
     color: var(--orange);
     font-size: 65px;
 }
-
+.aucun-form{
+    margin: 15px;
+    margin-top: 60px;
+    text-align: center;
+}
 /* Styles par défaut pour le select */
 .smaller-select {
     font-size: 20px; /* Réduisez la taille de la police */
