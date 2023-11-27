@@ -37,10 +37,13 @@ class RapportAccidentController extends Controller
         try {
             // Créer une nouvelle instance du modèle RapportAccident et attribuer les valeurs
             $rapportAccident = new RapportAccident();
-            $employe = Employe::find();
+            
+            $employe = Employe::where('id', auth()->user()->id)->first();
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
             $employeNom = $employe->prenom . ' ' . $employe->nom;
+
+            $formSituationDangereuse->employe_id = $employe->id;
 
             // Enregistrer les autres champs du rapport d'accident
             $rapportAccident->noUnite = $request->noUnite;
@@ -54,6 +57,7 @@ class RapportAccidentController extends Controller
             // Notifier superviseur direct
             $notification = new Notification();
             $notification->superieur_id = $superviseurId;
+            $notification->employe_id = $employe->id;
             $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
             $notification->save();
 

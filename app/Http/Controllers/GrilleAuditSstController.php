@@ -39,10 +39,13 @@ class GrilleAuditSstController extends Controller
 
             // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
             $grilleAuditSST = new GrilleAuditSST();
-            $employe = Employe::find();
+
+            $employe = Employe::where('id', auth()->user()->id)->first();
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
             $employeNom = $employe->prenom . ' ' . $employe->nom;
+
+            $formSituationDangereuse->employe_id = $employe->id;
 
             $grilleAuditSST->lieu = $request->lieu;
 
@@ -64,11 +67,12 @@ class GrilleAuditSstController extends Controller
             $grilleAuditSST->procedures_covid = $request->procedures_covid;
 
             // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
-            $superviseurId = $employe->superviseurId;
+            $superviseurId = $employe->superviseur_id;
 
             // Notifier superviseur direct
             $notification = new Notification();
-            $notification->superieur_id = $superviseur_id;
+            $notification->superieur_id = $superviseurId;
+            $notification->employe_id = $employe->id;
             $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
             $notification->save();
 
