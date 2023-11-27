@@ -11,6 +11,7 @@ use App\Models\GrilleAuditSst;
 use App\Models\RapportAccident;
 use App\Models\FormSituationDangereuse;
 
+
 class FormulairesController extends Controller
 {
     /**

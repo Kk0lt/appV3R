@@ -7,6 +7,8 @@ use App\Models\RapportAccident;
 use Illuminate\Support\Facades\Log;
 use App\Models\Notification;
 use App\Models\Employe;
+use App\Http\Requests\RapportAccidentRequest;
+
 
 
 class RapportAccidentController extends Controller
@@ -30,7 +32,7 @@ class RapportAccidentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $employe_id)
+    public function store(RapportAccidentRequest $request, $employe_id)
     {
         try {
             // Créer une nouvelle instance du modèle RapportAccident et attribuer les valeurs

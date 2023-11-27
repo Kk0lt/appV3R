@@ -8,11 +8,57 @@
 </div>
 
 <div class="container">
-   <h1>Liste des documents/procédures</h1>
-   <!-- if pour les liens -->
+  <div class="card my-2">
+    <div class="row align-items-center">
+      <div class="col-2 m-2">
+        <i class="fa-solid fa-file-lines black isize"></i>
+      </div>
+      <div class="col-8 px-2">
+        <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
+        <div class="">
+          <h3 class="">Description du document</h3>
+        </div>
+        <div class="my-4">
+          <a class="btn btn-primary" href="">lien</a>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+  
+
+  <div class="card my-2">
+  <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
+    <div class="">
+      <h3 class="">Description du document</h3>
+    </div>
+    <div class="my-4">
+      <a class="btn btn-primary" href="">lien</a>
+    </div>
+  </div>
+
+  <div class="card my-2">
+  <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
+    <div class="">
+      <h3 class="">Description du document</h3>
+    </div>
+    <div class="my-4">
+      <a class="btn btn-primary" href="">lien</a>
+    </div>
+  </div>
+
+  <div class="card my-2">
+  <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
+    <div class="">
+      <h3 class="">Description du document</h3>
+    </div>
+    <div class="my-4">
+      <a class="btn btn-primary" href="">lien</a>
+    </div>
+  </div>
+
 </div>
 
-        <!-- Fin card mes formulaires -->
 
 
    
