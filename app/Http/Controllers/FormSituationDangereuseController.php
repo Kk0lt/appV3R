@@ -37,13 +37,11 @@ class FormSituationDangereuseController extends Controller
             // Créer une nouvelle instance du modèle FormSituationDangereuse
             $formSituationDangereuse = new FormSituationDangereuse;
             
-            //identique aux autres forms --lyes
             $employe = Employe::where('id', auth()->user()->id)->first();
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
             $employeNom = $employe->prenom . ' ' . $employe->nom;
             
-            //identique aux autres forms --lyes
             $formSituationDangereuse->employe_id = $employe->id;
 
 
@@ -64,7 +62,6 @@ class FormSituationDangereuseController extends Controller
             $formSituationDangereuse->corrections = $request->input('corrections');
             $formSituationDangereuse->superieur_averti = $request->input('checkbox_sup');
         
-            //---identique aux autres forms --lyes
             // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
             $superviseurId = $employe->superieur_id;
             // Notifier superviseur direct
