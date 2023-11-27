@@ -51,7 +51,7 @@
 .bg1
 {
     min-height: 100%;
-    background-color: var(--beige);
+    background-color: var(--white);
 }
 
 /* Réduisez la largeur de la barre de recherche */
@@ -96,7 +96,7 @@
 }
 
 .btn-rechercher, .btn-valider {
-    border-color: var(--orange); /* Remplacez par la couleur souhaitée */
+    border-color: var(--blue); /* Remplacez par la couleur souhaitée */
 }
 .btn-rechercher:focus, .btn-valider:focus {
     outline: none;
@@ -109,7 +109,7 @@
 
 .orangeLogo2
 {
-    color: var(--orange);
+    color: var(--blue);
     font-size: 65px;
 }
 @media screen and (max-width: 485px) {

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\FormSituationDangereuse;
 use App\Models\Notification;
 use App\Models\Employe;
+use App\Http\Requests\FormSituationDangereuseRequest;
 
 
 class FormSituationDangereuseController extends Controller
@@ -30,7 +31,7 @@ class FormSituationDangereuseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $employe_id)
+    public function store(FormSituationDangereuseRequest $request, $employe_id)
     {
         try {
             // Créer une nouvelle instance du modèle FormSituationDangereuse

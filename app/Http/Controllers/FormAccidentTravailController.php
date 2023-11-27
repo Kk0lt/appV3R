@@ -8,6 +8,7 @@ use App\Models\FormAccidentTravail;
 use App\Models\Formulaire;
 use App\Models\Notification;
 use App\Models\Employe;
+use App\Http\Requests\FormAccidentTravailRequest;
 
 
 class FormAccidentTravailController extends Controller
@@ -31,7 +32,7 @@ class FormAccidentTravailController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $employe_id)
+    public function store(FormAccidentTravailRequest $request, $employe_id)
     {
         try {
         // Créer une nouvelle instance du modèle FormAccidentTravail

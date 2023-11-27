@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\FormAccidentTravail;
 use App\Models\Formulaire;
 
+
 class FormulairesController extends Controller
 {
     /**
