@@ -32,12 +32,12 @@ class RapportAccidentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(RapportAccidentRequest $request, $employe_id)
+    public function store(RapportAccidentRequest $request)
     {
         try {
             // Créer une nouvelle instance du modèle RapportAccident et attribuer les valeurs
             $rapportAccident = new RapportAccident();
-            $employe = Employe::find($employe_id);
+            $employe = Employe::find();
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
             $employeNom = $employe->prenom . ' ' . $employe->nom;
