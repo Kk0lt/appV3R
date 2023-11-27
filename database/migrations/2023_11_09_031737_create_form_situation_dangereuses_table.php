@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('form_situation_dangereuses', function (Blueprint $table) {
             $table->id();
-
+            $table->integer('employe_id');
             $table->string('date', 256);
             $table->string('heure', 256);
             //$table->string('temoin', 256);

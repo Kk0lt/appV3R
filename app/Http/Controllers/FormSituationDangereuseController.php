@@ -31,15 +31,21 @@ class FormSituationDangereuseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FormSituationDangereuseRequest $request, $employe_id)
+    public function store(FormSituationDangereuseRequest $request)
     {
         try {
             // Créer une nouvelle instance du modèle FormSituationDangereuse
             $formSituationDangereuse = new FormSituationDangereuse;
-            $employe = Employe::find($employe_id);
+            
+            //identique aux autres forms --lyes
+            $employe = Employe::where('id', auth()->user()->id)->first();
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
             $employeNom = $employe->prenom . ' ' . $employe->nom;
+            
+            //identique aux autres forms --lyes
+            $formSituationDangereuse->employe_id = $employe->id;
+
 
             // Remplir les propriétés de l'instance avec les données du formulaire
             $formSituationDangereuse->date = $request->input('date');
@@ -58,15 +64,16 @@ class FormSituationDangereuseController extends Controller
             $formSituationDangereuse->corrections = $request->input('corrections');
             $formSituationDangereuse->superieur_averti = $request->input('checkbox_sup');
         
+            //---identique aux autres forms --lyes
             // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
             $superviseurId = $employe->superieur_id;
-
             // Notifier superviseur direct
             $notification = new Notification();
             $notification->superieur_id = $superviseurId;
+            $notification->employe_id = $employe->id;
             $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
             $notification->save();
-                    
+                 
             // Enregistrez l'instance dans la base de données
             $formSituationDangereuse->save();
     
