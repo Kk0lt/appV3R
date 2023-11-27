@@ -34,9 +34,7 @@ class AdminController extends Controller
 
 private function getAllFormulaires(Request $request)
 {
-    // Logique pour récupérer les données depuis les tables, les filtrer et les trier
-
-    // Exemple :
+ 
     $formulaires = FormAccidentTravail::all();
     $formulaires = $formulaires->merge(FormSituationDangereuse::all());
     $formulaires = $formulaires->merge(GrilleAuditSST::all());
