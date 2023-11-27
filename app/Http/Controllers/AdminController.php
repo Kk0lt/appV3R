@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Models\Formulaire;
+use App\Models\FormAccidentTravail;
+use App\Models\GrilleAuditSst;
+use App\Models\RapportAccident;
+use App\Models\FormSituationDangereuse;
 
 class AdminController extends Controller
 {
@@ -15,13 +20,60 @@ class AdminController extends Controller
     }
 
 
-    public function accueil()
+    public function accueil(Request $request)
     {
-        return view('admins.admin'); 
+        $formulaires = $this->getAllFormulaires($request);
+
+
+        $currentSortMethod = $request->input('sort_by', 'date_asc'); // Défaut : tri par date ascendant
+
+        return view('admins.admin', compact('formulaires', 'currentSortMethod'));
+        }
+
+ // Dans votre méthode du contrôleur (AdminController.php)
+
+private function getAllFormulaires(Request $request)
+{
+    // Logique pour récupérer les données depuis les tables, les filtrer et les trier
+
+    // Exemple :
+    $formulaires = FormAccidentTravail::all();
+    $formulaires = $formulaires->merge(FormSituationDangereuse::all());
+    $formulaires = $formulaires->merge(GrilleAuditSST::all());
+    $formulaires = $formulaires->merge(RapportAccident::all());
+
+    // Filtrer par nom
+    if ($request->has('nom')) {
+        $formulaires = $formulaires->where('nom', $request->nom);
     }
 
+    // Trier selon la valeur du select
+    $currentSortMethod = $request->input('sort_by', 'date_asc');
+    switch ($currentSortMethod) {
+        case 'date_asc':
+            $formulaires = $formulaires->sortBy('date');
+            break;
+        case 'date_desc':
+            $formulaires = $formulaires->sortByDesc('date');
+            break;
+        case 'id_asc':
+            $formulaires = $formulaires->sortBy('id');
+            break;
+        case 'id_desc':
+            $formulaires = $formulaires->sortByDesc('id');
+            break;
+        // Ajoutez d'autres cas selon vos besoins
+        default:
+            $currentSortMethod = 'date_asc'; // Valeur par défaut
+            $formulaires = $formulaires->sortBy('date');
+    }
 
+    return view('admins.admin', compact('formulaires', 'currentSortMethod'));
+}
 
+    
+    
+    
     /**
      * Show the form for creating a new resource.
      */
