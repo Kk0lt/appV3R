@@ -16,6 +16,41 @@
         </div>
     </div>
 
+    <div class="listCommandesHaut">
+        <div>
+        </div>
+        <div class="navigationRapide">
+            <h3>Notifications :</h3>
+            <ul>
+                <li>
+                <a href="#exampleModal" data-toggle="modal" >Nouveau formulaire rempli par blabla </a>                
+                </li>
+            </ul>
+        </div>
+    </div> 
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nouvel Notification</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+            <button type="button" class="btn btn-primary">Confirmer</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!---FIN DU MODAL -->
+
     <div class="row text-center">
         <!-- Select de trie -->
         <div class="col-6 ">
