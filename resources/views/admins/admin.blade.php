@@ -7,99 +7,94 @@
 </head>
 
 <body class="bg1">
-<div>
-    <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
-</div>
-
-    <div class="">
-
-        <div class="row text-center">
-            <div class="col-12 mt-5">
-                <h1 class="bonjour2">Bonjour X</h1>
-            </div>
+    <div>
+        <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
+    </div>
+    <div class="row text-center">
+        <div class="col-12 mt-5">
+            <h1 class="bonjour2">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h1>
         </div>
+    </div>
 
-        <div class="row text-center">
-
-            <div class="col-6 ">
-                <form class="menu-form">
-                    <label for="choix">Trier par:</label>
-                        <select id="choix" name="choix" class="smaller-select">
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                            <!-- Ajoutez d'autres options au besoin -->
-                        </select>
-                    <input class="btn btn-valider" type="submit" value="Valider">
-                </form>
-            </div>
-
-            <div class="col-6">
-                <form action="" method="GET">
-                    <label for="recherche">Rechercher:</label>
-                    <input type="text" id="recherche" class="search-bar" name="q" placeholder="# de formulaire" />
-                    <button type="submit" class="btn btn-rechercher">Rechercher</button>
-                    <!-- request pour limiter seulement au # de formulaire remplis -->
-                </form>
-            </div>
-
+    <div class="row text-center">
+        <!-- Select de trie -->
+        <div class="col-6 ">
+            <form class="menu-form" id="searchForm" action="{{ route('admins.admin') }}" method="GET"> 
+            <select name="sort_by" onchange="submitForm()">
+                <option value="date_asc" {{ $currentSortMethod === 'date_asc' ? 'selected' : '' }}>Trier par date (ascendant)</option>
+                <option value="date_desc" {{ $currentSortMethod === 'date_desc' ? 'selected' : '' }}>Trier par date (descendant)</option>
+                <option value="id_asc" {{ $currentSortMethod === 'id_asc' ? 'selected' : '' }}>Trier par ID (ascendant)</option>
+                <option value="id_desc" {{ $currentSortMethod === 'id_desc' ? 'selected' : '' }}>Trier par ID (descendant)</option>
+                <!-- Ajoutez d'autres options selon vos besoins -->
+            </select>
+            </form>
+            <script>
+                function submitForm() {
+                    document.getElementById('searchForm').submit();
+                }
+            </script>
         </div>
-
+        <!-- Barre de recherche -->
+        <div class=" search-bar">
+            <form action="{{ route('admins.admin') }}" method="GET">
+                <input type="text" name="nom" placeholder="Rechercher par nom" >
+                <button type="submit"  class="btn btn-rechercher" >Rechercher</button>
+            </form> 
+        </div>
     </div>
 
 
-
-    <div class="container bgB">
+    @if (isset($compagne))
+    <!--S'il y a un formulaire dans la bd on affiche cette section -->
+    <div class="forms-container bgB">
         <div class="my-5 pt-1">
             <h2>Liste des formulaires remplis :</h2>
         </div>
-
-        <div class="row pb-3">
-
+    @foreach($formulaires as $formulaire)
+        <div class="row pb-3 formulaire">
             <div class="col-2 ml-5">
                 <i class="fa-solid fa-clipboard-list orangeLogo2"></i>
             </div>
-
             <div class="col-4 pt-2">
-                <h3>Declaration d'accident : </h3>
+                <h3>{{ $formulaire->id }}</h3>
+                <h3>{{ $formulaire->nom }} du {{ $formulaire->date }} </h3>
             </div>
-
             <div class="col-3 pt-3">
                 <!-- statut -->
                 <h3>En attente</h3>
             </div>
-
             <div class="col-2 pt-2">
                 <!-- consulter et confirmer -->
-                <button><i></i>Consulter</button>
-            </div>
+                <button class="btn btn-consulter"><i></i>Consulter</button>
+            </div>   
+        </div>
+    @endforeach
+    </div>
+    <!-- Si aucun formulaire on affiche cette section -->
+    @else
+    <div class="forms-container bgB ">
+    <h1 class="aucun-form">Aucun formulaire à afficher<h1>
+    </div>
+    @endif
 
+
+    <!-- FOOTER -->
+    <footer class="custom-footer text-center ">
+    <div class="row">
+        <div class="col-xl-3 offset-xl-2 ">
+            <h3>Liens:</h3>
+            <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="https://www.v3r.net/" class="nav-link p-0 v3rLink">v3r.net</a></li>
+            </ul>
         </div>
 
-    </div>
-
-
-
-
-
-<!-- FOOTER -->
-<footer class="custom-footer text-center ">
-<div class="row">
-      <div class="col-xl-3 offset-xl-2 ">
-        <h3>Liens:</h3>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="https://www.v3r.net/" class="nav-link p-0 v3rLink">v3r.net</a></li>
-        </ul>
-      </div>
-
-      <div class="col-xl-3 offset-xl-1">
-          <h3>Besoin d'aide ? </h3>
-          <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
-      </div>
-    </div>
-      <p class="padFoot">© Ville de Trois-Rivières. Tous droits réservés.</p>
-</footer>
+        <div class="col-xl-3 offset-xl-1">
+            <h3>Besoin d'aide ? </h3>
+            <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
+        </div>
+        </div>
+        <p class="padFoot">© Ville de Trois-Rivières. Tous droits réservés.</p>
+    </footer>
 
 @endsection
-
 </body>

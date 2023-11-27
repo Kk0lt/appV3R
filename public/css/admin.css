@@ -9,25 +9,115 @@
     --beige: #D9D9D8;
     --darkBeige: #b4b4b4cc;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+.menu-form, .search-bar {
+    display: inline-block;
+    vertical-align: top;
+}
 
+/* Styles par défaut pour le conteneur */
+.forms-container {
+    width: 100%; /* Largeur à 100% par défaut */
+    max-width: 1570px; /* Largeur maximale par défaut */
+    margin: 0 auto; /* Centrer le conteneur horizontalement */
+}
 
+.bg1
+{
+    min-height: 100%;
+    background-color: var(--white);
+}
 
+.bonjour2
+{
+    padding-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    color: var(--darkGrey);
+}
 
+input[type="text"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid var(--orange);
+    border-radius: 3px;
+}
+select {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid var(--orange);
+    border-radius: 3px;
+}
 
-/* Styles par défaut pour votre select */
+/* Réduisez la largeur de la barre de recherche */
+.search-bar {
+    width: 00px;
+    display: inline-block;
+    vertical-align: top;    
+}
+
+.btn-rechercher, .btn-valider {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    border-color: var(--orange); /* Remplacez par la couleur souhaitée */
+}
+.btn-rechercher:focus, .btn-valider:focus {
+    outline: none;
+}
+
+.btn-consulter{
+    background-color: var(--blue);; 
+    color: var(--orange);; 
+    font-size: large;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.btn-consulter:hover{
+    background-color: var(--orange);; 
+    color: var(--white);; 
+    font-size: large;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+.bgB
+{
+    background-color: var(--white);
+}
+
+.formulaire{
+    
+    margin: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+.formulaire:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+.orangeLogo2
+{
+    color: var(--orange);
+    font-size: 65px;
+}
+.aucun-form{
+    margin: 15px;
+    margin-top: 60px;
+    text-align: center;
+}
+/* Styles par défaut pour le select */
 .smaller-select {
     font-size: 20px; /* Réduisez la taille de la police */
     padding: 5px; /* Réduisez l'espace autour du texte */
     height: auto; /* Réglez la hauteur automatique pour afficher toutes les options */
-}
-
-/* Styles pour les écrans de téléphone (par exemple, moins de 768px de large) */
-@media screen and (max-width: 1200px) {
-    .smaller-select {
-        font-size: 16px; /* Augmentez la taille de la police pour les téléphones */
-        padding: 10px; /* Augmentez l'espace autour du texte pour les téléphones */
-    }
 }
 
 
@@ -37,32 +127,25 @@
     vertical-align: top;
 }
 
-/* Ajoutez d'autres styles pour le select, la barre de recherche et les boutons ici */
+
+
+/* Styles pour les écrans de téléphone (par exemple, moins de 768px de large) */
+@media screen and (max-width: 1200px) {
+    .smaller-select {
+        font-size: 16px; /* Augmentez la taille de la police pour les téléphones */
+        padding: 10px; /* Augmentez l'espace autour du texte pour les téléphones */
+    }
+}
 
 /* Styles pour les écrans de téléphone (par exemple, moins de 768px de large) */
 @media screen and (max-width: 1296px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .menu-form, .search-bar, .btn-group {
         display: block;
         width: 100%;
     }
 }
 
-.bg1
-{
-    min-height: 100%;
-    background-color: var(--white);
-}
-
-/* Réduisez la largeur de la barre de recherche */
-.search-bar {
-    width: 200px;
-    display: inline-block;
-    vertical-align: top;
-}
-
 @media screen and (max-width: 1045px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .search-bar{
         width: 149px;
     }
@@ -75,7 +158,6 @@
 }
 
 @media screen and (min-width: 1045px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .search-bar{
         width: 200px;
     }
@@ -87,33 +169,8 @@
     }
 }
 
-.bonjour2
-{
-    padding-bottom: 3rem;
-    font-family: 'Poppins', sans-serif;
-    font-size: 23px;
-    color: var(--darkGrey);
-}
 
-.btn-rechercher, .btn-valider {
-    border-color: var(--blue); /* Remplacez par la couleur souhaitée */
-}
-.btn-rechercher:focus, .btn-valider:focus {
-    outline: none;
-}
-
-.bgB
-{
-    background-color: var(--white);
-}
-
-.orangeLogo2
-{
-    color: var(--blue);
-    font-size: 65px;
-}
 @media screen and (max-width: 485px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .orangeLogo2 {
         font-size: 45;
     }
@@ -123,7 +180,6 @@
 }
 
 @media screen and (max-width: 450px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .bgB h3,button{
         font-size: 18px;
     }
@@ -133,7 +189,6 @@
 }
 
 @media screen and (max-width: 420px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .bgB h3,button{
         font-size: 16px;
     }
@@ -141,21 +196,18 @@
 
 
 @media screen and (max-width: 393px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .bgB h2{
         font-size: 22px;
     }
 }
 
 @media screen and (max-width: 352px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .bgB h2{
         font-size: 20px;
     }
 }
 
 @media screen and (max-width: 323px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .bgB h2{
         font-size: 18px;
     }
@@ -163,7 +215,6 @@
 
 
 @media screen and (max-width: 376px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .bgB h3,button{
         font-size: 14px;
     }
@@ -173,24 +224,7 @@
 }
 
 @media screen and (max-width: 345px) {
-    /* Changez le style pour afficher le select, la barre de recherche et les boutons en bloc */
     .bgB h3,button{
         font-size: 12px;
     }
 }
-
-.ml-5
-{
-    padding-left: 1rem;
-
-}
-
-/* Styles par défaut pour le conteneur */
-.container {
-    width: 100%; /* Largeur à 100% par défaut */
-    max-width: 1570px; /* Largeur maximale par défaut */
-    margin: 0 auto; /* Centrer le conteneur horizontalement */
-    margin-left: 8px;
-
-}
-

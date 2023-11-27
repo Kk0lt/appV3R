@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use App\Models\FormAccidentTravail;
+
 use App\Models\Formulaire;
+use App\Models\FormAccidentTravail;
+use App\Models\GrilleAuditSst;
+use App\Models\RapportAccident;
+use App\Models\FormSituationDangereuse;
 
 
 class FormulairesController extends Controller

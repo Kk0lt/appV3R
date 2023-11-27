@@ -32,14 +32,14 @@ class GrilleAuditSstController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(GrilleAuditSstRequest $request, $employe_id)
+    public function store(GrilleAuditSstRequest $request)
     {
     
         try { 
 
             // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
             $grilleAuditSST = new GrilleAuditSST();
-            $employe = Employe::find($employe_id);
+            $employe = Employe::find();
 
             // Utiliser la variable $employe pour obtenir le prénom et le nom
             $employeNom = $employe->prenom . ' ' . $employe->nom;

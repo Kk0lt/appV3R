@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('superieur_id')->nullable();
             
             $table->string('droit_employe', 256);
-            $table->string('doit_superieur', 256);
-            $table->string('doit_admin', 256);
+            $table->string('droit_superieur', 256);
+            $table->string('droit_admin', 256);
             $table->timestamps();
         });
     }
