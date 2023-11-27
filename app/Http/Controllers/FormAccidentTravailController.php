@@ -37,15 +37,17 @@ class FormAccidentTravailController extends Controller
         try {
         // Créer une nouvelle instance du modèle FormAccidentTravail
         $formAccidentTravail = new FormAccidentTravail;
-        $employe = Employe::find();
+
+        $employe = Employe::where('id', auth()->user()->id)->first();
 
         // Utiliser la variable $employe pour obtenir le prénom et le nom
         $employeNom = $employe->prenom . ' ' . $employe->nom;
 
+        $formAccidentTravail->employe_id = $employe->id;
 
         // Remplir les propriétés de l'instance avec les données du formulaire
-        $formAccidentTravail->date = $request->date;
-        $formAccidentTravail->heure = $request->heure;
+        $formAccidentTravail->date = $request->input('date');
+        $formAccidentTravail->heure = $request->input('heure');
         
         // Vérifiez si la radio "temoin" est cochée à "Oui"
         if ($request->input('temoin') === 'Oui') {
@@ -55,8 +57,8 @@ class FormAccidentTravailController extends Controller
             // Sinon, enregistrez "Aucun temoin" dans "nom_temoin"
             $formAccidentTravail->nom_temoin = 'Aucun temoin';
         }
-        $formAccidentTravail->endroit = $request->endroit;
-        $formAccidentTravail->secteur = $request->secteur;
+        $formAccidentTravail->endroit = $request->input('endroit');
+        $formAccidentTravail->secteur = $request->input('secteur');
 
         //blessure
         $formAccidentTravail->blessure_tete = $request->blessure_tete;
@@ -87,6 +89,7 @@ class FormAccidentTravailController extends Controller
         // Notifier superviseur direct
         $notification = new Notification();
         $notification->superieur_id = $superviseurId;
+        $notification->employe_id = $employe->id;
         $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
         $notification->save();
 
