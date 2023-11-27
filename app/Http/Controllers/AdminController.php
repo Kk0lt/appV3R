@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Formulaire;
+use App\Models\Notification;
 use App\Models\FormAccidentTravail;
 use App\Models\GrilleAuditSst;
 use App\Models\RapportAccident;
@@ -31,6 +32,10 @@ class AdminController extends Controller
         }
 
  // Dans votre méthode du contrôleur (AdminController.php)
+
+
+
+
 
 private function getAllFormulaires(Request $request)
 {

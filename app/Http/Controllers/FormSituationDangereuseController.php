@@ -68,11 +68,15 @@ class FormSituationDangereuseController extends Controller
             $notification = new Notification();
             $notification->superieur_id = $superviseurId;
             $notification->employe_id = $employe->id;
-            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
-            $notification->save();
+            $notification->nom_Form = "Formulaire de Situation Dangereuse";
+            Log::debug($formSituationDangereuse->id);
+         
+            $notification->nom_employe =  $employeNom ;
                  
             // Enregistrez l'instance dans la base de données
             $formSituationDangereuse->save();
+            $notification->form_id = $formSituationDangereuse->id;
+            $notification->save();
     
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
             } catch (\Throwable $e) {
