@@ -47,7 +47,7 @@ Route::get('/Formulaire-Déclaration-d\'Accident-de-Travail',
 
 //Route::post('/form-accident-travail', 'FormAccidentTravailController@store')->name('FormAccidentTravail.store');
 
-Route::post('/form-accident-travail/{employe_id}',
+Route::post('/form-accident-travail',
 [FormAccidentTravailController::class, 'store'])->name('FormAccidentTravail.store');
 
 
@@ -55,7 +55,7 @@ Route::post('/form-accident-travail/{employe_id}',
 Route::get('/Signalement-d\'une-Situation-Dangereuse', 
 [FormulairesController::class, 'formSituationDangereuse'])->name('formulaires.formSituationDangereuse');
 
-Route::post('/Signalement-d\'une-Situation-Dangereuse/store/{employe_id}',
+Route::post('/Signalement-d\'une-Situation-Dangereuse/store',
 [FormSituationDangereuseController::class, 'store'])->name('FormSituationDangereuse.store');
 
 
@@ -63,7 +63,7 @@ Route::post('/Signalement-d\'une-Situation-Dangereuse/store/{employe_id}',
 Route::get('/Grille-Audit-SST', 
 [FormulairesController::class, 'grilleAuditSST'])->name('formulaires.grilleAuditSST');
 
-Route::post('/GrilleAuditSST/store/{employe_id}',
+Route::post('/GrilleAuditSST/store',
 [GrilleAuditSstController::class, 'store'])->name('GrilleAuditSST.store');
 
 //RAPPORT D'ACCIDENT
@@ -71,7 +71,7 @@ Route::get('/Rapport-d\'Accident',
 [FormulairesController::class, 'rapportAccident'])->name('formulaires.rapportAccident');
 
 
-Route::post('/Rapport-d\'Accident/store/{employe_id}',
+Route::post('/Rapport-d\'Accident/store',
 [RapportAccidentController::class, 'store'])->name('RapportAccident.store');
 
 /*-----------------------Employés------------------------*/

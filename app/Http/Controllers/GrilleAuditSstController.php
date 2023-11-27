@@ -7,6 +7,8 @@ use App\Models\GrilleAuditSst;
 use Illuminate\Support\Facades\Log;
 use App\Models\Notification;
 use App\Models\Employe;
+use App\Http\Requests\GrilleAuditSstRequest;
+
 
 
 class GrilleAuditSstController extends Controller
@@ -30,7 +32,7 @@ class GrilleAuditSstController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $employe_id)
+    public function store(GrilleAuditSstRequest $request, $employe_id)
     {
     
         try { 
