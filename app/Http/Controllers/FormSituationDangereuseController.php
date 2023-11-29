@@ -9,7 +9,6 @@ use App\Models\Notification;
 use App\Models\Employe;
 use App\Http\Requests\FormSituationDangereuseRequest;
 
-
 class FormSituationDangereuseController extends Controller
 {
     /**

@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Formulaire;
 use App\Models\Notification;
 use App\Models\FormAccidentTravail;
 use App\Models\GrilleAuditSst;
 use App\Models\RapportAccident;
 use App\Models\FormSituationDangereuse;
+
 
 class AdminController extends Controller
 {
@@ -19,17 +23,23 @@ class AdminController extends Controller
     {
         //
     }
-
-
     public function accueil(Request $request)
     {
+        $modalTitre = null;
+        $formulaire = null;
         $formulaires = $this->getAllFormulaires($request);
-
-
         $currentSortMethod = $request->input('sort_by', 'date_asc'); // Défaut : tri par date ascendant
+    
+        // Récupérer les notifications des nouveaux formulaires remplis
+        $notifications = Notifications::all();
+        $formsSituationDangereuse = Commande::where('nom_Form', 'Formulaire de Situation Dangereuse');
+    
+        // Retourner la vue avec les variables
+        return view('admins.admin', compact('modalTitre', 'formulaire', 'currentSortMethod', 'formulaires', 'notifications'));
+    }
+    
+    
 
-        return view('admins.admin', compact('formulaires', 'currentSortMethod'));
-        }
 
  // Dans votre méthode du contrôleur (AdminController.php)
 
