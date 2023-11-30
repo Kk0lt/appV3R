@@ -53,8 +53,8 @@
         <a class="nav-link white my-2" href="{{ route('employes.accueil') }}">
           
               <img class="img-fluid logoUser" src="{{ asset('img/user.png') }}" alt="">
-              <h5 class="padNav2">Nom de l'employé</h5>
-              <h6 class="padNav4 grey">Poste de l'employé</h6>
+              <h5 class="nom-user">@auth {{ Auth::user()->prenom }} {{ Auth::user()->nom }} @endauth</h5>
+              <h6 class="poste-user grey">Poste de l'employé</h6>
           
         </a>
 

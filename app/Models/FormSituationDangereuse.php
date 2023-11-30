@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class FormSituationDangereuse extends Model
 {
     use HasFactory;
+
+public function employe()
+{
+    return $this->belongsTo(Employe::class, 'employe_id');
+}
+
 }

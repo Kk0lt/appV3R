@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsagersController;
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormAccidentTravailController;
 use App\Http\Controllers\FormSituationDangereuseController;
 use App\Http\Controllers\GrilleAuditSstController;
@@ -12,7 +12,6 @@ use App\Http\Controllers\RapportAccidentController;
 use App\Http\Controllers\FormulairesController;
 
 use App\Http\Controllers\EmployesController;
-use App\Http\Controllers\AdminController;
 
 
 
@@ -104,3 +103,12 @@ Route::get('/documents',
 Route::get('/admin', 
 [AdminController::class, 'accueil'])->name('admins.admin');
 
+Route::get('/admin', [AdminController::class, 'accueil'])->name('admins.admin');
+
+// Route pour le formulaire de Situation Dangereuse
+Route::get('/formulaire-situation-dangereuse/{id}', 
+[AdminController::class, 'showFormulaireSituationDangereuse'])->name('situation-dangereuse.show');
+
+// Route pour le formulaire d'Accident de Travail
+Route::get('/formulaire-accident-travail/{id}', 
+[AdminController::class, 'showFormulaireAccidentTravail'])->name('accident-travail.show');

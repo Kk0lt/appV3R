@@ -22,70 +22,111 @@ class AdminController extends Controller
     public function index()
     {
         //
+    }   
+    private function getFormulaireType($nom_Form)
+    {
+        switch ($nom_Form) {
+            case 'Formulaire de Situation Dangereuse':
+                return 'situation-dangereuse';
+            case 'Formulaire d\'accident de travail':
+                return 'accident-travail';
+            // Ajoutez d'autres cas au besoin
+            default:
+                return null;
+        }
     }
+
     public function accueil(Request $request)
     {
-        $modalTitre = null;
-        $formulaire = null;
-        $formulaires = $this->getAllFormulaires($request);
-        $currentSortMethod = $request->input('sort_by', 'date_asc'); // Défaut : tri par date ascendant
-    
-        // Récupérer les notifications des nouveaux formulaires remplis
-        $notifications = Notifications::all();
-        $formsSituationDangereuse = Commande::where('nom_Form', 'Formulaire de Situation Dangereuse');
-    
-        // Retourner la vue avec les variables
-        return view('admins.admin', compact('modalTitre', 'formulaire', 'currentSortMethod', 'formulaires', 'notifications'));
-    }
-    
-    
+        try {
+            // ... autres logiques ...
 
+            $notifications = Notification::all();
+            $formulaireDetails = [];
 
- // Dans votre méthode du contrôleur (AdminController.php)
+            foreach ($notifications as $notification) {
+                $type = $this->getFormulaireType($notification->nom_Form);
 
+                if ($type) {
+                    $formulaireDetails[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                    ];
+                }
+            }
+            log::debug($formulaireDetails);
+            return view('admins.admin', compact('formulaireDetails'));
 
-
-
-
-private function getAllFormulaires(Request $request)
-{
- 
-    $formulaires = FormAccidentTravail::all();
-    $formulaires = $formulaires->merge(FormSituationDangereuse::all());
-    $formulaires = $formulaires->merge(GrilleAuditSST::all());
-    $formulaires = $formulaires->merge(RapportAccident::all());
-
-    // Filtrer par nom
-    if ($request->has('nom')) {
-        $formulaires = $formulaires->where('nom', $request->nom);
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
     }
 
-    // Trier selon la valeur du select
-    $currentSortMethod = $request->input('sort_by', 'date_asc');
-    switch ($currentSortMethod) {
-        case 'date_asc':
-            $formulaires = $formulaires->sortBy('date');
-            break;
-        case 'date_desc':
-            $formulaires = $formulaires->sortByDesc('date');
-            break;
-        case 'id_asc':
-            $formulaires = $formulaires->sortBy('id');
-            break;
-        case 'id_desc':
-            $formulaires = $formulaires->sortByDesc('id');
-            break;
-        // Ajoutez d'autres cas selon vos besoins
-        default:
-            $currentSortMethod = 'date_asc'; // Valeur par défaut
-            $formulaires = $formulaires->sortBy('date');
+
+    // Pour le formulaire de Situation Dangereuse
+    public function showFormulaireSituationDangereuse($id)
+    {
+        try {
+            $formulaire = FormSituationDangereuse::findOrFail($id);
+            return view('admins.formulaire-situation-dangereuse', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
     }
 
-    return view('admins.admin', compact('formulaires', 'currentSortMethod'));
-}
+    // Pour le formulaire d'Accident de Travail
+    public function showFormulaireAccidentTravail($id)
+    {
+        try {
+            $formulaire = FormAccidentTravail::findOrFail($id);
+            return view('admins.formulaire-accident-travail', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
 
+
+    private function getAllFormulaires(Request $request)
+    {
     
-    
+        $formulaires = FormAccidentTravail::all();
+        $formulaires = $formulaires->merge(FormSituationDangereuse::all());
+        $formulaires = $formulaires->merge(GrilleAuditSST::all());
+        $formulaires = $formulaires->merge(RapportAccident::all());
+
+        // Filtrer par nom
+        if ($request->has('nom')) {
+            $formulaires = $formulaires->where('nom', $request->nom);
+        }
+
+        // Trier selon la valeur du select
+        $currentSortMethod = $request->input('sort_by', 'date_asc');
+        switch ($currentSortMethod) {
+            case 'date_asc':
+                $formulaires = $formulaires->sortBy('date');
+                break;
+            case 'date_desc':
+                $formulaires = $formulaires->sortByDesc('date');
+                break;
+            case 'id_asc':
+                $formulaires = $formulaires->sortBy('id');
+                break;
+            case 'id_desc':
+                $formulaires = $formulaires->sortByDesc('id');
+                break;
+            // Ajoutez d'autres cas selon vos besoins
+            default:
+                $currentSortMethod = 'date_asc'; // Valeur par défaut
+                $formulaires = $formulaires->sortBy('date');
+        }
+
+        return view('admins.admin', compact('formulaires', 'currentSortMethod'));
+    }  
     
     /**
      * Show the form for creating a new resource.
