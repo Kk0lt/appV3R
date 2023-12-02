@@ -3,6 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Formulaire;
+use App\Models\Notification;
+use App\Models\Employe;
+use App\Models\FormAccidentTravail;
+use App\Models\GrilleAuditSst;
+use App\Models\RapportAccident;
+use App\Models\FormSituationDangereuse;
+
 
 class EmployesController extends Controller
 {
@@ -12,10 +23,48 @@ class EmployesController extends Controller
     public function index()
     {
     }
-
-    public function accueil()
+    private function getFormulaireType($nom_Form)
     {
-        return view('employes.accueil'); 
+        switch ($nom_Form) {
+            case 'Formulaire de Situation Dangereuse':
+                return 'situation-dangereuse';
+            case 'Formulaire d\'accident de travail':
+                return 'accident-travail';
+            // Ajoutez d'autres cas au besoin
+            default:
+                return null;
+        }
+    }
+
+    public function accueil(Request $request)
+    {
+        try {
+
+            $notifications = Notification::all();
+            $formulaireDetails = [];
+
+            foreach ($notifications as $notification) {
+                $type = $this->getFormulaireType($notification->nom_Form);
+                $superieur_id = $notification->superieur_id;
+                Log::debug('Type: ' . $type . ', Superieur_id: ' . $superieur_id . ', User_id: ' . auth()->user()->id);
+
+                // Vérifier que le superviseur_id de la notification est le même que celui de l'employé connecté
+                if ($type && $superieur_id && $superieur_id == auth()->user()->id) {
+                    $formulaireDetails[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                    ];
+                }
+            }
+            
+            return view('employes.accueil', compact('formulaireDetails'));
+
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
     }
 
     public function documents()

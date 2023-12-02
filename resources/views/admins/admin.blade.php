@@ -22,15 +22,15 @@
         <div class="navigationRapide">
             <h3>Notifications :</h3>
             <ul>
-                <li>
-                    @if (count($formulaireDetails) > 0)
-                        @foreach ($formulaireDetails as $detail)
-                            <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
-                        @endforeach
-                    @else
-                        <p>Aucune Notification.</p>
-                    @endif
-                </li>
+                @if (count($formulaireDetails) > 0)
+                    @foreach ($formulaireDetails as $detail)
+                    <li>
+                    <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
+                    </li>
+                    @endforeach
+                @else
+                    <p>Aucune Notification.</p>
+                @endif
             </ul>
         </div>
     </div>

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormAccidentTravailRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\FormAccidentTravail;
 use App\Models\Formulaire;
 use App\Models\Notification;
 use App\Models\Employe;
-use App\Http\Requests\FormAccidentTravailRequest;
 
 
 class FormAccidentTravailController extends Controller
@@ -95,6 +95,7 @@ class FormAccidentTravailController extends Controller
 
         // Enregistrez l'instance dans la base de données
         $formAccidentTravail->save();
+        Log::debug($formAccidentTravail);
 
         // Redirigez l'utilisateur vers une page de confirmation ou de succès
         } catch(\Throwable $e) {

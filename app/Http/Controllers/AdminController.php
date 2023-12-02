@@ -56,7 +56,6 @@ class AdminController extends Controller
                     ];
                 }
             }
-            log::debug($formulaireDetails);
             return view('admins.admin', compact('formulaireDetails'));
 
         } catch (\Throwable $th) {
