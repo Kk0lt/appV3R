@@ -68,6 +68,8 @@ class FormSituationDangereuseController extends Controller
             $notification->superieur_id = $superviseurId;
             $notification->employe_id = $employe->id;
             $notification->nom_Form = "Formulaire de Situation Dangereuse";
+            $notification->statut_superieur = "non lu";
+            $notification->statut_admin = "non lu";
          
             $notification->nom_employe =  $employeNom ;
                  

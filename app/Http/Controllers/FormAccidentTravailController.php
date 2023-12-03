@@ -90,12 +90,16 @@ class FormAccidentTravailController extends Controller
         $notification = new Notification();
         $notification->superieur_id = $superviseurId;
         $notification->employe_id = $employe->id;
-        $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
-        $notification->save();
-
+        $notification->nom_Form = "Formulaire d'accident de travail";
+        $notification->statut_superieur = "non lu";
+        $notification->statut_admin = "non lu";
+        $notification->nom_employe =  $employeNom ;
+                 
         // Enregistrez l'instance dans la base de données
         $formAccidentTravail->save();
-        Log::debug($formAccidentTravail);
+        $notification->form_id = $formAccidentTravail->id;
+        $notification->save();
+
 
         // Redirigez l'utilisateur vers une page de confirmation ou de succès
         } catch(\Throwable $e) {

@@ -23,18 +23,6 @@ class EmployesController extends Controller
     public function index()
     {
     }
-    private function getFormulaireType($nom_Form)
-    {
-        switch ($nom_Form) {
-            case 'Formulaire de Situation Dangereuse':
-                return 'situation-dangereuse';
-            case 'Formulaire d\'accident de travail':
-                return 'accident-travail';
-            // Ajoutez d'autres cas au besoin
-            default:
-                return null;
-        }
-    }
 
     public function accueil(Request $request)
     {
@@ -46,7 +34,8 @@ class EmployesController extends Controller
             foreach ($notifications as $notification) {
                 $type = $this->getFormulaireType($notification->nom_Form);
                 $superieur_id = $notification->superieur_id;
-                Log::debug('Type: ' . $type . ', Superieur_id: ' . $superieur_id . ', User_id: ' . auth()->user()->id);
+               
+                //Log::debug('Type: ' . $type . ', Superieur_id: ' . $superieur_id . ', User_id: ' . auth()->user()->id);
 
                 // Vérifier que le superviseur_id de la notification est le même que celui de l'employé connecté
                 if ($type && $superieur_id && $superieur_id == auth()->user()->id) {
@@ -119,4 +108,42 @@ class EmployesController extends Controller
     {
         //
     }
+
+    private function getFormulaireType($nom_Form)
+    {
+        switch ($nom_Form) {
+            case 'Formulaire de Situation Dangereuse':
+                return 'situation-dangereuse';
+            case 'Formulaire d\'accident de travail':
+                return 'accident-travail';
+            // Ajoutez d'autres cas au besoin
+            default:
+                return null;
+        }
+    }
+
+    //marquer la notification comme lu
+    public function markAsRead($notificationId)
+    {
+        try {
+            // Trouver la notification par son ID
+            $notification = Notification::find($notificationId);
+    
+            if ($notification) {
+                // Mettre à jour le champ statut_superieur à "lu"
+                $notification->update(['statut_superieur' => 'lu']);
+                return redirect()->back()->with('success', 'Notification marquée comme "lu" avec succès');
+                Log::error('Notification marquée comme "lu" avec succès');
+                
+            }
+    
+            return redirect()->back()->with('error', 'Notification non trouvée');
+            Log::error("Notification non trouvée'");
+
+        } catch (\Exception $e) {
+            Log::error($e);
+            return redirect()->back()->with('error', 'Une erreur est survenue lors du marquage de la notification comme "lu"');
+        }
+    }
+     
 }

@@ -7,28 +7,29 @@
     <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
 </div>
 
-<div class="container">
+@if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
+<div class="liste-notifications">
+    <div>
     <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
-    @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
-    <div class="listCommandesHaut">
-        <div>
-        </div>
-        <div class="navigationRapide">
-            <h3>Notifications :</h3>
-            <ul>
-                @if (count($formulaireDetails) > 0)
-                    @foreach ($formulaireDetails as $detail)
-                    <li>
-                    <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
-                    </li>
-                    @endforeach
-                @else
-                    <p>Aucune Notification.</p>
-                @endif
-            </ul>
-        </div>
     </div>
-    @endif
+    <div class="navigationRapide">
+        <h3>Notifications :</h3>
+        <ul>
+            @if (count($formulaireDetails) > 0)
+                @foreach ($formulaireDetails as $detail)
+                <li>
+                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
+                </li>
+                @endforeach
+            @else
+                <p>Aucune Notification.</p>
+            @endif
+        </ul>
+    </div>
+</div>
+@endif
+<div class="container">
+    
     <!-- Début card mes formulaires -->
 
     <h5 class="com mt-5">Communiqués</h5>

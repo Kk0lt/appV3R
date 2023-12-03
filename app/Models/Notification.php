@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Notification extends Model
 {
     use HasFactory;
-    protected $fillable =['superieur_id','employe_id','nom_Form','form_id','nom_employe'];
+    protected $fillable = [
+        'superieur_id',
+        'employe_id',
+        'nom_employe',
+        'nom_Form',
+        'form_id',
+        'statut_superieur',
+        'statut_admin',
+    ];
+    public function formSituationDangereuse()
+    {
+        return $this->hasOne(FormSituationDangereuse::class, 'form_id');
+    }
 
 }

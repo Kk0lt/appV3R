@@ -174,4 +174,20 @@ class AdminController extends Controller
     {
         //
     }
+
+    //marquer la notification comme lu
+    public function markAsRead($notificationId)
+    {
+        // Find the notification by its ID
+        $notification = Notification::find($notificationId);
+
+        if ($notification) {
+            // Update the statut_superviseur field to "lu"
+            $notification->update(['statut_admin' => 'lu']);
+            return response()->json(['message' => 'Notification marked as "lu" successfully']);
+        }
+
+        return response()->json(['error' => 'Notification not found'], 404);
+    }   
+    
 }
