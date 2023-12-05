@@ -19,7 +19,7 @@ class Notification extends Model
     ];
     public function formSituationDangereuse()
     {
-        return $this->hasOne(FormSituationDangereuse::class, 'form_id');
+        return $this->belongsT(FormSituationDangereuse::class, 'form_id');
     }
 
 }

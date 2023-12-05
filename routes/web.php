@@ -98,7 +98,7 @@ Route::get('/accueil',
 Route::get('/documents', 
 [EmployesController::class, 'documents'])->name('employes.documents');
 
-Route::post('/mark-notification-as-read/{notificationId}', 
+Route::post('/mark-notification-as-read/{formId}', 
 [EmployesController::class, 'markNotificationAsRead'])->name('mark-notification-as-read');
 
 

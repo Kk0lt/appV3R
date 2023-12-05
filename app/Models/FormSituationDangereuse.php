@@ -19,4 +19,5 @@ public function notification()
     return $this->belongsTo(Notification::class, 'form_id');
 }
 
+
 }

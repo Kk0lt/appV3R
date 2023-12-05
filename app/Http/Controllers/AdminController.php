@@ -176,10 +176,10 @@ class AdminController extends Controller
     }
 
     //marquer la notification comme lu
-    public function markAsRead($notificationId)
+    public function markAsRead($formId)
     {
         // Find the notification by its ID
-        $notification = Notification::find($notificationId);
+        $formSituationDangereuse = FormSituationDangereuse::where('form_id', $formID)->first();
 
         if ($notification) {
             // Update the statut_superviseur field to "lu"
