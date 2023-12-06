@@ -9,7 +9,7 @@
 
 @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
 <div class="liste-notifications">
-    <div>
+    <div class="bjr_container">
     <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
     </div>
     <div class="navigationRapide">
@@ -32,8 +32,9 @@
     
     <!-- Début card mes formulaires -->
 
-    <h5 class="com mt-5">Communiqués</h5>
+    <h5 class="communications">Communiqués</h5>
     <div class="horizontal-scroll">
+
         <a href="#" class="card-link">
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
@@ -43,7 +44,6 @@
             </div>
         </a>
         
-
         <a href="#" class="card-link">
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
@@ -112,22 +112,31 @@
 
         <!-- Début card mes formulaires -->        
     
-    <h3 class="titreForm mt-5">Mes formulaires:</h3>
+    <h3 class="titreForm">Mes formulaires:</h3>
     <div class="mesForms">
 
+        @if (count($empForms) > 0)
+        @foreach ($empForms as $detail)
             <a href="" class="card-link">
                 <div class="card">
                     <i class="fa-solid fa-list-check logo my-1"></i>
                     <div class="card-body">    
-                        <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                        <h6 class="card-title">YYYY-MM-JJ</h6>
+                            <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
+                            
+                        </div>
                     </div>
-                </div>
-            </a>
-
+                </a>
+                
+                @endforeach
+            @else
+            <p class ="aucun-form">Aucun formulaire</p>
+        @endif
+               
     </div>
     </div>
 
+
+    
         <!-- Fin card mes formulaires -->
 
 
