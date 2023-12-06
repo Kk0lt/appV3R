@@ -73,7 +73,7 @@ class GrilleAuditSstController extends Controller
             $notification = new Notification();
             $notification->superieur_id = $superviseurId;
             $notification->employe_id = $employe->id;
-            $notification->nom_Form = "Grille Audit SSt";
+            $notification->nom_Form = "Grille Audit Sst";
             $notification->statut_superieur = "non lu";
             $notification->statut_admin = "non lu";
             $notification->nom_employe =  $employeNom ;

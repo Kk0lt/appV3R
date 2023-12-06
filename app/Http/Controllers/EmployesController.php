@@ -72,7 +72,6 @@ class EmployesController extends Controller
 
                     ];    
                 }
-                Log::Debug(json_encode($empForms));
             }
             
             return view('employes.accueil', compact('formulaireDetails', 'empForms', 'formsLu'  ));
@@ -143,7 +142,7 @@ class EmployesController extends Controller
                 return 'situation-dangereuse';
             case 'Formulaire d\'accident de travail':
                 return 'accident-travail';
-            case 'Grille Audit SSt':
+            case 'Grille Audit Sst':
                 return 'grille-audit-sst';
             case 'Rapport d\'accident':
                 return 'rapport-accident';

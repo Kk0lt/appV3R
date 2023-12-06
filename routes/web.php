@@ -116,10 +116,10 @@ Route::get('/formulaire-situation-dangereuse/{id}',
 Route::get('/formulaire-accident-travail/{id}', 
 [AdminController::class, 'showFormulaireAccidentTravail'])->name('accident-travail.show');
 
-// Route pour le formulaire de Situation Dangereuse
+// Route pour le formulaire Grille Audit Sst
 Route::get('/grille-audit-sst/{id}', 
 [AdminController::class, 'showGrilleAuditSst'])->name('grille-audit-sst.show');
 
-// Route pour le formulaire d'Accident de Travail
+// Route pour le rapport accident
 Route::get('/rapport-accident/{id}', 
 [AdminController::class, 'showRapportAccident'])->name('rapport-accident.show');

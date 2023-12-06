@@ -89,6 +89,29 @@ class AdminController extends Controller
         }
     }
 
+    // Pour le formulaire d'Accident de Travail
+    public function showGrilleAuditSst($id)
+    {
+        try {
+            $formulaire = GrilleAuditSst::findOrFail($id);
+            return view('admins.grille-audit-sst', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
+
+    // Pour le formulaire d'Accident de Travail
+    public function showRapportAccident($id)
+    {
+        try {
+            $formulaire = RapportAccident::findOrFail($id);
+            return view('admins.rapport-accident', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
 
     private function getAllFormulaires(Request $request)
     {

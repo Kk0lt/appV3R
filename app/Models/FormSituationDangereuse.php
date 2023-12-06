@@ -9,15 +9,15 @@ class FormSituationDangereuse extends Model
 {
     use HasFactory;
 
-public function employe()
-{
-    return $this->belongsTo(Employe::class, 'employe_id');
-}
+    public function employe()
+    {
+        return $this->belongsTo(Employe::class, 'employe_id');
+    }
 
-public function notification()
-{
-    return $this->belongsTo(Notification::class, 'form_id');
-}
+    public function notification()
+    {
+        return $this->belongsTo(Notification::class, 'form_id');
+    }
 
 
 }

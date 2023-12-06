@@ -15,7 +15,7 @@
 <body class = "bodycontainer">
 <form id="markAsReadForm" action="{{ route('mark-notification-as-read', $formulaire->id) }}" method="POST">
     @csrf
-    <h1>Formulaire Situation Dangereuse</h1>
+    <h1>Rapport d'accident</h1>
     <div class = "info-form ">
         <ul>
         <!-- Affichez les détails du formulaire situation dangereuse ici -->
