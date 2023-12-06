@@ -56,6 +56,8 @@ class EmployesController extends Controller
                         'id' => $notification->id,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
+                        'date' => $notification->created_at->format('d F Y'),
+
                     ];
                    
                 }

@@ -3,9 +3,14 @@
 @section('contenuDuMilieu')
 
 <body class="bg">
-<div>
+<div class="logo-container">
     <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
 </div>
+
+@if(!auth()->check() || (auth()->check() && auth()->user()->type == 'employe'))
+    <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
+@endif
+
 
 @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
 <div class="liste-notifications">
@@ -34,21 +39,12 @@
 
     <h5 class="communications">Communiqués</h5>
     <div class="horizontal-scroll">
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
         
         <a href="#" class="card-link">
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -57,7 +53,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -66,7 +62,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -75,7 +71,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -84,7 +80,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -93,7 +89,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -102,37 +98,77 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
     </div>
-    
+
+
+        <div class="coms-container mt-3">
+
+            <a href="" class="card-link monCommunique">
+                <div class="card">
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
+                    <div class="card-body">    
+                            <a href="">
+                                <p class="nom_form">Nouveau formulaire disponible</p>
+                            </a>       
+                    </div>
+                </div>
+                </a>
+                <a href="" class="card-link monCommunique">
+                <div class="card">
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
+                    <div class="card-body">    
+                            <a href="">
+                                <p class="nom_form">Nouveau formulaire disponible</p>
+                            </a>       
+                    </div>
+                </div>
+                </a>            
+                
+                <a href="" class="card-link monCommunique">
+                <div class="card">
+                <i class="fa-solid fa-clipboard-list logo my-1"></i>
+                    <div class="card-body">    
+                            <a href="">
+                                <p class="nom_form">Nouveau formulaire disponible</p>
+                            </a>       
+                    </div>
+                </div>
+                </a>
+    </div>
+      
         <!-- Fin card communiqué -->
 
         <!-- Début card mes formulaires -->        
     
-    <h3 class="titreForm">Mes formulaires:</h3>
-    <div class="mesForms">
+        <h3 class="titreForm">Mes formulaires:</h3>
+        <div class="mesForms">
 
-        @if (count($empForms) > 0)
-        @foreach ($empForms as $detail)
-            <a href="" class="card-link">
-                <div class="card">
-                    <i class="fa-solid fa-list-check logo my-1"></i>
-                    <div class="card-body">    
-                            <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
-                            
+            @if (count($empForms) > 0)
+            @foreach ($empForms as $detail)
+                <a href="" class="card-link monForm">
+                    <div class="card">
+                        <i class="fa-solid fa-list-check logo my-1"></i>
+                        <div class="card-body">    
+                                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
+                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+                                    <p>rempli le</p>
+                                    <p class="date_form">{{ $detail['date'] }}</p>
+                                </a>
+                                
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                    
+                    @endforeach
+                @else
+                <p class ="aucun-form">Aucun formulaire</p>
+            @endif
                 
-                @endforeach
-            @else
-            <p class ="aucun-form">Aucun formulaire</p>
-        @endif
-               
-    </div>
+        </div>
     </div>
 
 

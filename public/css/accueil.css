@@ -10,6 +10,11 @@
     --darkBeige: #b4b4b4cc;
     --grey: #000000;
 }
+
+.container
+{
+
+}
 .h5{
  text-align: center;   
 }
@@ -52,15 +57,15 @@ html
 .bg {
     min-height: 100%;
     background-color: var(--white);
-  }
+}
 
 .bonjour
 {
-    padding-left: 5rem;
-    padding-top: 3rem;
+
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: var(--darkGrey);
+    text-align: center;
 }
 
 .communications
@@ -84,7 +89,7 @@ html
 
 .logo
 {
-    color: var(--black);
+    color: var(--blue);
     font-size: 50px;
 }
 
@@ -96,14 +101,10 @@ html
     width: 100%; /* Ajustez la largeur de la bande à votre convenance */
     border: 1px solid var(--grey); /* Bordure pour la bande (facultatif) */
     padding: 10px; /* Espace intérieur (facultatif) */
+    box-shadow: 8px 8px 8px rgba(0.1, 0.1, 0.1, 0.1);
+    
 }
 
-.mesForms
-{
-    min-width: 100%; /* Ajustez la largeur de la bande à votre convenance */
-    border: 1px solid var(--grey); /* Bordure pour la bande (facultatif) */
-    padding: 10px; /* Espace intérieur (facultatif) */
-}
 
 .card 
 {
@@ -123,24 +124,84 @@ html
     color: var(--blue);
 }
 
+
+.card-link 
+{
+    background-color: var(--white); 
+    margin-right: 10px;
+    text-decoration: none; 
+}
+
+.coms-container {    
+    
+    min-width: 100%; /* Ajustez la largeur de la bande à votre convenance */
+    border: 1px solid var(--grey); /* Bordure pour la bande (facultatif) */
+    padding: 10px; /* Espace intérieur (facultatif) */
+    padding-right: 25px; 
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 8px 8px 8px rgba(0.1, 0.1, 0.1, 0.1);
+    font-size: 23px;
+}
+
+.coms-container a
+{
+    color: var(--blue);
+}
+
+.monCommunique {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+
+.mesForms {    
+    
+    min-width: 100%; /* Ajustez la largeur de la bande à votre convenance */
+    border: 1px solid var(--grey); /* Bordure pour la bande (facultatif) */
+    padding: 10px; /* Espace intérieur (facultatif) */
+    padding-right: 25px; 
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 8px 8px 8px rgba(0.1, 0.1, 0.1, 0.1);
+    font-size: 23px;
+}
+
 .mesForms a
 {
     color: var(--blue);
 }
 
+.monForm {
+    text-decoration: none; 
+    color: inherit; 
 
-.card-link 
-{
-    background-color: var(--white); /* Fond blanc pour masquer le débordement */
-    margin-right: 10px; /* Espace entre les cartes */
-    text-decoration: none; /* Supprimer la décoration du lien */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
 
+.card-body {
+    padding: 10px;
+    font-size: 23px;
 
-.aucun-form
-{
-    text-align: center;   
+}
+.card-body p{
+    margin: 1px;
+    color: var(--black);
+
+}
+
+.aucun-form {
+    width: 100%; 
+    text-align: center; 
+    font-size: 18px; 
+    margin-top: 20px; 
 }
 
 
