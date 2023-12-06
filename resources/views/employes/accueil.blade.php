@@ -105,41 +105,7 @@
     </div>
 
 
-        <div class="coms-container mt-3">
-
-            <a href="" class="card-link monCommunique">
-                <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                    <div class="card-body">    
-                            <a href="">
-                                <p class="nom_form">Nouveau formulaire disponible</p>
-                            </a>       
-                    </div>
-                </div>
-                </a>
-                <a href="" class="card-link monCommunique">
-                <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                    <div class="card-body">    
-                            <a href="">
-                                <p class="nom_form">Nouveau formulaire disponible</p>
-                            </a>       
-                    </div>
-                </div>
-                </a>            
-                
-                <a href="" class="card-link monCommunique">
-                <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                    <div class="card-body">    
-                            <a href="">
-                                <p class="nom_form">Nouveau formulaire disponible</p>
-                            </a>       
-                    </div>
-                </div>
-                </a>
-    </div>
-      
+        
         <!-- Fin card communiqué -->
 
         <!-- Début card mes formulaires -->        
@@ -165,16 +131,40 @@
                     
                     @endforeach
                 @else
-                <p class ="aucun-form">Aucun formulaire</p>
+                <p class ="aucun-form">Aucun formulaire remplis </p>
+            @endif
+                
+        </div>
+        <!-- Fin card mes formulaires -->
+
+        <!-- Formulaires lus -->        
+    
+        <h3 class="titreForm">Formulaires lus:</h3>
+        <div class="mesForms">
+
+            @if (count($formsLu) > 0)
+            @foreach ($formsLu as $detail)
+                <a href="" class="card-link monForm">
+                    <div class="card">
+                        <i class="fa-solid fa-list-check logo my-1"></i>
+                        <div class="card-body">    
+                                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
+                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+                                    <p>Employé: {{ $detail['nom_employe'] }}</p>
+                                    <p class="date_form">{{ $detail['date'] }}</p>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </a>
+                    
+                    @endforeach
+                @else
+                <p class ="aucun-form">Aucun formulaire remplis </p>
             @endif
                 
         </div>
     </div>
-
-
-    
-        <!-- Fin card mes formulaires -->
-
 
    
 <!-- FOOTER -->

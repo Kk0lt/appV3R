@@ -31,6 +31,7 @@ class EmployesController extends Controller
             $notifications = Notification::all();
             $formulaireDetails = [];
             $empForms = [];
+            $formsLu = [];
 
             foreach ($notifications as $notification) {
                 $type = $this->getFormulaireType($notification->nom_Form);
@@ -58,12 +59,22 @@ class EmployesController extends Controller
                         'nom_employe' => $notification->nom_employe,
                         'date' => $notification->created_at->format('d F Y'),
 
-                    ];
-                   
+                    ];    
+                }
+
+                if ($type && $superieur_id && $superieur_id == auth()->user()->id && $statut_superieur == "lu"  ) {
+                    $formsLu[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];    
                 }
             }
             
-            return view('employes.accueil', compact('formulaireDetails', 'empForms' ));
+            return view('employes.accueil', compact('formulaireDetails', 'empForms', 'formsLu'  ));
 
         } catch (\Throwable $th) {
             Log::debug($th);
