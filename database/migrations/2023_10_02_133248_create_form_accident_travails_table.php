@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('form_accident_travails', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employe_id'); //employe qui a rempli
+            $table->integer('employe_id');
 
             $table->string('date', 256);
             $table->string('heure', 256);
@@ -41,13 +41,9 @@ return new class extends Migration
             $table->string('soin', 256);
             $table->string('secouriste', 256);
 
-            //Détails sur le durée de l'absence
 
             $table->string('absence', 256);
             $table->string('superieur', 256);
-
-            $table->foreign('employe_id')->references('id')->on('employes');
-
             $table->timestamps();
         });
     }

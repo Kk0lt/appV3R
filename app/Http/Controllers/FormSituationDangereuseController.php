@@ -62,6 +62,7 @@ class FormSituationDangereuseController extends Controller
             $formSituationDangereuse->superieur_averti = $request->input('checkbox_sup');
         
             // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+
             $superviseurId = $employe->superieur_id;
             // Notifier superviseur direct
             $notification = new Notification();
@@ -70,7 +71,6 @@ class FormSituationDangereuseController extends Controller
             $notification->nom_Form = "Formulaire de Situation Dangereuse";
             $notification->statut_superieur = "non lu";
             $notification->statut_admin = "non lu";
-         
             $notification->nom_employe =  $employeNom ;
                  
             // Enregistrez l'instance dans la base de données

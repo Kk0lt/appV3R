@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('grille_audit_ssts', function (Blueprint $table) {
             $table->id();
-
+            $table->integer('employe_id');
             $table->string('lieu', 256);
             $table->string('date', 256);
             $table->string('heure', 256);
