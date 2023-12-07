@@ -20,12 +20,11 @@
         <ul>
         <!-- Affichez les détails du formulaire situation dangereuse ici -->
         <li><p class="categorie">Nom de l'employé: </p><p class ="reponse">{{ $formulaire->employe->prenom }} {{ $formulaire->employe->nom }} </p></li>
-        <li><p class="categorie">Date: </p><p class ="reponse">{{ $formulaire->date }}</p></li>
-        <li><p class="categorie">Heure: </p><p class ="reponse">{{ $formulaire->heure }}</p></li>
-        <li><p class="categorie">Nom du témoin: </p><p class ="reponse">{{ $formulaire->nom_temoin }}</p></li>
-        <li><p class="categorie">Description: </p><p class ="reponse">{{ $formulaire->description }}</p></li>
-        <li><p class="categorie">Corrections proposées: </p><p class ="reponse">{{ $formulaire->corrections }}</p></li>
-        <li><p class="categorie">Supérieur averti: </p><p class ="reponse">{{ $formulaire->superieur_averti }}</p></li>
+        <li><p class="categorie">Numéro d'unité: </p><p class ="reponse">{{ $formulaire->noUnite }}</p></li>
+        <li><p class="categorie">Département: </p><p class ="reponse">{{ $formulaire->departement }}</p></li>
+        <li><p class="categorie">Numéro de permis: </p><p class ="reponse">{{ $formulaire->noPermis }}</p></li>
+        <li><p class="categorie">Autres vehicule: </p><p class ="reponse">{{ $formulaire->autres_vehicule }}</p></li>
+
 
 
 

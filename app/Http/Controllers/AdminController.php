@@ -69,7 +69,12 @@ class AdminController extends Controller
     public function showFormulaireSituationDangereuse($id)
     {
         try {
-            $formulaire = FormSituationDangereuse::findOrFail($id);
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->formSituationDangereuse;
+
             return view('admins.formulaire-situation-dangereuse', compact('formulaire'));
         } catch (\Throwable $th) {
             Log::debug($th);
@@ -81,7 +86,11 @@ class AdminController extends Controller
     public function showFormulaireAccidentTravail($id)
     {
         try {
-            $formulaire = FormAccidentTravail::findOrFail($id);
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->formulaireAccidentTravail;
             return view('admins.formulaire-accident-travail', compact('formulaire'));
         } catch (\Throwable $th) {
             Log::debug($th);
@@ -89,11 +98,15 @@ class AdminController extends Controller
         }
     }
 
-    // Pour le formulaire d'Accident de Travail
+    // Pour la grille audit sst
     public function showGrilleAuditSst($id)
     {
         try {
-            $formulaire = GrilleAuditSst::findOrFail($id);
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->grilleAuditSst;
             return view('admins.grille-audit-sst', compact('formulaire'));
         } catch (\Throwable $th) {
             Log::debug($th);
@@ -101,11 +114,15 @@ class AdminController extends Controller
         }
     }
 
-    // Pour le formulaire d'Accident de Travail
+    // Pour le Rapport d'accident
     public function showRapportAccident($id)
     {
         try {
-            $formulaire = RapportAccident::findOrFail($id);
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->rapportAccident;
             return view('admins.rapport-accident', compact('formulaire'));
         } catch (\Throwable $th) {
             Log::debug($th);

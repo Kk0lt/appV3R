@@ -19,7 +19,18 @@ class Notification extends Model
     ];
     public function formSituationDangereuse()
     {
-        return $this->belongsT(FormSituationDangereuse::class, 'form_id');
+        return $this->belongsTo(FormSituationDangereuse::class, 'form_id');
     }
-
+    public function formulaireAccidentTravail()
+    {
+        return $this->belongsTo(FormAccidentTravail::class, 'form_id');
+    }
+    public function grilleAuditSst()
+    {
+        return $this->belongsTo(GrilleAuditSst::class, 'form_id');
+    }
+    public function rapportAccident()
+    {
+        return $this->belongsTo(RapportAccident::class, 'form_id');
+    }
 }

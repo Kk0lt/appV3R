@@ -20,7 +20,7 @@
         <ul>
         <!-- Affichez les détails du formulaire situation dangereuse ici -->
         <li><p class="categorie">Nom de l'employé: </p><p class ="reponse">{{ $formulaire->employe->prenom }} {{ $formulaire->employe->nom }} </p></li>
-        <li><p class="categorie">Date: </p><p class ="reponse">{{ $formulaire->date }}</p></li>
+        <li><p class="categorie">Date de l'accident: </p><p class ="reponse">{{ $formulaire->date }}</p></li>
         <li><p class="categorie">Heure: </p><p class ="reponse">{{ $formulaire->heure }}</p></li>
         <li><p class="categorie">Nom du témoin: </p><p class ="reponse">{{ $formulaire->nom_temoin }}</p></li>
         <li><p class="categorie">Description: </p><p class ="reponse">{{ $formulaire->description }}</p></li>
