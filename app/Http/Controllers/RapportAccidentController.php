@@ -35,6 +35,10 @@ class RapportAccidentController extends Controller
     public function store(RapportAccidentRequest $request)
     {
         try {
+            
+            // Validation des données du formulaire
+            $validatedData = $request->validate();
+        
             // Créer une nouvelle instance du modèle RapportAccident et attribuer les valeurs
             $rapportAccident = new RapportAccident();
             

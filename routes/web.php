@@ -45,8 +45,10 @@ Route::post('connexion',
 // [UsagersController::class, 'login'])->name('usagers.login');
 
 // ROUTE DECONNEXION
-Route::get('logout',
-[UsagersController::class, 'logout'])->name('logout');
+Route::get('logout', [UsagersController::class, 'logout'])->name('logout');
+
+
+
 
 //  modif pwd
 Route::patch('/usagers',

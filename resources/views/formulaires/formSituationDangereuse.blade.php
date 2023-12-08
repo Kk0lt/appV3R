@@ -24,9 +24,15 @@
 
         <label for="date">Date de l'observation :</label>
         <input type="date" name="date" required><br><br>
+        @error('date')
+            <div class="error">{{ $message }}</div>
+        @enderror
 
         <label for="heure">Heure :</label>
         <input type="time" name="heure" required><br><br>
+        @error('heure')
+            <div class="error">{{ $message }}</div>
+        @enderror
      
         <div class="temoin-group">
                 <label>Témoin :</label>
@@ -36,20 +42,34 @@
                     <input type="radio" name="temoin" value="Non" id="temoin_non">
                     <label for="temoin_non">Non</label>
                 </div>
-            </div>
+        </div>
+        @error('temoin')
+            <div class="error">{{ $message }}</div>
+        @enderror
+
     <!-- Champ de saisie du nom du témoin -->
     <div id="temoin_nom" style="display: none;">
         <label for="nom_temoin">Nom du témoin/des témoins :</label>
         <input type="text" id="nom_temoin" name="nom_temoin">
     </div>
+    @error('nom_temoin')
+        <div class="error">{{ $message }}</div>
+    @enderror
+    
 
     <h5>Description de la situation dangereuse ou du passée proche</h5>
 
     <label for="description"> Description:</label>
     <textarea name="description" rows="4" cols="50"></textarea><br><br>
+    @error('description')
+        <div class="error">{{ $message }}</div>
+    @enderror
     
     <label>Correction(s) ou amélioration(s) proposée(s):</label>
     <textarea name="corrections" rows="4" cols="50"></textarea><br><br>
+    @error('corrections')
+        <div class="error">{{ $message }}</div>
+    @enderror
 
     <div class="superieur-group">
             <label for="superieur">J'ai avisé mon supérieur immédiat :</label>
@@ -59,7 +79,10 @@
                 <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
                 <label for="sup_non" id="label_sup_non">Non</label>   
             </div>
-        </div>
+            @error('checkbox_sup')
+                <div class="error">{{ $message }}</div>
+            @enderror
+    </div>
         <input type="submit" value="Soumettre">
 
     </form>
