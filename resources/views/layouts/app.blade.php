@@ -49,9 +49,11 @@
         </div>
     
         <hr>
-
+        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
+        <a class="nav-link white my-2" href="{{ route('admins.admin') }}">
+        @else
         <a class="nav-link white my-2" href="{{ route('employes.accueil') }}">
-          
+        @endif
               <img class="img-fluid logoUser" src="{{ asset('img/user.png') }}" alt="">
               <h5 class="nom-user">@auth {{ Auth::user()->prenom }} {{ Auth::user()->nom }} @endauth</h5>
               <h6 class="poste-user grey">Poste de l'employé</h6>

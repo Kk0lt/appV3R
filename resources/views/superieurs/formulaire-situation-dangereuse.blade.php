@@ -15,29 +15,23 @@
 <body class = "bodycontainer">
 <form id="markAsReadForm" action="{{ route('mark-notification-as-read', $formulaire->id) }}" method="POST">
     @csrf
-    <h1>Grille Audit SST</h1>
+    <h1>Formulaire Situation Dangereuse</h1>
     <div class = "info-form ">
         <ul>
         <!-- Affichez les détails du formulaire situation dangereuse ici -->
         <li><p class="categorie">Nom de l'employé: </p><p class ="reponse">{{ $formulaire->employe->prenom }} {{ $formulaire->employe->nom }} </p></li>
         <li><p class="categorie">Date de l'accident: </p><p class ="reponse">{{ $formulaire->date }}</p></li>
         <li><p class="categorie">Heure: </p><p class ="reponse">{{ $formulaire->heure }}</p></li>
-        <li><p class="categorie">Epi: </p><p class ="reponse">{{ $formulaire->epi }}</p></li>
-        <li><p class="categorie">Signalisation: </p><p class ="reponse">{{ $formulaire->signalisation }}</p></li>
-        <li><p class="categorie">Fiches signalitiques: </p><p class ="reponse">{{ $formulaire->fiches_signalitique }}</p></li>
-        <li><p class="categorie">Travaux excavation: </p><p class ="reponse">{{ $formulaire->travaux_excavation }}</p></li>
-        <li><p class="categorie">Espace clos: </p><p class ="reponse">{{ $formulaire->espace_clos }}</p></li>
-        <li><p class="categorie">Methode de travail: </p><p class ="reponse">{{ $formulaire->methode_de_travail }}</p></li>
-        <li><p class="categorie">Autres: </p><p class ="reponse">{{ $formulaire->autres }}</p></li>
-        <li><p class="categorie">Distanciation: </p><p class ="reponse">{{ $formulaire->distanciation }}</p></li>
-        <li><p class="categorie">Port epi: </p><p class ="reponse">{{ $formulaire->port_epi }}</p></li>
-        <li><p class="categorie">Procedures COVID: </p><p class ="reponse">{{ $formulaire->procedures_covid }}</p></li>
+        <li><p class="categorie">Nom du témoin: </p><p class ="reponse">{{ $formulaire->nom_temoin }}</p></li>
+        <li><p class="categorie">Description: </p><p class ="reponse">{{ $formulaire->description }}</p></li>
+        <li><p class="categorie">Corrections proposées: </p><p class ="reponse">{{ $formulaire->corrections }}</p></li>
+        <li><p class="categorie">Supérieur averti: </p><p class ="reponse">{{ $formulaire->superieur_averti }}</p></li>
 
 
 
         <!-- Ajoutez d'autres champs selon vos besoins -->
         </ul>
-        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
+        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
         <div class ="SubmitBtn-Row">
             <div class="blocVide">
             </div>

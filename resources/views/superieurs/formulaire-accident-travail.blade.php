@@ -53,7 +53,7 @@
 
         <!-- Ajoutez d'autres champs selon vos besoins -->
         </ul>
-        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
+        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
         <div class ="SubmitBtn-Row">
             <div class="blocVide">
             </div>

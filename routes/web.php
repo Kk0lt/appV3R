@@ -98,15 +98,36 @@ Route::get('/accueil',
 Route::get('/documents', 
 [EmployesController::class, 'documents'])->name('employes.documents');
 
+/*-----------------------Superieurs------------------------*/
+
 Route::post('/mark-notification-as-read/{formId}', 
 [EmployesController::class, 'markNotificationAsRead'])->name('mark-notification-as-read');
 
+// Route pour le formulaire de Situation Dangereuse
+Route::get('/formulaire-situation-dangereuse/{id}', 
+[EmployesController::class, 'showFormulaireSituationDangereuse'])->name('situation-dangereuse.show');
+
+// Route pour le formulaire d'Accident de Travail
+Route::get('/formulaire-accident-travail/{id}', 
+[EmployesController::class, 'showFormulaireAccidentTravail'])->name('accident-travail.show');
+
+// Route pour le formulaire Grille Audit Sst
+Route::get('/grille-audit-sst/{id}', 
+[EmployesController::class, 'showGrilleAuditSst'])->name('grille-audit-sst.show');
+
+// Route pour le rapport accident
+Route::get('/rapport-accident/{id}', 
+[EmployesController::class, 'showRapportAccident'])->name('rapport-accident.show');
 
 /*-----------------------Admin------------------------*/
 Route::get('/admin', 
 [AdminController::class, 'accueil'])->name('admins.admin');
 
 Route::get('/admin', [AdminController::class, 'accueil'])->name('admins.admin');
+
+//statut admin =  lu
+Route::post('/mark-notification-as-read/{formId}', 
+[AdminController::class, 'markAsReadByAdmin'])->name('mark-notification-as-read');
 
 // Route pour le formulaire de Situation Dangereuse
 Route::get('/formulaire-situation-dangereuse/{id}', 

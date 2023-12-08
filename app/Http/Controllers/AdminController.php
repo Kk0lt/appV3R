@@ -30,6 +30,10 @@ class AdminController extends Controller
                 return 'situation-dangereuse';
             case 'Formulaire d\'accident de travail':
                 return 'accident-travail';
+            case 'Grille Audit Sst':
+                return 'grille-audit-sst';
+            case 'Rapport d\'accident':
+                return 'rapport-accident';
             // Ajoutez d'autres cas au besoin
             default:
                 return null;
@@ -43,20 +47,92 @@ class AdminController extends Controller
 
             $notifications = Notification::all();
             $formulaireDetails = [];
-
+            $allForms = [];
+            $luParAdmin = [];
+            $nonluParSuperieur = [];
+            $luParSuperieur = [];
+     
+            
             foreach ($notifications as $notification) {
                 $type = $this->getFormulaireType($notification->nom_Form);
+                $statut_admin = $notification->statut_admin;
+                $statut_superieur = $notification->statut_superieur;
 
-                if ($type) {
+                //Tous les forms
+                if ($type ) {
+                    $allForms[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms non lu par admin
+                if ($type &&  $statut_admin == "non lu"  ) {
                     $formulaireDetails[] = [
                         'type' => $type,
                         'id' => $notification->id,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
                     ];
                 }
+
+                //Forms lu par admin
+                if ($type &&  $statut_admin == "lu"  ) {
+                    $luParAdmin[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms non lu par les superieurs
+                if ($type &&  $statut_superieur == "non lu"  ) {
+                    $nonluParSuperieur[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms lu par les superieurs
+                if ($type &&  $statut_superieur == "lu"  ) {
+                    $luParSuperieur[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+
+
+
             }
-            return view('admins.admin', compact('formulaireDetails'));
+            return view('admins.admin', compact('allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur'));
 
         } catch (\Throwable $th) {
             Log::debug($th);
@@ -216,18 +292,34 @@ class AdminController extends Controller
     }
 
     //marquer la notification comme lu
-    public function markAsRead($formId)
+
+    public function markAsReadByAdmin($formID)
     {
-        // Find the notification by its ID
-        $formSituationDangereuse = FormSituationDangereuse::where('form_id', $formID)->first();
-
-        if ($notification) {
-            // Update the statut_superviseur field to "lu"
-            $notification->update(['statut_admin' => 'lu']);
-            return response()->json(['message' => 'Notification marked as "lu" successfully']);
+        try {
+            // Trouver le formulaire par son ID
+            $formulaire = FormSituationDangereuse::find($formID);
+    
+            if ($formulaire) {
+                // Trouver la notification associée à ce formulaire
+                $notification = Notification::where('form_id', $formID)->first();
+    
+                if ($notification) {
+                    // Mettre à jour le champ statut_admin à "lu"
+                    $notification->update(['statut_admin' => 'lu']);
+                    Log::info('statut_admin = lu ');
+                    return redirect()->route('admins.admin');
+                }
+    
+                Log::info("Notification non trouvée");
+                return redirect()->back()->with('error', 'Notification non trouvée');
+            }
+    
+            Log::info("Formulaire non trouvé");
+            return redirect()->back()->with('error', 'Formulaire non trouvé');
+        } catch (\Exception $e) {
+            Log::error($e);
+            return redirect()->back()->with('error', 'Une erreur est survenue lors du marquage de la notification comme "lu"');
         }
-
-        return response()->json(['error' => 'Notification not found'], 404);
-    }   
+    }  
     
 }

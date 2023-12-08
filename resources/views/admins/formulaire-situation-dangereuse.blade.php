@@ -31,6 +31,7 @@
 
         <!-- Ajoutez d'autres champs selon vos besoins -->
         </ul>
+        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
         <div class ="SubmitBtn-Row">
             <div class="blocVide">
             </div>
@@ -38,6 +39,7 @@
                 <input type="submit" value="Marqué comme lu">
             </div>
         </div>
+        @endif
         </form>
     </div>
   

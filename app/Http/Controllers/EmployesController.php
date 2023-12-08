@@ -111,6 +111,73 @@ class EmployesController extends Controller
         //
     }
 
+    // Pour le formulaire de Situation Dangereuse
+    public function showFormulaireSituationDangereuse($id)
+    {
+        try {
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->formSituationDangereuse;
+
+            return view('superieurs.formulaire-situation-dangereuse', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
+
+    // Pour le formulaire d'Accident de Travail
+    public function showFormulaireAccidentTravail($id)
+    {
+        try {
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->formulaireAccidentTravail;
+            return view('superieurs.formulaire-accident-travail', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
+
+    // Pour la grille audit sst
+    public function showGrilleAuditSst($id)
+    {
+        try {
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->grilleAuditSst;
+            return view('superieurs.grille-audit-sst', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
+
+    // Pour le Rapport d'accident
+    public function showRapportAccident($id)
+    {
+        try {
+            // Trouver la notification par son ID
+            $notification = Notification::findOrFail($id);
+
+            // Accéder au formulaire associé à la notification
+            $formulaire = $notification->rapportAccident;
+            return view('superieurs.rapport-accident', compact('formulaire'));
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
+
+
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -181,5 +248,9 @@ class EmployesController extends Controller
         }
     }
     
+
+
+
+
      
 }
