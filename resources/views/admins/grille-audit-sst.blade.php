@@ -13,7 +13,7 @@
 
 </head>
 <body class = "bodycontainer">
-<form id="markAsReadForm" action="{{ route('mark-notification-as-read', $formulaire->id) }}" method="POST">
+<form id="markAsReadForm" action="{{ route('mark-notification-as-read-by-admin', $formulaire->id) }}" method="POST">
     @csrf
     <h1>Grille Audit SST</h1>
     <div class = "info-form ">

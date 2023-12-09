@@ -120,6 +120,7 @@ class EmployesController extends Controller
 
             // Accéder au formulaire associé à la notification
             $formulaire = $notification->formSituationDangereuse;
+            Log::debug("allo");
 
             return view('superieurs.formulaire-situation-dangereuse', compact('formulaire'));
         } catch (\Throwable $th) {

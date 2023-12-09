@@ -104,20 +104,20 @@ Route::post('/mark-notification-as-read/{formId}',
 [EmployesController::class, 'markNotificationAsRead'])->name('mark-notification-as-read');
 
 // Route pour le formulaire de Situation Dangereuse
-Route::get('/formulaire-situation-dangereuse/{id}', 
-[EmployesController::class, 'showFormulaireSituationDangereuse'])->name('situation-dangereuse.show');
+Route::get('/formulaire-situation-dangereuse-superieur/{id}', 
+[EmployesController::class, 'showFormulaireSituationDangereuse'])->name('situation-dangereuse.superieur.show');
 
 // Route pour le formulaire d'Accident de Travail
-Route::get('/formulaire-accident-travail/{id}', 
-[EmployesController::class, 'showFormulaireAccidentTravail'])->name('accident-travail.show');
+Route::get('/formulaire-accident-travail-superieur/{id}', 
+[EmployesController::class, 'showFormulaireAccidentTravail'])->name('accident-travail.superieur.show');
 
 // Route pour le formulaire Grille Audit Sst
-Route::get('/grille-audit-sst/{id}', 
-[EmployesController::class, 'showGrilleAuditSst'])->name('grille-audit-sst.show');
+Route::get('/grille-audit-sst-superieur/{id}', 
+[EmployesController::class, 'showGrilleAuditSst'])->name('grille-audit-sst.superieur.show');
 
 // Route pour le rapport accident
-Route::get('/rapport-accident/{id}', 
-[EmployesController::class, 'showRapportAccident'])->name('rapport-accident.show');
+Route::get('/rapport-accident-superieur/{id}', 
+[EmployesController::class, 'showRapportAccident'])->name('rapport-accident.superieur.show');
 
 /*-----------------------Admin------------------------*/
 Route::get('/admin', 
@@ -126,8 +126,8 @@ Route::get('/admin',
 Route::get('/admin', [AdminController::class, 'accueil'])->name('admins.admin');
 
 //statut admin =  lu
-Route::post('/mark-notification-as-read/{formId}', 
-[AdminController::class, 'markAsReadByAdmin'])->name('mark-notification-as-read');
+Route::post('/mark-notification-as-read-by-admin/{formId}', 
+[AdminController::class, 'markAsReadByAdmin'])->name('mark-notification-as-read-by-admin');
 
 // Route pour le formulaire de Situation Dangereuse
 Route::get('/formulaire-situation-dangereuse/{id}', 

@@ -25,6 +25,17 @@
                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
                 </li>
                 @endforeach
+
+                @if (count($notifAdminParSuperieurLu) > 0)
+                @foreach ($notifAdminParSuperieurLu as $detail)
+                <li>
+                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
+                {{ $notification->superieur->prenom }}  {{ $notification->superieur->nom }} a lu le formulaire de {{ $detail['nom_employe'] }}
+                </a>
+                </li>
+                @endforeach
+            @endif
+
             @else
                 <p>Aucune Notification.</p>
             @endif

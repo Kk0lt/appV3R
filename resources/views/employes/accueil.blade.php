@@ -23,7 +23,7 @@
             @if (count($formulaireDetails) > 0)
                 @foreach ($formulaireDetails as $detail)
                 <li>
-                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
+                <a href="{{ route($detail['type'] . '.superieur.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
                 </li>
                 @endforeach
             @else

@@ -33,4 +33,13 @@ class Notification extends Model
     {
         return $this->belongsTo(RapportAccident::class, 'form_id');
     }
+    
+    public function employe()
+    {
+        return $this->belongsTo(Employe::class, 'employe_id');
+    }
+    public function superieur()
+    {
+        return $this->belongsTo(Employe::class, 'superieur_id');
+    }
 }

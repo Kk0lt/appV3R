@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Formulaire;
 use App\Models\Notification;
+use App\Models\Employe;
 use App\Models\FormAccidentTravail;
 use App\Models\GrilleAuditSst;
 use App\Models\RapportAccident;
@@ -45,18 +46,24 @@ class AdminController extends Controller
         try {
             // ... autres logiques ...
 
-            $notifications = Notification::all();
+            $notifications = Notification::with('superieur')->get();
             $formulaireDetails = [];
             $allForms = [];
             $luParAdmin = [];
             $nonluParSuperieur = [];
             $luParSuperieur = [];
+            $notifAdminParSuperieurLu = [];
      
             
             foreach ($notifications as $notification) {
                 $type = $this->getFormulaireType($notification->nom_Form);
                 $statut_admin = $notification->statut_admin;
                 $statut_superieur = $notification->statut_superieur;
+                $superieur_id = $notification->superieur_id;
+                
+                $superieur = Employe::where('id', $superieur_id)->first();
+                $nom_superieur = $superieur->nom_employe;
+
 
                 //Tous les forms
                 if ($type ) {
@@ -128,11 +135,24 @@ class AdminController extends Controller
                     ];
                 }
 
+                //Forms lu par les superieurs mais pas les admins
+                if ($type &&  $statut_superieur == "lu" && $statut_admin == "non lu"  ) {
+                    $notifAdminParSuperieurLu[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
 
+                    ];
+                }
 
 
             }
-            return view('admins.admin', compact('allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur'));
+            return view('admins.admin', compact('notification','allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur', 'notifAdminParSuperieurLu'));
 
         } catch (\Throwable $th) {
             Log::debug($th);

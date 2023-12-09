@@ -13,7 +13,7 @@
 
 </head>
 <body class = "bodycontainer">
-<form id="markAsReadForm" action="{{ route('mark-notification-as-read', $formulaire->id) }}" method="POST">
+<form id="markAsReadForm" action="{{ route('mark-notification-as-read-by-admin', $formulaire->id) }}" method="POST">
     @csrf
     <h1>Formulaire d'accident de travail</h1>
     <div class = "info-form ">
@@ -31,7 +31,7 @@
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_torse }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_poumon }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_bras }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_poignets }}</p></li>
+        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->2blessure_poignets }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_dos }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_hanche }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_jambe }}</p></li>
