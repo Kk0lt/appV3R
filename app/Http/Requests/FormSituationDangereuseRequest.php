@@ -26,8 +26,8 @@ class FormSituationDangereuseRequest extends FormRequest
             'heure' => 'required',
             'temoin' => 'required|in:Oui,Non',
             'nom_temoin' => 'nullable|required_if:temoin,Oui|string|max:255',
-            'description' => 'required|string',
-            'corrections' => 'required|string',
+            'description' => 'required|min:3|string|regex:/^(?![-.]{3}$)[A-Za-z0-9\s\-]{3,}$/',
+            'corrections' => 'required|min:3|string|regex:/^(?![-.]{3}$)[A-Za-z0-9\s\-]{3,}$/',
             'checkbox_sup' => 'required|in:Oui,Non',
         ];
     }
@@ -48,7 +48,10 @@ class FormSituationDangereuseRequest extends FormRequest
             'corrections.required' => 'Les corrections sont obligatoires.',
             'corrections.string' => 'Les corrections doivent être une chaîne de caractères.',
             'checkbox_sup.required' => 'Veuillez spécifier si vous avez informé votre supérieur immédiat.',
-            'checkbox_sup.in' => 'La valeur pour informer votre supérieur immédiat doit être "Oui" ou "Non".',
+            'checkbox_sup.in' => 'La valeur pour informer votre supérieur immédiat doit être "Oui" ou "Non".','description.min' => 'Le champ description doit contenir au moins 3 caractères.',
+            'corrections.min' => 'Le champ correction doit contenir au moins 3 caractères.',
+            'description.regex' => 'Le champ description ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
+            'corrections.regex' => 'Le champ correction ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
         ];
     }
 }

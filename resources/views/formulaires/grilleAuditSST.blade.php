@@ -23,129 +23,134 @@
 
     <h5>Description de l'évenement</h5>
 
+    <div class="champ">
         <label for="lieu">Lieu(x) des travaux: Aéroport </label>
-        <input type="text" name="lieu" required>
+        <input type="text" name="lieu"  >
         @error('lieu')
             <div class="error">{{ $message }}</div>
         @enderror
+    <div class="champ">
 
+    <div class="champ">
         <label for="date">Date :</label>
-        <input type="date" name="date" required>
+        <input type="date" name="date"  >
         @error('date')
             <div class="error">{{ $message }}</div>
         @enderror
-
+    </div>
+    <div class="champ">
         <label for="heure">Heure :</label>
-        <input type="time" name="heure" required>
+        <input type="time" name="heure"  >
         @error('heure')
             <div class="error">{{ $message }}</div>
         @enderror
+    </div>
 
-        <div class="checkbox-group">
+    <div class="checkbox-group">
         
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="epi">EPI</label>
             <ul>
             <li><input type="checkbox" name="epi" value="conforme">Conforme</li>
             <li><input type="checkbox" name="epi" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="epi" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="epi" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('epi')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="tenue_des_lieux">Tenue des lieux</label>
             <ul>
             <li><input type="checkbox" name="tenue_des_lieux" value="conforme">Conforme</li>
             <li><input type="checkbox" name="tenue_des_lieux" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="tenue_des_lieux" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="tenue_des_lieux" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('tenue_des_lieux')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="comportement_securitaire">Comportement sécuritaire</label>
             <ul>
             <li><input type="checkbox" name="comportement_securitaire" value="conforme">Conforme</li>
             <li><input type="checkbox" name="comportement_securitaire" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="comportement_securitaire" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="comportement_securitaire" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('comportement_securitaire')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="signalisation">Signalisation</label>
             <ul>
             <li><input type="checkbox" name="signalisation" value="conforme">Conforme</li>
             <li><input type="checkbox" name="signalisation" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="signalisation" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="signalisation" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('signalisation')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="fiches_signalitique">Fiches signalétiques</label>
             <ul>
             <li><input type="checkbox" name="fiches_signalitique" value="conforme">Conforme</li>
             <li><input type="checkbox" name="fiches_signalitique" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="fiches_signalitique" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="fiches_signalitique" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('fiches_signalitique')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="travaux_excavation">Travaux - Excavation</label>
             <ul>
             <li><input type="checkbox" name="travaux_excavation" value="conforme">Conforme</li>
             <li><input type="checkbox" name="travaux_excavation" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="travaux_excavation" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="travaux_excavation" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('travaux_excavation')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="espace_clos">Espace clos</label>
             <ul>
             <li><input type="checkbox" name="espace_clos" value="conforme">Conforme</li>
             <li><input type="checkbox" name="espace_clos" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="espace_clos" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="espace_clos" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('espace_clos')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="methode_de_travail">Méthode de travail</label>
             <ul>
             <li><input type="checkbox" name="methode_de_travail" value="conforme">Conforme</li>
             <li><input type="checkbox" name="methode_de_travail" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="methode_de_travail" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="methode_de_travail" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('methode_de_travail')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
-            <label for="autres">Autre(s): <br>
+        <div class="container_element champs">
+            <label for="autres">Autre(s):  
             <input type="text" id="autresTravaux" name="autres"></label>
             <ul>
             <li><input type="checkbox" name="autre" value="conforme">Conforme</li>
             <li><input type="checkbox" name="autre" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="autre" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="autre" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('autres')
@@ -154,36 +159,36 @@
 
     <h5>Covid-19</h5>
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="distanciation">Respect de la distanciation</label>
             <ul>
             <li><input type="checkbox" name="distanciation" value="conforme">Conforme</li>
             <li><input type="checkbox" name="distanciation" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="distanciation" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="distanciation" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('distanciation')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="port_epi">Port des EPI (masque/visière)</label>
             <ul>
             <li><input type="checkbox" name="port_epi" value="conforme">Conforme</li>
             <li><input type="checkbox" name="port_epi" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="port_epi" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="port_epi" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('port_epi')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <div class="container_element">
+        <div class="container_element champs">
             <label for="procedures_covid">Respect des procédures établies:</label>
             <ul>
             <li><input type="checkbox" name="procedures_covid" value="conforme">Conforme</li>
             <li><input type="checkbox" name="procedures_covid" value="non_conforme">Non conforme</li>
-            <li><input type="checkbox" name="procedures_covid" value="na" id="na"> N/A<br></li>
+            <li><input type="checkbox" name="procedures_covid" value="na" id="na"> N/A </li>
             </ul>
         </div>
         @error('procedures_covid')
@@ -192,7 +197,7 @@
 
     </div>
 
-        <br><input type="submit" value="Soumettre">
+         <input type="submit" value="Soumettre">
     </form>
 
 
