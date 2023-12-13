@@ -7,59 +7,61 @@
     <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
 </div>
 
+
+  <!-- Début card les formulaires -->        
 <div class="container">
-  <div class="card my-2">
-    <div class="row align-items-center">
-      <div class="col-2 m-2">
-        <i class="fa-solid fa-file-lines black isize"></i>
-      </div>
-      <div class="col-8 px-2">
-        <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
-        <div class="">
-          <h3 class="">Description du document</h3>
-        </div>
-        <div class="my-4">
-          <a class="btn btn-primary" href="">lien</a>
-        </div>
-      </div>
-   
-    </div>
-  </div>
-  
+<h3 class="titreForm mt-5">Liste des documents:</h3>
+<div class="mesForms row">
 
-  <div class="card my-2">
-  <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
-    <div class="">
-      <h3 class="">Description du document</h3>
+    <div class="col-md-6">
+        <a href="" class="card-link">
+            <div class="card">
+                <i class="fa-solid fa-file-lines black isize2 mb-1 mt-2 "></i>
+                <div class="card-body">    
+                    <h6 class="card-title">Description...</h6>
+                </div>
+            </div>
+        </a>
     </div>
-    <div class="my-4">
-      <a class="btn btn-primary" href="">lien</a>
-    </div>
-  </div>
 
-  <div class="card my-2">
-  <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
-    <div class="">
-      <h3 class="">Description du document</h3>
+    <div class="col-md-6">
+        <a href="" class="card-link">
+            <div class="card">
+            <i class="fa-solid fa-file-lines black isize2 mb-1 mt-2"></i>
+                <div class="card-body">    
+                <h6 class="card-title">Description...</h6>
+                </div>
+            </div>
+        </a>
     </div>
-    <div class="my-4">
-      <a class="btn btn-primary" href="">lien</a>
-    </div>
-  </div>
 
-  <div class="card my-2">
-  <h2 class="text-xl md:text-3xl font-bold my-4">Document</h2>
-    <div class="">
-      <h3 class="">Description du document</h3>
+    <div class="col-md-6">
+        <a href="" class="card-link">
+            <div class="card">
+            <i class="fa-solid fa-file-lines black size2 mb-1 mt-2"></i>
+                <div class="card-body">    
+                <h6 class="card-title">Description...</h6>
+                </div>
+            </div>
+        </a>
     </div>
-    <div class="my-4">
-      <a class="btn btn-primary" href="">lien</a>
-    </div>
-  </div>
 
+    <div class="col-md-6">
+        <a href="" class="card-link">
+            <div class="card">
+            <i class="fa-solid fa-file-lines black size2 mb-1 mt-2"></i>
+                <div class="card-body">    
+                <h6 class="card-title">Description...</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    
 </div>
-
-
+</div>
+<!-- Fin card les formulaires -->
+  
 
    
 <!-- FOOTER -->

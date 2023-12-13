@@ -36,7 +36,10 @@ class GrilleAuditSstController extends Controller
     {
     
         try { 
-
+            
+            // Validation des données du formulaire
+            $validatedData = $request->validate();
+        
             // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
             $grilleAuditSST = new GrilleAuditSST;
 
@@ -61,7 +64,7 @@ class GrilleAuditSstController extends Controller
             $grilleAuditSST->travaux_excavation = $request->travaux_excavation;
             $grilleAuditSST->espace_clos = $request->espace_clos;
             $grilleAuditSST->methode_de_travail = $request->methode_de_travail;
-            $grilleAuditSST->autres = $request->autres;
+            $grilleAuditSST->autres = $request->filled('autres') ? $request->autres : 'N/A';
             $grilleAuditSST->distanciation = $request->distanciation;
             $grilleAuditSST->port_epi = $request->port_epi;
             $grilleAuditSST->procedures_covid = $request->procedures_covid;

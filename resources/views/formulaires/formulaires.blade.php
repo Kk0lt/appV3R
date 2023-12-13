@@ -13,73 +13,45 @@
 <h3 class="titreForm mt-5">Liste des formulaires:</h3>
 <div class="mesForms row">
 
-    <div class="col-md-4 mb-5">
-        <a href="" class="card-link">
+    <div class="col-md-6">
+        <a href="{{ route('formulaires.formAccidentTravail') }}" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-list-check orangeLogo my-1"></i>
+                <i class="fa-solid fa-list-check orangeLogo mb-1 mt-2"></i>
                 <div class="card-body">    
-                    <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                    <h6 class="card-title">YYYY-MM-JJ</h6>
+                    <h6 class="card-title">Formulaire d'accident de travail</h6>
                 </div>
             </div>
         </a>
     </div>
 
-    <div class="col-md-4 mb-5">
-        <a href="" class="card-link">
+    <div class="col-md-6">
+        <a href="{{ route('formulaires.formSituationDangereuse') }}" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-list-check orangeLogo my-1"></i>
+                <i class="fa-solid fa-list-check orangeLogo mb-1 mt-2"></i>
                 <div class="card-body">    
-                    <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                    <h6 class="card-title">YYYY-MM-JJ</h6>
+                    <h6 class="card-title">Formulaire de déclaration de situation dangereuse</h6>
                 </div>
             </div>
         </a>
     </div>
 
-    <div class="col-md-4 mb-5">
-        <a href="" class="card-link">
+    <div class="col-md-6">
+        <a href="{{ route('formulaires.grilleAuditSST') }}" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-list-check orangeLogo my-1"></i>
+                <i class="fa-solid fa-list-check orangeLogo mb-1 mt-2"></i>
                 <div class="card-body">    
-                    <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                    <h6 class="card-title">YYYY-MM-JJ</h6>
+                    <h6 class="card-title">Grille Audit SST</h6>
                 </div>
             </div>
         </a>
     </div>
 
-    <div class="col-md-4 mb-5">
-        <a href="" class="card-link">
+    <div class="col-md-6">
+        <a href="{{ route('formulaires.rapportAccident') }}" class="card-link">
             <div class="card">
-                <i class="fa-solid fa-list-check orangeLogo my-1"></i>
+                <i class="fa-solid fa-list-check orangeLogo mb-1 mt-2"></i>
                 <div class="card-body">    
-                    <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                    <h6 class="card-title">YYYY-MM-JJ</h6>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-md-4 mb-5">
-        <a href="" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-list-check orangeLogo my-1"></i>
-                <div class="card-body">    
-                    <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                    <h6 class="card-title">YYYY-MM-JJ</h6>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-md-4 mb-5">
-        <a href="" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-list-check orangeLogo my-1"></i>
-                <div class="card-body">    
-                    <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                    <h6 class="card-title">YYYY-MM-JJ</h6>
+                    <h6 class="card-title">Atelier mécanique - Rapport d'accident</h6>
                 </div>
             </div>
         </a>

@@ -35,6 +35,10 @@ class FormAccidentTravailController extends Controller
     public function store(FormAccidentTravailRequest $request)
     {
         try {
+            
+        // Validation des données du formulaire
+        $validatedData = $request->validate();
+
         // Créer une nouvelle instance du modèle FormAccidentTravail
         $formAccidentTravail = new FormAccidentTravail;
 

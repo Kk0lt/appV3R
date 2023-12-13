@@ -48,6 +48,11 @@
     font-size: 75px;
 }
 
+.size2
+{
+    font-size: 70px;
+}
+
 html
 {
     overflow-x: hidden;
@@ -181,7 +186,6 @@ html
 
 
 .card-body {
-    padding: 10px;
     font-size: 23px;
 
 }
@@ -206,7 +210,6 @@ html
 .card-link 
 {
     background-color: var(--white); 
-    margin-right: 10px;
     text-decoration: none; 
 }
 

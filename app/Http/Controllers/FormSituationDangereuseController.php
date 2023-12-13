@@ -33,6 +33,10 @@ class FormSituationDangereuseController extends Controller
     public function store(FormSituationDangereuseRequest $request)
     {
         try {
+            
+            // Validation des données du formulaire
+            $validatedData = $request->validate();
+        
             // Créer une nouvelle instance du modèle FormSituationDangereuse
             $formSituationDangereuse = new FormSituationDangereuse;
             

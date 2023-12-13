@@ -122,7 +122,6 @@ form {
 input[type="time"],
 input[type="date"],
 select {
-    margin-bottom: 10px;
     border: 2px solid var(--orange);
     border-radius: 3px;
     padding: 5px;
@@ -133,7 +132,6 @@ input[type="text"],
 textarea {
     width: 50%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 2px solid var(--orange);
     border-radius: 3px;
     transition: width 0.4s ease-in-out;
@@ -205,8 +203,14 @@ input[type="submit"]:hover {
 
 
 
+.error{
+    color: red;
+    font-size: 15px;
+}
 
-
+.champ{
+    margin-bottom: 10px;
+}
 
 
 
