@@ -16,47 +16,69 @@
     <h1>Déclaration d'accident de travail</h1>
     <form method="POST" action="{{ route('FormAccidentTravail.store') }}">
     @csrf
-    <!--Description de l'évenement-->
+    <!-- Description de l'événement -->
 
-    <h5>Description de l'évenement</h5>
+    <h5>Description de l'événement</h5>
 
-        <label for="date">Date de l'accident :</label>
-        <input type="date" name="date" value="{{ old('date') }}" required><br><br>
+    <label for="date">Date de l'accident :</label>
+    <input type="date" name="date" required><br><br>
+    @error('date')
+        <div class="error">{{ $message }}</div>
+    @enderror
 
-        <label for="heure">Heure :</label>
-        <input type="time" name="heure" value="{{ old('heure') }}" required><br><br>
-        <div class="temoin-group">
-                <label>Témoin :</label>
-                <div class="temoin_checkbox">
-                    <input type="radio" name="temoin" value="Oui" id="temoin_oui">
-                    <label for="temoin_oui" id="label_temoin_oui">Oui</label>
-                    <input type="radio" name="temoin" value="Non" id="temoin_non">
-                    <label for="temoin_non">Non</label>
-                </div>
-            </div>
+    <label for="heure">Heure :</label>
+    <input type="time" name="heure" required><br><br>
+    @error('heure')
+        <div class="error">{{ $message }}</div>
+    @enderror
+
+    <div class="temoin-group">
+        <label>Témoin :</label>
+        <div class="temoin_checkbox">
+            <input type="radio" name="temoin" value="Oui" id="temoin_oui">
+            <label for="temoin_oui" id="label_temoin_oui">Oui</label>
+            <input type="radio" name="temoin" value="Non" id="temoin_non">
+            <label for="temoin_non">Non</label>
+        </div>
+    </div>
+    @error('temoin')
+        <div class="error">{{ $message }}</div>
+    @enderror
+
     <!-- Champ de saisie du nom du témoin -->
     <div id="temoin_nom" style="display: none;">
         <label for="nom_temoin">Nom du témoin/des témoins :</label>
-        <input type="text" id="nom_temoin" name="nom_temoin" value="{{ old('nom_temoin') }}">
-            <label for="num_temoin">Numero de téléphone du témoin/des témoins :</label>
-        <input type="text" id="num_temoin" name="num_temoin" value="{{ old('num_temoin') }}">
+        <input type="text" id="nom_temoin" name="nom_temoin">
+        @error('nom_temoin')
+            <div class="error">{{ $message }}</div>
+        @enderror
+
+        <label for="num_temoin">Numero de téléphone du témoin/des témoins :</label>
+        <input type="text" id="num_temoin" name="num_temoin">
+        @error('num_temoin')
+            <div class="error">{{ $message }}</div>
+        @enderror
+
     </div>
 
-    <script>
+    <label for="endroit">Endroit de l'accident :</label>
+    <input type="text" name="endroit" value="{{ old('endroit') }}" required><br><br>
+    @error('endroit')
+        <div class="error">{{ $message }}</div>
+    @enderror
 
-    </script>
 
+    <label for="secteur">Secteur d'activité :</label>
+    <input type="text" name="secteur" value="{{ old('secteur') }} required><br><br>
+    @error('secteur')
+        <div class="error">{{ $message }}</div>
+    @enderror
 
-        <label for="endroit">Endroit de l'accident :</label>
-        <input type="text" name="endroit" value="{{ old('endroit') }}" required ><br><br>
+    <!-- Nature et site de la blessure -->
+    <div class="checkbox-group">
 
-        <label for="secteur">Secteur d'activité :</label>
-        <input type="text" name="secteur" value="{{ old('secteur') }}" required><br><br>
-
-        <!---->
-        <div class="checkbox-group">
         <label>Nature et site de la blessure (cochez s'il y a lieu, côté droit ou côté gauche) :</label>
-        
+
         <div class="container_blessure">
         <label for="blessure_tete">Tête, visage, nez, yeux, oreille :</label>
         <ul>
@@ -65,6 +87,9 @@
             <li><input type="checkbox" name="blessure_tete" value="aucun" id="blessure_tete_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_tete')
+            <div class="error">{{ $message }}</div>
+        @enderror
 
         <div class="container_blessure">
         <label for="blessure_torse">Torse :</label>
@@ -74,6 +99,9 @@
             <li><input type="checkbox" name="blessure_torse" value="aucun" id="blessure_torse_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_torse')
+            <div class="error">{{ $message }}</div>
+        @enderror
 
         <div class="container_blessure">
         <label for="blessure_poumon">Poumon :</label>
@@ -83,6 +111,9 @@
             <li><input type="checkbox" name="blessure_poumon" value="aucun" id="blessure_poumon_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_poumon')
+            <div class="error">{{ $message }}</div>
+        @enderror
   
         <div class="container_blessure">
         <label for="blessure_bras">Bras, épaule, coude :</label>
@@ -92,6 +123,9 @@
             <li><input type="checkbox" name="blessure_bras" value="aucun" id="blessure_bras_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_bras')
+            <div class="error">{{ $message }}</div>
+        @enderror
   
         <div class="container_blessure">
         <label for="blessure_poignets">Poignets, main, doigt :</label>
@@ -101,6 +135,9 @@
             <li><input type="checkbox" name="blessure_poignets" value="aucun" id="blessure_poignets_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_poignets')
+            <div class="error">{{ $message }}</div>
+        @enderror
   
         <div class="container_blessure">
         <label for="blessure_dos">Dos :</label>
@@ -110,6 +147,9 @@
             <li><input type="checkbox" name="blessure_dos" value="aucun" id="blessure_dos_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_dos')
+            <div class="error">{{ $message }}</div>
+        @enderror
 
         <div class="container_blessure">
         <label for="blessure_hanche">Hanche :</label>
@@ -119,6 +159,9 @@
             <li><input type="checkbox" name="blessure_hanche" value="aucun" id="blessure_hanche_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_hanche')
+            <div class="error">{{ $message }}</div>
+        @enderror
   
         <div class="container_blessure">
         <label for="blessure_jambe">Jambe, genou :</label>
@@ -128,6 +171,9 @@
             <li><input type="checkbox" name="blessure_jambe" value="aucun" id="blessure_jambe_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_jambe')
+            <div class="error">{{ $message }}</div>
+        @enderror
   
         <div class="container_blessure">
         <label for="blessure_pied">Pied, orteil, cheville :</label>
@@ -137,6 +183,9 @@
             <li><input type="checkbox" name="blessure_pied" value="aucun" id="blessure_pied_aucun"> Aucun</li>
         </ul>
         </div>
+        @error('blessure_pied')
+            <div class="error">{{ $message }}</div>
+        @enderror
 
         <div class="container_blessure">
         <label for="blessure_autre">Autres :</label>
@@ -144,6 +193,9 @@
             <li><input type="text" name="blessure_autre" value="{{ old('blessure_autre') }}" > </li>
         </ul>
         </div>
+        @error('blessure_autre')
+            <div class="error">{{ $message }}</div>
+        @enderror
 
   
 
@@ -167,45 +219,68 @@
             <li><input type="checkbox" name="description_blessure" value="Autres">Autres</li>
             </ul>    
         </div>
+        @error('description_blessure')
+        <div class="error">{{ $message }}</div>
+        @enderror
 
         <div class="checkbox-group">
         <label>Violence (cochez s'il y a lieu) :</label>
         <input type="checkbox" name="violence" value="Physique">Physique
         <input type="checkbox" name="violence" value="Verbal">Verbal
         </div>
+        error('violence')
+        <div class="error">{{ $message }}</div>
+        @enderror
 
         <label for="tache">Description de la tâche effectuée :</label>
         <textarea name="tache" value="{{ old('tache') }}" rows="4" cols="50" ></textarea><br><br>
+        @error('tache')
+        <div class="error">{{ $message }}</div>
+        @enderror
 
         <label for="soin">Premiers soins :</label>
         <textarea name="soin" value="{{ old('soin') }}" rows="4" cols="50" ></textarea><br><br>
+        @error('soin')
+        <div class="error">{{ $message }}</div>
+        @enderror
 
         <label for="secouriste">Nom du secouriste :</label>
         <input type="text" name="secouriste" value="{{ old('secouriste') }}"><br><br>
+        @error('secouriste')
+        <div class="error">{{ $message }}</div>
+        @enderror
+
 
         <!--Détails sur le durée de l'absence-->
         <div class = "absence_container">
-        <h5>Détails sur le durée de l'absence</h5>
-        <label>Absence (cochez l'une des options) :</label>
-        <div class="absence">
-            <input type="radio" name="absence" value="aucune_absence" id="absence_aucune">
-            <label for="absence_aucune">Accident nécessitant aucune absence</label>
-        </div>
-        <div class="absence">
-            <input type="radio" name="absence" value="absence" id="absence_consultation">
-            <label for="absence_consultation">Accident nécessitant une consultation</label>
-        </div>
-
-
-        <div class="superieur-group">
-            <label for="superieur">J'ai avisé mon supérieur immédiat :</label>
-            <div class="checkbox_sup">
-                <input type="radio" name="checkbox_sup" value="Oui" id="sup_oui">
-                <label for="sup_oui" id="label_sup_oui">Oui</label>
-                <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
-                <label for="sup_non" id="label_sup_non">Non</label>   
+            <h5>Détails sur le durée de l'absence</h5>
+            <label>Absence (cochez l'une des options) :</label>
+            <div class="absence">
+                <input type="radio" name="absence" value="aucune_absence" id="absence_aucune">
+                <label for="absence_aucune">Accident nécessitant aucune absence</label>
             </div>
-        </div>
+            <div class="absence">
+                <input type="radio" name="absence" value="absence" id="absence_consultation">
+                <label for="absence_consultation">Accident nécessitant une consultation</label>
+            </div>
+            @error('absence')
+            <div class="error">{{ $message }}</div>
+            @enderror
+        
+
+
+            <div class="superieur-group">
+                <label for="superieur">J'ai avisé mon supérieur immédiat :</label>
+                <div class="checkbox_sup">
+                    <input type="radio" name="checkbox_sup" value="Oui" id="sup_oui">
+                    <label for="sup_oui" id="label_sup_oui">Oui</label>
+                    <input type="radio" name="checkbox_sup" value="Non" id="sup_non">
+                    <label for="sup_non" id="label_sup_non">Non</label>   
+                </div>
+                @error('checkbox_sup')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
         
     
         </div>

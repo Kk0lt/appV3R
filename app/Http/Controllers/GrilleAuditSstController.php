@@ -36,7 +36,10 @@ class GrilleAuditSstController extends Controller
     {
     
         try { 
-
+            
+            // Validation des données du formulaire
+            $validatedData = $request->validate();
+        
             // Créer une nouvelle instance du modèle GrilleAuditSST et attribuer les valeurs
             $grilleAuditSST = new GrilleAuditSST;
 

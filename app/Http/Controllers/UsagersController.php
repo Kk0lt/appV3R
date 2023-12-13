@@ -115,11 +115,11 @@ class UsagersController extends Controller
     }
     
     // Déconnexion
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('usagers.formConnexion');
-    }
+        public function logout()
+        {
+            Auth::logout();
+            return redirect()->route('usagers.formConnexion');
+        }
 
 
     /**
