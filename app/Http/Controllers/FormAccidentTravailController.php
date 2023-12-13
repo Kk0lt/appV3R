@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormAccidentTravailRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\FormAccidentTravail;
 use App\Models\Formulaire;
 use App\Models\Notification;
 use App\Models\Employe;
-use App\Http\Requests\FormAccidentTravailRequest;
 
 
 class FormAccidentTravailController extends Controller
@@ -90,11 +90,16 @@ class FormAccidentTravailController extends Controller
         $notification = new Notification();
         $notification->superieur_id = $superviseurId;
         $notification->employe_id = $employe->id;
-        $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
-        $notification->save();
-
+        $notification->nom_Form = "Formulaire d'accident de travail";
+        $notification->statut_superieur = "non lu";
+        $notification->statut_admin = "non lu";
+        $notification->nom_employe =  $employeNom ;
+                 
         // Enregistrez l'instance dans la base de données
         $formAccidentTravail->save();
+        $notification->form_id = $formAccidentTravail->id;
+        $notification->save();
+
 
         // Redirigez l'utilisateur vers une page de confirmation ou de succès
         } catch(\Throwable $e) {

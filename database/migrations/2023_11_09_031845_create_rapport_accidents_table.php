@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('rapport_accidents', function (Blueprint $table) {
             $table->id();
-            //$table->unsignedBigInteger('employe_id'); //employe qui a rempli
+            $table->integer('employe_id');
             
             $table->string('noUnite', 256);
             $table->string('departement', 256);
             $table->string('noPermis', 256);
             $table->string('autres_vehicule', 256);
-
-            //$table->foreign('employe_id')->references('id')->on('employes');
             $table->timestamps();
         });
     }

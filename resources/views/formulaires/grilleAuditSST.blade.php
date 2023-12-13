@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Déclaration d'accident de travail</title>
+    <title>Grille Audit SST</title>
     <link rel="stylesheet" href="{{ asset('css/grilleAuditSST.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/formulaires.css') }} ">
 

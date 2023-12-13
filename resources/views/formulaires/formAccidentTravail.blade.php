@@ -21,10 +21,10 @@
     <h5>Description de l'évenement</h5>
 
         <label for="date">Date de l'accident :</label>
-        <input type="date" name="date" required><br><br>
+        <input type="date" name="date" value="{{ old('date') }}" required><br><br>
 
         <label for="heure">Heure :</label>
-        <input type="time" name="heure" required><br><br>
+        <input type="time" name="heure" value="{{ old('heure') }}" required><br><br>
         <div class="temoin-group">
                 <label>Témoin :</label>
                 <div class="temoin_checkbox">
@@ -37,9 +37,9 @@
     <!-- Champ de saisie du nom du témoin -->
     <div id="temoin_nom" style="display: none;">
         <label for="nom_temoin">Nom du témoin/des témoins :</label>
-        <input type="text" id="nom_temoin" name="nom_temoin">
+        <input type="text" id="nom_temoin" name="nom_temoin" value="{{ old('nom_temoin') }}">
             <label for="num_temoin">Numero de téléphone du témoin/des témoins :</label>
-        <input type="text" id="num_temoin" name="num_temoin">
+        <input type="text" id="num_temoin" name="num_temoin" value="{{ old('num_temoin') }}">
     </div>
 
     <script>
@@ -48,10 +48,10 @@
 
 
         <label for="endroit">Endroit de l'accident :</label>
-        <input type="text" name="endroit" required><br><br>
+        <input type="text" name="endroit" value="{{ old('endroit') }}" required ><br><br>
 
         <label for="secteur">Secteur d'activité :</label>
-        <input type="text" name="secteur" required><br><br>
+        <input type="text" name="secteur" value="{{ old('secteur') }}" required><br><br>
 
         <!---->
         <div class="checkbox-group">
@@ -141,7 +141,7 @@
         <div class="container_blessure">
         <label for="blessure_autre">Autres :</label>
         <ul>
-            <li><input type="text" name="blessure_autre" value=""> </li>
+            <li><input type="text" name="blessure_autre" value="{{ old('blessure_autre') }}" > </li>
         </ul>
         </div>
 
@@ -175,13 +175,13 @@
         </div>
 
         <label for="tache">Description de la tâche effectuée :</label>
-        <textarea name="tache" rows="4" cols="50"></textarea><br><br>
+        <textarea name="tache" value="{{ old('tache') }}" rows="4" cols="50" ></textarea><br><br>
 
         <label for="soin">Premiers soins :</label>
-        <textarea name="soin" rows="4" cols="50"></textarea><br><br>
+        <textarea name="soin" value="{{ old('soin') }}" rows="4" cols="50" ></textarea><br><br>
 
         <label for="secouriste">Nom du secouriste :</label>
-        <input type="text" name="secouriste"><br><br>
+        <input type="text" name="secouriste" value="{{ old('secouriste') }}"><br><br>
 
         <!--Détails sur le durée de l'absence-->
         <div class = "absence_container">

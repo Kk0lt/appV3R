@@ -9,7 +9,6 @@ use App\Models\Notification;
 use App\Models\Employe;
 use App\Http\Requests\FormSituationDangereuseRequest;
 
-
 class FormSituationDangereuseController extends Controller
 {
     /**
@@ -63,16 +62,21 @@ class FormSituationDangereuseController extends Controller
             $formSituationDangereuse->superieur_averti = $request->input('checkbox_sup');
         
             // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+
             $superviseurId = $employe->superieur_id;
             // Notifier superviseur direct
             $notification = new Notification();
             $notification->superieur_id = $superviseurId;
             $notification->employe_id = $employe->id;
-            $notification->message = 'Nouveau formulaire rempli par l\'employé ' . $employeNom . '.';
-            $notification->save();
+            $notification->nom_Form = "Formulaire de Situation Dangereuse";
+            $notification->statut_superieur = "non lu";
+            $notification->statut_admin = "non lu";
+            $notification->nom_employe =  $employeNom ;
                  
             // Enregistrez l'instance dans la base de données
             $formSituationDangereuse->save();
+            $notification->form_id = $formSituationDangereuse->id;
+            $notification->save();
     
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
             } catch (\Throwable $e) {
