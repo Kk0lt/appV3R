@@ -22,7 +22,6 @@ class GrilleAuditSSTRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'lieu' => 'required|string',
             'date' => 'required|date',
             'heure' => 'required',
             'epi' => 'required|in:conforme,non_conforme,na',
@@ -33,10 +32,12 @@ class GrilleAuditSSTRequest extends FormRequest
             'travaux_excavation' => 'required|in:conforme,non_conforme,na',
             'espace_clos' => 'required|in:conforme,non_conforme,na',
             'methode_de_travail' => 'required|in:conforme,non_conforme,na',
-            'autres' => 'nullable|string',
+            'autres' => 'nullable|min:3|string|regex:/^(?![-.]{3}$)[A-Za-z0-9\s\-]{3,}$/',
             'distanciation' => 'required|in:conforme,non_conforme,na',
             'port_epi' => 'required|in:conforme,non_conforme,na',
             'procedures_covid' => 'required|in:conforme,non_conforme,na',
+            'lieu' => 'required|min:3|string|regex:/^(?![-.]{3}$)[A-Za-z0-9\s\-]{3,}$/',
+
         ];
     }
 
@@ -71,6 +72,11 @@ class GrilleAuditSSTRequest extends FormRequest
             'port_epi.in' => 'La valeur pour le port d\'EPI doit être "conforme", "non conforme" ou "n/a".',
             'procedures_covid.required' => 'Les procédures COVID sont obligatoires.',
             'procedures_covid.in' => 'La valeur pour les procédures COVID doit être "conforme", "non conforme" ou "n/a".',
+
+            'autres.min' => 'Le champ autres doit contenir au moins 3 caractères.',
+            'autres.regex' => 'Le champ autres ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
+            'lieu.min' => 'Le champ lieu doit contenir au moins 3 caractères.',
+            'lieu.regex' => 'Le champ lieu ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
         ];
     }
 }

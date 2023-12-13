@@ -64,7 +64,7 @@ class GrilleAuditSstController extends Controller
             $grilleAuditSST->travaux_excavation = $request->travaux_excavation;
             $grilleAuditSST->espace_clos = $request->espace_clos;
             $grilleAuditSST->methode_de_travail = $request->methode_de_travail;
-            $grilleAuditSST->autres = $request->autres;
+            $grilleAuditSST->autres = $request->filled('autres') ? $request->autres : 'N/A';
             $grilleAuditSST->distanciation = $request->distanciation;
             $grilleAuditSST->port_epi = $request->port_epi;
             $grilleAuditSST->procedures_covid = $request->procedures_covid;

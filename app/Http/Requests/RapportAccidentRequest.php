@@ -22,10 +22,12 @@ class RapportAccidentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'noUnite' => 'required|string',
-            'departement' => 'required',
             'noPermis' => 'required|string',
             'checkbox_autre_vehicule' => 'required|in:Oui,Non',
+
+            'noUnite' => 'required|min:3|string|regex:/^(?![-.]{3}$)[A-Za-z0-9\s\-]{3,}$/',
+            'noPermis' => 'required|min:3|string|regex:/^(?![-.]{3}$)[A-Za-z0-9\s\-]{3,}$/',
+
         ];
     }
 
@@ -39,6 +41,11 @@ class RapportAccidentRequest extends FormRequest
             'noPermis.string' => 'Le numéro de permis doit être une chaîne de caractères.',
             'checkbox_autre_vehicule.required' => 'Veuillez spécifier si un autre véhicule était impliqué.',
             'checkbox_autre_vehicule.in' => 'La valeur pour un autre véhicule doit être "Oui" ou "Non".',
+
+            'noUnite.min' => 'Le champ numéro d\'unité doit contenir au moins 3 caractères.',
+            'noUnite.regex' => 'Le champ numéro d\'unité ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
+            'noPermis.min' => 'Le champ numéro de permis doit contenir au moins 3 caractères.',
+            'noPermis.regex' => 'Le champ numéro de permis ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
         ];
     }
 }

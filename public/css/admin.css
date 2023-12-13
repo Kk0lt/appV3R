@@ -12,8 +12,7 @@
     --green: rgb(25, 158, 18);
     --red: rgb(237, 3, 3);
 }
-.bg{
-}
+
 .mesForms {    
     margin-top: 3%;
     margin-left: 3%;
@@ -28,9 +27,6 @@
     font-size: 23px;
 }
 
-.nom_form{
-    
-}
 .admin_lu, .superieur_lu {
     color: var(--green) !important;
     text-transform: capitalize;
