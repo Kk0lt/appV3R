@@ -13,10 +13,20 @@
     <!-- BOX ICONS CSS-->
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <!-- Stylesheet Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <!-- Popper.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <!-- Bootstrap JavaScript -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/formConnexion.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-    
+
     
     <title>ProjetV3R</title>
 </head>
@@ -39,12 +49,14 @@
         </div>
     
         <hr>
-
+        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
+        <a class="nav-link white my-2" href="{{ route('admins.admin') }}">
+        @else
         <a class="nav-link white my-2" href="{{ route('employes.accueil') }}">
-          
+        @endif
               <img class="img-fluid logoUser" src="{{ asset('img/user.png') }}" alt="">
-              <h5 class="padNav2">Nom de l'employé</h5>
-              <h6 class="padNav4 grey">Poste de l'employé</h6>
+              <h5 class="nom-user">@auth {{ Auth::user()->prenom }} {{ Auth::user()->nom }} @endauth</h5>
+              <h6 class="poste-user grey">Poste de l'employé</h6>
           
         </a>
 

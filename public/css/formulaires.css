@@ -32,6 +32,14 @@ form {
     margin: 0 auto;
 }
 
+.info-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
 /* Style pour les titres */
 .bodycontainer h1 {
     font-family: "Alumni Sans", sans-serif;

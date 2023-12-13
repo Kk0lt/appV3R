@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->integer('superieur_id');
             $table->integer('employe_id');
-            $table->string('message', 256);
+            $table->string('nom_employe', 256);
+            $table->string('nom_Form', 256);
+            $table->integer('form_id');
+            $table->string('statut_superieur', 256);
+            $table->string('statut_admin', 256);
             $table->timestamps();
         });
     }

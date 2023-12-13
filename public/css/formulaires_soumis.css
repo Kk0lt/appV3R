@@ -1,0 +1,93 @@
+:root {
+    --orange: #ed8c00;
+    --blue: #0b2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+}
+
+form {
+    background-color: var(--white);
+    border: 0px solid #000000;
+    padding: 20px;
+}
+
+.info-form {
+    background-color: var(--white);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.custom-footer {
+    margin: 20px;
+    background-color: #dbdbdb;
+    border-top: 1px solid var(--black);
+    font-size: 15px;
+    margin-top: 5%;
+}
+
+.bodycontainer ul {
+    list-style-type: disc;
+    margin: 10px;
+    padding: 10px;
+}
+
+.categorie {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.reponse {
+    margin-left: 2%;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+input[type="submit"] {
+    background-color: var(--blue);
+    color: var(--orange);
+    border: none;
+    padding: 10px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+/* Style pour le bouton Soumettre au survol */
+input[type="submit"]:hover {
+    background-color: var(--orange);
+    color: var(--blue);
+}
+
+.submitbtn-container {
+    margin-right: 5%;
+    padding: 10px;
+}
+
+.SubmitBtn-Row {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .bodycontainer {
+        font-size: 16px;
+    }
+
+    .categorie {
+        font-size: 18px;
+    }
+
+    .reponse {
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+
+        font-size: 15px;
+    }
+}
