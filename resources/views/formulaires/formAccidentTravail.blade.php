@@ -225,7 +225,7 @@
         <input type="checkbox" name="violence" value="Physique">Physique
         <input type="checkbox" name="violence" value="Verbal">Verbal
         </div>
-        error('violence')
+        @error('violence')
         <div class="error">{{ $message }}</div>
         @enderror
 
