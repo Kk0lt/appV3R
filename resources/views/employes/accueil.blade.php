@@ -3,32 +3,48 @@
 @section('contenuDuMilieu')
 
 <body class="bg">
-<div>
+<div class="logo-container">
     <img src="/img/bouleOrange.png" alt="Logo Image" class="" id="Boucle"></a>
 </div>
 
-<div class="container">
+@if(!auth()->check() || (auth()->check() && auth()->user()->type == 'employe'))
     <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
+@endif
 
+
+@if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
+<div class="liste-notifications">
+    <div class="bjr_container">
+    <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
+    </div>
+    <div class="navigationRapide">
+        <h3>Notifications :</h3>
+        <ul>
+            @if (count($formulaireDetails) > 0)
+                @foreach ($formulaireDetails as $detail)
+                <li>
+                <a href="{{ route($detail['type'] . '.superieur.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
+                </li>
+                @endforeach
+            @else
+                <p>Aucune Notification.</p>
+            @endif
+        </ul>
+    </div>
+</div>
+@endif
+<div class="container">
+    
     <!-- Début card mes formulaires -->
 
-    <h5 class="com mt-5">Communiqués</h5>
+    <h5 class="communications">Communiqués</h5>
     <div class="horizontal-scroll">
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
         
-
         <a href="#" class="card-link">
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -37,7 +53,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -46,7 +62,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -55,7 +71,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -64,7 +80,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -73,7 +89,7 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
@@ -82,34 +98,73 @@
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="card-title">Nouveau formulaire disponible</h6>
+                    <h6 class="">Nouveau formulaire disponible</h6>
                 </div>
             </div>
         </a>
     </div>
-    
+
+
+        
         <!-- Fin card communiqué -->
 
         <!-- Début card mes formulaires -->        
     
-    <h3 class="titreForm mt-5">Mes formulaires:</h3>
-    <div class="mesForms">
+        <h3 class="titreForm">Mes formulaires:</h3>
+        <div class="mesForms">
 
-            <a href="" class="card-link">
-                <div class="card">
-                    <i class="fa-solid fa-list-check logo my-1"></i>
-                    <div class="card-body">    
-                        <h6 class="card-title">Déclaration d'accident: Reçus</h6>
-                        <h6 class="card-title">YYYY-MM-JJ</h6>
-                    </div>
-                </div>
-            </a>
-
-    </div>
-    </div>
-
+            @if (count($empForms) > 0)
+            @foreach ($empForms as $detail)
+                <a href="" class="card-link monForm">
+                    <div class="card">
+                        <i class="fa-solid fa-list-check logo my-1"></i>
+                        <div class="card-body">    
+                                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
+                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+                                    <p>rempli le</p>
+                                    <p class="date_form">{{ $detail['date'] }}</p>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </a>
+                    
+                    @endforeach
+                @else
+                <p class ="aucun-form">Aucun formulaire remplis </p>
+            @endif
+                
+        </div>
         <!-- Fin card mes formulaires -->
 
+        <!-- Formulaires lus -->        
+    
+        <h3 class="titreForm">Formulaires lus:</h3>
+        <div class="mesForms">
+
+            @if (count($formsLu) > 0)
+            @foreach ($formsLu as $detail)
+                <a href="" class="card-link monForm">
+                    <div class="card">
+                        <i class="fa-solid fa-list-check logo my-1"></i>
+                        <div class="card-body">    
+                                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
+                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+                                    <p>Employé: {{ $detail['nom_employe'] }}</p>
+                                    <p class="date_form">{{ $detail['date'] }}</p>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </a>
+                    
+                    @endforeach
+                @else
+                <p class ="aucun-form">Aucun formulaire remplis </p>
+            @endif
+                
+        </div>
+    </div>
 
    
 <!-- FOOTER -->

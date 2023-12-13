@@ -58,22 +58,25 @@
         @error('num_temoin')
             <div class="error">{{ $message }}</div>
         @enderror
+
     </div>
 
     <label for="endroit">Endroit de l'accident :</label>
-    <input type="text" name="endroit" required><br><br>
+    <input type="text" name="endroit" value="{{ old('endroit') }}" required><br><br>
     @error('endroit')
         <div class="error">{{ $message }}</div>
     @enderror
 
+
     <label for="secteur">Secteur d'activité :</label>
-    <input type="text" name="secteur" required><br><br>
+    <input type="text" name="secteur" value="{{ old('secteur') }} required><br><br>
     @error('secteur')
         <div class="error">{{ $message }}</div>
     @enderror
 
     <!-- Nature et site de la blessure -->
     <div class="checkbox-group">
+
         <label>Nature et site de la blessure (cochez s'il y a lieu, côté droit ou côté gauche) :</label>
 
         <div class="container_blessure">
@@ -187,7 +190,7 @@
         <div class="container_blessure">
         <label for="blessure_autre">Autres :</label>
         <ul>
-            <li><input type="text" name="blessure_autre" value=""> </li>
+            <li><input type="text" name="blessure_autre" value="{{ old('blessure_autre') }}" > </li>
         </ul>
         </div>
         @error('blessure_autre')
@@ -230,22 +233,23 @@
         @enderror
 
         <label for="tache">Description de la tâche effectuée :</label>
-        <textarea name="tache" rows="4" cols="50"></textarea><br><br>
+        <textarea name="tache" value="{{ old('tache') }}" rows="4" cols="50" ></textarea><br><br>
         @error('tache')
         <div class="error">{{ $message }}</div>
         @enderror
 
         <label for="soin">Premiers soins :</label>
-        <textarea name="soin" rows="4" cols="50"></textarea><br><br>
+        <textarea name="soin" value="{{ old('soin') }}" rows="4" cols="50" ></textarea><br><br>
         @error('soin')
         <div class="error">{{ $message }}</div>
         @enderror
 
         <label for="secouriste">Nom du secouriste :</label>
-        <input type="text" name="secouriste"><br><br>
+        <input type="text" name="secouriste" value="{{ old('secouriste') }}"><br><br>
         @error('secouriste')
         <div class="error">{{ $message }}</div>
         @enderror
+
 
         <!--Détails sur le durée de l'absence-->
         <div class = "absence_container">

@@ -67,7 +67,7 @@ class UsagersController extends Controller
     {
         try {
             $usager = Usager::findOrFail(auth()->user()->id);
-            Log::debug($usager);
+          
             // vérifier l'ancien mot de passe
             if (!Hash::check($request->input('old_password'), $usager->password)) {
                 return redirect()->back()->withErrors(['old_password' => 'Le mot de passe actuel ne correspond pas.']);
@@ -94,7 +94,6 @@ class UsagersController extends Controller
         
         if ($reussi) {
             $user = Auth::user();
-            Log::debug($user->type);
             if ($user->type === 'employe') {
                 return redirect()->route('employes.accueil');
             } elseif ($user->type === 'superieur') {
