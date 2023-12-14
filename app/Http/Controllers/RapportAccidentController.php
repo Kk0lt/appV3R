@@ -36,9 +36,7 @@ class RapportAccidentController extends Controller
     {
         try {
             
-            // Validation des données du formulaire
-            $validatedData = $request->validate();
-        
+
             // Créer une nouvelle instance du modèle RapportAccident et attribuer les valeurs
             $rapportAccident = new RapportAccident;
             
