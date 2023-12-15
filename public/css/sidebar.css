@@ -202,6 +202,11 @@ body {
   color: var(--grey);
 }
 
+.form-btndisconnect{
+    background-color: var(--blue) !important;
+    border: 0px solid var(--black) !important;
+
+}
 .disconnect
 {
     background-color: var(--orange);

@@ -100,6 +100,9 @@ Route::get('/accueil',
 Route::get('/documents', 
 [EmployesController::class, 'documents'])->name('employes.documents');
 
+
+Route::get('/notifications', 
+[EmployesController::class, 'notifications'])->name('employes.notifications');
 /*-----------------------Superieurs------------------------*/
 
 Route::post('/mark-notification-as-read/{formId}', 

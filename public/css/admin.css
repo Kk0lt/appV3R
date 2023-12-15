@@ -36,3 +36,8 @@
     color: var(--red) !important;
     text-transform: uppercase;
 }
+
+.titre-notif a{
+    text-decoration: none;
+    color: var(--blue);
+}

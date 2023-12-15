@@ -10,7 +10,14 @@
 
 <!-- Début card les formulaires -->        
 <div class="container">
-<h3 class="titreForm mt-5">Liste des formulaires:</h3>
+    <div class="enTete">
+    <div>
+        <h3 id=""><a id="retour" href="{{ url()->previous() }}">Retour</a></h3><br>
+    </div>
+    <div class="">
+    <h3 class="titreForm mt-1">Liste des formulaires:</h3>
+    </div>
+</div>
 <div class="mesForms row">
 
     <div class="col-md-6">

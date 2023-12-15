@@ -15,7 +15,9 @@
 .h5{
  text-align: center;   
 }
-
+.remplir-form{
+    color: var(--blue);
+}
 
 /*-------------APPARENCE DE L'ESPACE DE NOTIFICATIONS -------------*/
 .navigationRapide 

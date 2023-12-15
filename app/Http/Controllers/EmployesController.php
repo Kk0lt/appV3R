@@ -87,6 +87,125 @@ class EmployesController extends Controller
         return view('employes.documents');
     }
 
+    
+    public function notifications()
+    { try {
+
+            $notifications = Notification::all();
+             $formulaireDetails = [];
+            $allForms = [];
+            $luParAdmin = [];
+            $nonluParSuperieur = [];
+            $luParSuperieur = [];
+            $notifAdminParSuperieurLu = [];
+     
+            
+            foreach ($notifications as $notification) {
+                $type = $this->getFormulaireType($notification->nom_Form);
+                $statut_admin = $notification->statut_admin;
+                $statut_superieur = $notification->statut_superieur;
+                $superieur_id = $notification->superieur_id;
+                
+                $superieur = Employe::where('id', $superieur_id)->first();
+                $nom_superieur = $superieur->nom_employe;
+
+
+                //Tous les forms
+                if ($type ) {
+                    $allForms[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms non lu par admin
+                if ($type &&  $statut_admin == "non lu"  ) {
+                    $formulaireDetails[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms lu par admin
+                if ($type &&  $statut_admin == "lu"  ) {
+                    $luParAdmin[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms non lu par les superieurs
+                if ($type &&  $statut_superieur == "non lu"  ) {
+                    $nonluParSuperieur[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms lu par les superieurs
+                if ($type &&  $statut_superieur == "lu"  ) {
+                    $luParSuperieur[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms lu par les superieurs mais pas les admins
+                if ($type &&  $statut_superieur == "lu" && $statut_admin == "non lu"  ) {
+                    $notifAdminParSuperieurLu[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+
+            }
+            
+            return view('employes.notifications', compact('notification','allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur', 'notifAdminParSuperieurLu'));
+
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

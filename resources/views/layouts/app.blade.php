@@ -86,7 +86,7 @@
         
         <div class="mx-3">
         @if(auth()->check())
-        <form method="GET" action="{{ route('logout') }}">
+        <form class="form-btndisconnect" method="GET" action="{{ route('logout') }}">
           @csrf
           <button class="btnD disconnect">Fermer la session</button>
          </form>

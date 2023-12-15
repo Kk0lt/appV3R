@@ -36,6 +36,7 @@
 <div class="container">
     
     <!-- Début card mes formulaires -->
+    <h5><a href="{{ route('formulaires.listesForm') }}" class="remplir-form"><i class="fa-sharp fa-solid fa-file-pen"></i>  Remplir un formulaire</a></h5>
 
     <h5 class="communications">Communiqués</h5>
     <div class="horizontal-scroll">

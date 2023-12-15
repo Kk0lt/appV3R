@@ -18,6 +18,7 @@
     <h1>Formulaire Situation Dangereuse</h1>
     <div class = "info-form ">
         <ul>
+            
         <!-- Affichez les détails du formulaire situation dangereuse ici -->
         <li><p class="categorie">Nom de l'employé: </p><p class ="reponse">{{ $formulaire->employe->prenom }} {{ $formulaire->employe->nom }} </p></li>
         <li><p class="categorie">Date de l'accident: </p><p class ="reponse">{{ $formulaire->date }}</p></li>
@@ -34,8 +35,10 @@
         @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
         <div class ="SubmitBtn-Row">
             <div class="blocVide">
+                
             </div>
             <div class="submitbtn-container">
+                <button class="btn btn-retour" href="{{ url()->previous() }}">Retour</button>
                 <input type="submit" value="Marqué comme lu">
             </div>
         </div>

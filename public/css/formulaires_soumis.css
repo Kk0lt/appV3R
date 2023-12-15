@@ -55,12 +55,25 @@ input[type="submit"] {
     font-size: 20px;
 }
 
+.btn-retour {
+    background-color: var(--white);
+    color: var(--blue);
+    border: none;
+    padding: 10px 10px;
+    margin-right: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 200;
+    font-size: 20px;
+}
 /* Style pour le bouton Soumettre au survol */
 input[type="submit"]:hover {
     background-color: var(--orange);
     color: var(--blue);
 }
-
+.btn-retour:hover {
+    color: var(--orange);
+}
 .submitbtn-container {
     margin-right: 5%;
     padding: 10px;
