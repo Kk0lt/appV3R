@@ -34,8 +34,7 @@ class FormSituationDangereuseController extends Controller
     {
         try {
             
-            // Validation des données du formulaire
-            $validatedData = $request->validate();
+
         
             // Créer une nouvelle instance du modèle FormSituationDangereuse
             $formSituationDangereuse = new FormSituationDangereuse;

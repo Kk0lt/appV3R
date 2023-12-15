@@ -136,6 +136,7 @@
                 
         </div>
         <!-- Fin card mes formulaires -->
+        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
 
         <!-- Formulaires lus -->        
     
@@ -164,6 +165,8 @@
             @endif
                 
         </div>
+        @endif
+
     </div>
 
    
