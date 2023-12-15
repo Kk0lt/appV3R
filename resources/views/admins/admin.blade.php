@@ -45,6 +45,51 @@
 </div>
 
 <div class="container">
+
+
+<!-- Button trigger modal -->
+<a class="remplir-form" data-toggle="modal" data-target="#exampleModal">
+<i class="fa-sharp fa-solid fa-file-pen"></i>  Créer une procédure
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Créer une procédure</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+         <form method="POST" action="{{ route('procedures.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group mt-2">
+            <label for="titre">Titre: </label><br>
+            <input type="text" id="titre" name="titre" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="lien">Liens: </label><br>
+            <input type="text" id="lien" name="lien" required>
+        </div>
+      </div>
+
+    <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+          <button type="submit" class="btn btn-primary create-procedure ">Créer</button>
+    </div>
+
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Fin du modal -->
+
+
 <h3 class="titreForm">Listes des formulaires:</h3>
 <div class="mesForms">
     @if (count($allForms) > 0)

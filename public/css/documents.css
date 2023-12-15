@@ -10,10 +10,32 @@
     --darkBeige: #b4b4b4cc;
 }
 
+.procedures li{
+    border: 1px solid var(--grey) ;  
+    margin: 10px;
+    padding: 10px;
+}
+
+.procedures li:hover{
+    background-color: var(--orange);
+}
+.procedures ul{
+    list-style-type: none;
+
+}
+.procedures a{
+    color: var(--blue);
+}
+
 
 .create-procedure{
     background-color: var(--blue) ;
 }
 .create-procedure:hover{
     background-color: var(--orange) ;
+}
+
+#lien{
+    color: var(--darkBeige);
+    word-wrap: break-word;
 }

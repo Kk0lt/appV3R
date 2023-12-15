@@ -2,6 +2,7 @@
 @section('title', 'documents')
 @section('contenuDuMilieu')
 <head>
+<link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
 <link rel="stylesheet" href="{{ asset('css/documents.css') }}">
 </head>
 
@@ -58,26 +59,23 @@
 <!-- Fin du modal -->
 @endif
 
-<h3 class="titreForm ">Liste des documents:</h3>
+<h3 class="titreForm ">Liste des documents / procédures:</h3>
 
-  <div class="mesForms">
-    @if (count($procedures) > 0)
-    @foreach ($procedures as $procedure)
-      <a href="{{ $procedure['lien'] }}" class="card-link monForm">
-        <div class="card">
-            <i class="fa-solid fa-clipboard-list logo my-1"></i>
-            <div class="card-body">    
-              <p class="nom_form">{{ $procedure['titre'] }}</p>                                
-            </div>
-        </div>
-      </a>
-    @endforeach
-    @else
-    <p class ="aucun-form">Aucune procedure </p>
-    @endif
-  </div>
+<div class="procedures">
+    <ul>
+        @if (count($procedures) > 0)
+            @foreach ($procedures as $procedure)
+            <li>
+            <a href="{{ $procedure['lien'] }}">{{ $procedure['titre'] }}</a><br>
+            <a id="lien" href="{{ $procedure['lien'] }}">{{ $procedure['lien'] }}</a>
+            </li>
+            @endforeach
+        @else
+            <li>Aucune procedure.</li>
 
-
+        @endif
+    </ul>
+</div>
 </div>
 <!-- Fin card les formulaires -->
   
