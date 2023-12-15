@@ -40,69 +40,20 @@
 
     <h5 class="communications">Communiqués</h5>
     <div class="horizontal-scroll">
-        
-        <a href="#" class="card-link">
+    @if (count($procedures) > 0)
+    @foreach ($procedures as $procedure)
+        <a href="{{ $procedure['lien'] }}" class="card-link">
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
+                    <h6 class="">{{ $procedure['titre'] }}</h6>
                 </div>
             </div>
         </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
+    @endforeach
+    @else
+    <p class ="aucun-form">Aucune procedure </p>
+    @endif
     </div>
 
 
@@ -121,7 +72,7 @@
                         <i class="fa-solid fa-list-check logo my-1"></i>
                         <div class="card-body">    
                                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+                                    <p class="nom_f orm">{{ $detail['nom_Form'] }}</p>
                                     <p>rempli le</p>
                                     <p class="date_form">{{ $detail['date'] }}</p>
                                 </a>

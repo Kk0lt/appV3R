@@ -1,0 +1,19 @@
+
+:root
+{
+    --orange: #ED8C00;
+    --blue: #0B2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+    --beige: #D9D9D8;
+    --darkBeige: #b4b4b4cc;
+}
+
+
+.create-procedure{
+    background-color: var(--blue) ;
+}
+.create-procedure:hover{
+    background-color: var(--orange) ;
+}

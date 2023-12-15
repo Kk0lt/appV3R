@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'documents')
 @section('contenuDuMilieu')
+<head>
+<link rel="stylesheet" href="{{ asset('css/documents.css') }}">
+</head>
 
 <body class="bg">
 <div>
@@ -10,55 +13,71 @@
 
   <!-- Début card les formulaires -->        
 <div class="container">
-<h3 class="titreForm mt-5">Liste des documents:</h3>
-<div class="mesForms row">
 
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-file-lines black isize2 mb-1 mt-2 "></i>
-                <div class="card-body">    
-                    <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
+<!-- Button trigger modal -->
+@if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
+<a class="remplir-form" data-toggle="modal" data-target="#exampleModal">
+<i class="fa-sharp fa-solid fa-file-pen"></i>  Créer une procédure
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Créer une procédure</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+         <form method="POST" action="{{ route('procedures.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group mt-2">
+            <label for="titre">Titre: </label><br>
+            <input type="text" id="titre" name="titre" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="lien">Liens: </label><br>
+            <input type="text" id="lien" name="lien" required>
+        </div>
+      </div>
+
+    <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+          <button type="submit" class="btn btn-primary create-procedure ">Créer</button>
     </div>
 
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-            <i class="fa-solid fa-file-lines black isize2 mb-1 mt-2"></i>
-                <div class="card-body">    
-                <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
+    </form>
     </div>
-
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-            <i class="fa-solid fa-file-lines black size2 mb-1 mt-2"></i>
-                <div class="card-body">    
-                <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-            <i class="fa-solid fa-file-lines black size2 mb-1 mt-2"></i>
-                <div class="card-body">    
-                <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    
+  </div>
 </div>
+
+<!-- Fin du modal -->
+@endif
+
+<h3 class="titreForm ">Liste des documents:</h3>
+
+  <div class="mesForms">
+    @if (count($procedures) > 0)
+    @foreach ($procedures as $procedure)
+      <a href="{{ $procedure['lien'] }}" class="card-link monForm">
+        <div class="card">
+            <i class="fa-solid fa-clipboard-list logo my-1"></i>
+            <div class="card-body">    
+              <p class="nom_form">{{ $procedure['titre'] }}</p>                                
+            </div>
+        </div>
+      </a>
+    @endforeach
+    @else
+    <p class ="aucun-form">Aucune procedure </p>
+    @endif
+  </div>
+
+
 </div>
 <!-- Fin card les formulaires -->
   

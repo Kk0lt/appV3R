@@ -152,7 +152,7 @@ class AdminController extends Controller
 
 
             }
-            return view('admins.admin', compact('notification','allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur', 'notifAdminParSuperieurLu'));
+            return view('admins.admin', compact('notifications','allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur', 'notifAdminParSuperieurLu'));
 
         } catch (\Throwable $th) {
             Log::debug($th);

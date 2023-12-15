@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Procedure;
 use App\Models\Formulaire;
 use App\Models\Notification;
 use App\Models\Employe;
@@ -27,6 +27,7 @@ class EmployesController extends Controller
     public function accueil(Request $request)
     {
         try {
+            $procedures = Procedure::all();
 
             $notifications = Notification::all();
             $formulaireDetails = [];
@@ -74,7 +75,7 @@ class EmployesController extends Controller
                 }
             }
             
-            return view('employes.accueil', compact('formulaireDetails', 'empForms', 'formsLu'  ));
+            return view('employes.accueil', compact('formulaireDetails', 'empForms', 'formsLu','procedures'  ));
 
         } catch (\Throwable $th) {
             Log::debug($th);

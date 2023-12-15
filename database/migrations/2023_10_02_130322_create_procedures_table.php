@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('procedures', function (Blueprint $table) {
             $table->id();
+            $table->string('titre', 256);
+            $table->string('lien', 256);
+
             $table->timestamps();
         });
     }
