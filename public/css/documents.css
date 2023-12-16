@@ -10,10 +10,14 @@
     --darkBeige: #b4b4b4cc;
 }
 
+
+
 .procedures li{
     border: 1px solid var(--grey) ;  
     margin: 10px;
     padding: 10px;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 .procedures li:hover{
@@ -38,4 +42,27 @@
 #lien{
     color: var(--darkBeige);
     word-wrap: break-word;
+}
+
+.aucun-procedure{
+    border: 1px solid var(--grey) ;  
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    #lien{
+        font-size: 16px;
+    }
+    .titreProcedure{
+        font-size: 20px ;
+        margin-top: 30px;
+
+    }
+    .remplir-form{
+        font-size: 20px;
+    }
+    #titre-procedure{
+        font-size: 22px;
+    }
 }

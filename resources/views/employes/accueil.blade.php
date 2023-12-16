@@ -18,7 +18,8 @@
     <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
     </div>
     <div class="navigationRapide">
-        <h3>Notifications :</h3>
+    <h3 class ="titre-notif"><a href="{{ route('employes.notifications') }}">
+            <i class="fa-solid fa-bell"></i>  Notifications</a></h3>
         <ul>
             @if (count($formulaireDetails) > 0)
                 @foreach ($formulaireDetails as $detail)

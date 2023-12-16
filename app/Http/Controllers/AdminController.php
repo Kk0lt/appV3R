@@ -62,7 +62,7 @@ class AdminController extends Controller
                 $superieur_id = $notification->superieur_id;
                 
                 $superieur = Employe::where('id', $superieur_id)->first();
-                $nom_superieur = $superieur->nom_employe;
+                $nom_superieur = $notification->nom_employe;
 
 
                 //Tous les forms

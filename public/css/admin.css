@@ -37,7 +37,11 @@
     text-transform: uppercase;
 }
 
-.titre-notif a{
-    text-decoration: none;
-    color: var(--blue);
+
+
+@media screen and (max-width: 768px) {
+
+    .remplir-form{
+        font-size: 20px;
+    }
 }

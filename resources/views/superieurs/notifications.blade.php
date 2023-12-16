@@ -25,6 +25,7 @@
 </div>
 
 <div class="mesNotifs">
+    
     <ul>
         @if (count($allForms) > 0)
             @foreach ($allForms as $detail)
@@ -32,25 +33,11 @@
             <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">{{ $detail['nom_Form'] }} rempli par {{ $detail['nom_employe'] }}</a>
             </li>
             @endforeach
-
-        @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
-            @if (count($allForms) > 0)
-            @foreach ($allForms as $detail)
-            <li>
-            <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-            {{ $notification->superieur->prenom }}  {{ $notification->superieur->nom }} a lu le formulaire de {{ $detail['nom_employe'] }}
-            </a>
-            </li>
-            @endforeach
-            @endif
-        @endif
         @else
             <li>Aucune Notification.</li>
 
         @endif
     </ul>
-
-
 </div>
 
 </div>

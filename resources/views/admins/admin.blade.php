@@ -49,7 +49,7 @@
 
 <!-- Button trigger modal -->
 <a class="remplir-form" data-toggle="modal" data-target="#exampleModal">
-<i class="fa-sharp fa-solid fa-file-pen"></i>  Créer une procédure
+<i class="fa-sharp fa-solid fa-file-pen"></i>  Ajouter une nouvelle.
 </a>
 
 <!-- Modal -->
@@ -58,7 +58,7 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Créer une procédure</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Créer une nouvelle</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

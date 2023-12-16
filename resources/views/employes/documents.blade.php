@@ -18,7 +18,7 @@
 <!-- Button trigger modal -->
 @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
 <a class="remplir-form" data-toggle="modal" data-target="#exampleModal">
-<i class="fa-sharp fa-solid fa-file-pen"></i>  Créer une procédure
+<i class="fa-sharp fa-solid fa-file-pen"></i>  Ajouter une nouvelle.
 </a>
 
 <!-- Modal -->
@@ -27,7 +27,7 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Créer une procédure</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Créer une nouvelle</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -41,7 +41,7 @@
             <input type="text" id="titre" name="titre" required>
         </div>
         <div class="form-group mt-2">
-            <label for="lien">Liens: </label><br>
+            <label for="lien">Lien: </label><br>
             <input type="text" id="lien" name="lien" required>
         </div>
       </div>
@@ -59,19 +59,20 @@
 <!-- Fin du modal -->
 @endif
 
-<h3 class="titreForm ">Liste des documents / procédures:</h3>
 
 <div class="procedures">
     <ul>
         @if (count($procedures) > 0)
+<h3 class="titreForm titreProcedure ">Liste des liens:</h3>
+
             @foreach ($procedures as $procedure)
             <li>
-            <a href="{{ $procedure['lien'] }}">{{ $procedure['titre'] }}</a><br>
+            <a id="titre-procedure" href="{{ $procedure['lien'] }}">{{ $procedure['titre'] }}</a><br>
             <a id="lien" href="{{ $procedure['lien'] }}">{{ $procedure['lien'] }}</a>
             </li>
             @endforeach
         @else
-            <li>Aucune procedure.</li>
+            <h5 class="aucun-procedure">Aucune procedure.</h5>
 
         @endif
     </ul>
@@ -80,24 +81,7 @@
 <!-- Fin card les formulaires -->
   
 
-   
-<!-- FOOTER -->
-<footer class="custom-footer text-center ">
-<div class="row">
-      <div class="col-xl-3 offset-xl-2 ">
-        <h3>Liens:</h3>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="https://www.v3r.net/" class="nav-link p-0 v3rLink">v3r.net</a></li>
-        </ul>
-      </div>
 
-      <div class="col-xl-3 offset-xl-1">
-          <h3>Besoin d'aide ? </h3>
-          <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
-      </div>
-    </div>
-      <p class="padFoot">© Ville de Trois-Rivières. Tous droits réservés.</p>
-</footer>
 
 @endsection
 
