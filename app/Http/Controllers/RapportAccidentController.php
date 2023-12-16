@@ -49,10 +49,12 @@ class RapportAccidentController extends Controller
 
             // Enregistrer les autres champs du rapport d'accident
             $rapportAccident->noUnite = $request->noUnite;
-            $rapportAccident->departement = "departement";
+            $rapportAccident->departement = $request->departement;
             $rapportAccident->noPermis = $request->noPermis;
             $rapportAccident->autres_vehicule = $request->input('checkbox_autre_vehicule');
 
+            // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+            $superviseurId = $employe->superieur_id;
             // Notifier superviseur direct
             $notification = new Notification();
             $notification->superieur_id = $superviseurId;

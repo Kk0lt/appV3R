@@ -37,7 +37,7 @@ class FormAccidentTravailRequest extends FormRequest
             'soin' => 'required|min:3|regex:/^[A-Za-z0-9\s\-]+$/',
             'secouriste' => 'required|min:3|regex:/^[A-Za-z0-9\s\-]+$/',
             'absence' => 'required',
-            'superieur' => 'required',
+            'checkbox_sup' => 'required',
         ];
         
     }
@@ -72,7 +72,7 @@ class FormAccidentTravailRequest extends FormRequest
             'soin.required' => 'La description des premiers soins est obligatoire.',
             'secouriste.required' => 'Le nom du secouriste est obligatoire.',
             'absence.required' => 'Veuillez spécifier l\'absence nécessaire suite à l\'accident.',
-            'superieur.required' => 'Veuillez spécifier si vous avez informé votre supérieur immédiat.',
+            'checkbox_sup.required' => 'Veuillez spécifier si vous avez informé votre supérieur immédiat.',
             'secteur.regex' => 'Le champ secteur ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
             'autre.regex' => 'Le champ autre ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',
             'tache.regex' => 'Le champ tache ne doit contenir que des lettres, des chiffres, des espaces et des tirets.',

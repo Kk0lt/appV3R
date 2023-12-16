@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(grilleAuditSstsSeeder::class);
         $this->call(FormulairesSeeder::class);
         $this->call(ProceduresSeeder::class);
+        $this->call(DepartementsSeeder::class);
         $this->call(SuperieursSeeder::class);
 
 

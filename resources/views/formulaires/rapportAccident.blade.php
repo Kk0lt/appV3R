@@ -32,14 +32,18 @@
     </div>
     
     <div class="champ">    
-        <label for="departement">Departement:</label>
-        <select name="departement" id="departement" class="">
+    <label for="departement">Departement:</label>
+    <select name="departement" id="departement" class="">
         <option value="">Departement</option>
-        </select>
+        @foreach($departements as $id => $nom)
+            <option value="{{ $id }}">{{ $nom }}</option>
+        @endforeach
+    </select>
         @error('departement')
-                <div class="error">{{ $message }}</div>
+            <div class="error">{{ $message }}</div>
         @enderror
     </div>
+
 
     <div class="champ">
         <label for="noPermis">Numero de permis de conduire:</label>
