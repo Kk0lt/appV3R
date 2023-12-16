@@ -316,13 +316,8 @@ class AdminController extends Controller
     public function markAsReadByAdmin($formID)
     {
         try {
-            // Trouver le formulaire par son ID
-            $formulaire = FormSituationDangereuse::find($formID);
-    
-            if ($formulaire) {
-                // Trouver la notification associée à ce formulaire
-                $notification = Notification::where('form_id', $formID)->first();
-    
+            $notification = Notification::find($formID);
+
                 if ($notification) {
                     // Mettre à jour le champ statut_admin à "lu"
                     $notification->update(['statut_admin' => 'lu']);
@@ -332,10 +327,6 @@ class AdminController extends Controller
     
                 Log::info("Notification non trouvée");
                 return redirect()->back()->with('error', 'Notification non trouvée');
-            }
-    
-            Log::info("Formulaire non trouvé");
-            return redirect()->back()->with('error', 'Formulaire non trouvé');
         } catch (\Exception $e) {
             Log::error($e);
             return redirect()->back()->with('error', 'Une erreur est survenue lors du marquage de la notification comme "lu"');

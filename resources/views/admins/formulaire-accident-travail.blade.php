@@ -31,7 +31,7 @@
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_torse }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_poumon }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_bras }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->2blessure_poignets }}</p></li>
+        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_poignets }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_dos }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_hanche }}</p></li>
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_jambe }}</p></li>
