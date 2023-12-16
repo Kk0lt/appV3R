@@ -213,16 +213,37 @@ input[type="submit"]:hover {
 }
 
 
+@media screen and (max-width: 768px) {
+    input[type="time"],
+    input[type="date"],
+    select {
+     font-size: 20px;
+     width: 80%;
+    }
+    .bodycontainer label {
+    font-size: 20px;
+    }
 
+    input[type="text"],
+    textarea {
+    font-size: 15px;
+    }
 
-
-
-
-
-
-
-
-
+    .bodycontainer h1 {
+    font-size: 30px ;    
+    }
+    li{
+        font-size: 17px;
+       word-wrap: break-word;
+    }
+    
+    .checkbox-group {
+        font-size: 17px;
+    }
+    .absence label{
+        font-size: 20px;
+    }
+}
 
 /* Media query pour les appareils mobiles */
 @media screen and (max-width: 480px) {

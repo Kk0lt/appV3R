@@ -331,7 +331,7 @@
         <!--Détails sur le durée de l'absence-->
         <div class = "absence_container">
             <h5>Détails sur le durée de l'absence</h5>
-            <label>Absence (cochez l'une des options) :</label>
+            <label>Absence (cochez l'une des options):</label>
 
             <div class="champ">
 
