@@ -322,6 +322,8 @@ class AdminController extends Controller
                     // Mettre à jour le champ statut_admin à "lu"
                     $notification->update(['statut_admin' => 'lu']);
                     Log::info('statut_admin = lu ');
+                    Log::info($notification->id);
+
                     return redirect()->route('admins.admin');
                 }
     

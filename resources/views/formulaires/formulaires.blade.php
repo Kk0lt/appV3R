@@ -41,6 +41,7 @@
             </div>
         </a>
     </div>
+    @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'superieur'))
 
     <div class="col-md-6">
         <a href="{{ route('formulaires.grilleAuditSST') }}" class="card-link">
@@ -63,7 +64,7 @@
             </div>
         </a>
     </div>
-
+@endif
     
 </div>
 </div>

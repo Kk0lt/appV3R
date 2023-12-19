@@ -14,10 +14,5 @@ class FormSituationDangereuse extends Model
         return $this->belongsTo(Employe::class, 'employe_id');
     }
 
-    public function notification()
-    {
-        return $this->belongsTo(Notification::class, 'form_id');
-    }
-
 
 }
