@@ -34,8 +34,8 @@ return new class extends Migration
             $table->string('blessure_pied', 256);
             $table->string('blessure_autre', 256);
 
-            $table->string('description_blessure', 256);
-            $table->string('violence', 256);
+            $table->text('description_blessure')->nullable();
+            $table->text('violence')->nullable();
 
             $table->string('tache', 256);
             $table->string('soin', 256);

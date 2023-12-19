@@ -263,19 +263,19 @@
             <div class="checkbox-group">
                 <label>Description de la blessure (cochez toutes les blessures pertinentes) :</label>
                 <ul>
-                <li><input type="checkbox" name="description_blessure" value="Brûlure">Brûlure</li>
-                <li><input type="checkbox" name="description_blessure" value="Écrasement">Écrasement</li>
-                <li><input type="checkbox" name="description_blessure" value="Commotion cérébrale">Commotion cérébrale</li>
-                <li><input type="checkbox" name="description_blessure" value="Corps étranger">Corps étranger</li>
-                <li><input type="checkbox" name="description_blessure" value="Coupure/lacération/déchirure">Coupure/lacération/déchirure</li>
-                <li><input type="checkbox" name="description_blessure" value="Douleur au dos">Douleur au dos</li>
-                <li><input type="checkbox" name="description_blessure" value="Égratignures/éraflure/piqûre/écharde">Égratignures/éraflure/piqûre/écharde</li>
-                <li><input type="checkbox" name="description_blessure" value="Entorse/élongation/contusion/foulure/luxation">Entorse/élongation/contusion/foulure/luxation</li>
-                <li><input type="checkbox" name="description_blessure" value="Fracture">Fracture</li>
-                <li><input type="checkbox" name="description_blessure" value="Amputation">Amputation</li>
-                <li><input type="checkbox" name="description_blessure" value="Irritation/infection">Irritation/infection</li>
-                <li><input type="checkbox" name="description_blessure" value="Inhalation">Inhalation</li>
-                <li><input type="checkbox" name="description_blessure" value="Autres">Autres</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Brûlure">Brûlure</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Écrasement">Écrasement</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Commotion cérébrale">Commotion cérébrale</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Corps étranger">Corps étranger</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Coupure/lacération/déchirure">Coupure/lacération/déchirure</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Douleur au dos">Douleur au dos</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Égratignures/éraflure/piqûre/écharde">Égratignures/éraflure/piqûre/écharde</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Entorse/élongation/contusion/foulure/luxation">Entorse/élongation/contusion/foulure/luxation</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Fracture">Fracture</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Amputation">Amputation</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Irritation/infection">Irritation/infection</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Inhalation">Inhalation</li>
+                <li><input type="checkbox" name="description_blessure[]" value="Autres">Autres</li>
                 </ul>    
             </div>
             @error('description_blessure')
@@ -288,8 +288,8 @@
 
             <div class="checkbox-group">
             <label>Violence (cochez s'il y a lieu) :</label>
-            <input type="checkbox" name="violence" value="Physique">Physique
-            <input type="checkbox" name="violence" value="Verbal">Verbal
+            <input type="checkbox" name="violence[]" value="Physique">Physique
+            <input type="checkbox" name="violence[]" value="Verbal">Verbal
             </div>
             @error('violence')
             <div class="error">{{ $message }}</div>

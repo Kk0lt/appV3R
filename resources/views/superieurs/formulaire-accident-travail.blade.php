@@ -38,9 +38,6 @@
         <li><p class="categorie">Blessure pied: </p><p class ="reponse">{{ $formulaire->blessure_pied }}</p></li>
         <li><p class="categorie">Autre blessure: </p><p class ="reponse">{{ $formulaire->blessure_autre }}</p></li>
         
-
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->description_blessure }}</p></li>
-
         <li><p class="categorie">Description de la blessure: </p><p class ="reponse">{{ $formulaire->description_blessure }}</p></li>
         <li><p class="categorie">Violence: </p><p class ="reponse">{{ $formulaire->violence }}</p></li>
         <li><p class="categorie">Description de la tâche effectuée: </p><p class ="reponse">{{ $formulaire->tache }}</p></li>
