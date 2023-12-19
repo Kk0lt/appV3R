@@ -20,6 +20,7 @@ class EmployesSeeder extends Seeder
             [   //1        
                 'nom' => 'Pépin',
                 'prenom' => 'Marc',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Journalier TP',
 
                 'superieur_nom' => 'Jane Dow',
@@ -32,6 +33,7 @@ class EmployesSeeder extends Seeder
             [   //2            
                 'nom' => 'Reid',
                 'prenom' => 'Claudine',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Journalier TP',
 
                 'superieur_nom' => 'Jane Dow',
@@ -44,6 +46,7 @@ class EmployesSeeder extends Seeder
             [   //3         
                 'nom' => 'Temps',
                 'prenom' => 'Paul',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Journalier TP',
                 'superieur_nom' => 'Jane Dow',
                 'superieur_id' => 4,
@@ -54,6 +57,7 @@ class EmployesSeeder extends Seeder
             [   //4         
                 'nom' => 'Dow',
                 'prenom' => 'Jane',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Cheffe d\'équipe TP', 
 
                 'superieur_nom' => 'Jonathan Morinville',
@@ -66,6 +70,7 @@ class EmployesSeeder extends Seeder
             [   //5         
                 'nom' => 'Morinville',
                 'prenom' => 'Jonathan',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Chef de service TP', 
 
                 'superieur_nom' => 'Alain Lizotte',
@@ -78,6 +83,7 @@ class EmployesSeeder extends Seeder
             [   //6         
                 'nom' => 'Lizotte',
                 'prenom' => 'Alain',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Directeur TP', 
 
                 'superieur_nom' => 'aucun',
@@ -90,6 +96,7 @@ class EmployesSeeder extends Seeder
             [   //7         
                 'nom' => 'Levesque',
                 'prenom' => 'Michèle ',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Conseillère SST',    
 
                 'superieur_nom' => 'Josée St-Laurent',
@@ -102,6 +109,7 @@ class EmployesSeeder extends Seeder
             [   //8         
                 'nom' => 'St-Laurent',
                 'prenom' => 'Josée ',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Coordonnatrice SST',
 
                 'superieur_nom' => 'Claude Belisle',
@@ -114,6 +122,7 @@ class EmployesSeeder extends Seeder
             [   //9         
                 'nom' => 'Belisle',
                 'prenom' => 'Claude',
+                'email' => 'appv3r@gmail.com',
                 'position' => 'Directeur RH',
 
                 'superieur_nom' => 'aucun',

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom', 256);
             $table->string('prenom', 256);
+            $table->string('email', 256);
             $table->string('position', 256);
  
             $table->string('superieur_nom', 256);

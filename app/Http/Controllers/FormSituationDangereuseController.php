@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationMail; 
+
 use App\Models\FormSituationDangereuse;
 use App\Models\Notification;
 use App\Models\Employe;
 use App\Http\Requests\FormSituationDangereuseRequest;
+
+
 
 class FormSituationDangereuseController extends Controller
 {
@@ -76,11 +81,27 @@ class FormSituationDangereuseController extends Controller
             $notification->statut_admin = "non lu";
             $notification->nom_employe =  $employeNom ;
                  
+
+
+
             // Enregistrez l'instance dans la base de données
             $formSituationDangereuse->save();
             $notification->form_id = $formSituationDangereuse->id;
             $notification->save();
+
+            // Envoie par email
+            $supervisor = Employe::where('id', $superviseurId)->first();
     
+            if ($supervisor) {
+                $notificationData = [
+                    'formName' => "Formulaire de Situation Dangereuse",
+                    'date' => now(), // or format your own date
+                    'employeNom' => $employeNom,
+                ];
+    
+                Mail::to($supervisor->email)->send(new NotificationMail($notificationData));
+            }
+
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
             } catch (\Throwable $e) {
                 Log::debug($e);

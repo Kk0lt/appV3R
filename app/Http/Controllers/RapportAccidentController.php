@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Notification;
 use App\Models\Employe;
 use App\Http\Requests\RapportAccidentRequest;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationMail; 
 
 
 class RapportAccidentController extends Controller
@@ -68,6 +69,18 @@ class RapportAccidentController extends Controller
             $rapportAccident->save();
             $notification->form_id = $rapportAccident->id;
             $notification->save();
+            // Envoie par email
+            $supervisor = Employe::where('id', $superviseurId)->first();
+    
+            if ($supervisor) {
+                $notificationData = [
+                    'formName' => "Rapport d'accidentt",
+                    'date' => now(), // or format your own date
+                    'employeNom' => $employeNom,
+                ];
+    
+                Mail::to($supervisor->email)->send(new NotificationMail($notificationData));
+            }
 
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
             } catch (\Throwable $e) {

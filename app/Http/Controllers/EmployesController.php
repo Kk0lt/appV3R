@@ -347,8 +347,7 @@ class EmployesController extends Controller
                 if ($notification) {
                     // Mettre à jour le champ statut_superieur à "lu"
                     $notification->update(['statut_superieur' => 'lu']);
-                    $notification->update(['statut_admin' => 'lu']);
-                    Log::info('Notification marquée comme "lu" avec succès');
+                    Log::info('Notification marquée comme "lu" avec succès, id: ');
                     return redirect()->route('employes.accueil');
                 }
     

@@ -27,16 +27,16 @@
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->secteur }}</p></li>
 
         <!-- Blessures-->
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_tete }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_torse }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_poumon }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_bras }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_poignets }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_dos }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_hanche }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_jambe }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_pied }}</p></li>
-        <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->blessure_autre }}</p></li>
+        <li><p class="categorie">Blessure tete: </p><p class ="reponse">{{ $formulaire->blessure_tete }}</p></li>
+        <li><p class="categorie">Blessure torse: </p><p class ="reponse">{{ $formulaire->blessure_torse }}</p></li>
+        <li><p class="categorie">Blessure poumon: </p><p class ="reponse">{{ $formulaire->blessure_poumon }}</p></li>
+        <li><p class="categorie">Blessure bras: </p><p class ="reponse">{{ $formulaire->blessure_bras }}</p></li>
+        <li><p class="categorie">Blessure poignets: </p><p class ="reponse">{{ $formulaire->blessure_poignets }}</p></li>
+        <li><p class="categorie">Blessure dos: </p><p class ="reponse">{{ $formulaire->blessure_dos }}</p></li>
+        <li><p class="categorie">Blessure hanche: </p><p class ="reponse">{{ $formulaire->blessure_hanche }}</p></li>
+        <li><p class="categorie">Blessure jambe: </p><p class ="reponse">{{ $formulaire->blessure_jambe }}</p></li>
+        <li><p class="categorie">Blessure pied: </p><p class ="reponse">{{ $formulaire->blessure_pied }}</p></li>
+        <li><p class="categorie">Autre blessure: </p><p class ="reponse">{{ $formulaire->blessure_autre }}</p></li>
         
 
         <li><p class="categorie">Secteur: </p><p class ="reponse">{{ $formulaire->description_blessure }}</p></li>
