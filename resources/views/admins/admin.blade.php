@@ -31,7 +31,7 @@
                 @foreach ($notifAdminParSuperieurLu as $detail)
                 <li>
                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                {{ $notification->superieur->prenom }}  {{ $notification->superieur->nom }} a lu le formulaire de {{ $detail['nom_employe'] }}
+                {{ $detail['nom_superieur'] }} a lu le formulaire de {{ $detail['nom_employe'] }}
                 </a>
                 </li>
                 @endforeach
