@@ -14,7 +14,10 @@ use App\Models\GrilleAuditSst;
 use App\Models\RapportAccident;
 use App\Models\FormSituationDangereuse;
 
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationMail; 
+use App\Mail\ReadBySupervisorMail;
+ 
 class EmployesController extends Controller
 {
     /**
@@ -348,6 +351,11 @@ class EmployesController extends Controller
                     // Mettre à jour le champ statut_superieur à "lu"
                     $notification->update(['statut_superieur' => 'lu']);
                     Log::info('Notification marquée comme "lu" avec succès, id: ');
+
+                    // Call notifyAdmin with the form instance and form name
+                    $this->notifyAdmin($notification);
+
+
                     return redirect()->route('employes.accueil');
                 }
     
@@ -363,7 +371,26 @@ class EmployesController extends Controller
     }
     
 
+    protected function notifyAdmin($notif)
+    {
 
+        $employe = Employe::where('id', $notif->employe_id)->first();
+        $superieur = Employe::where('id', $notif->superieur_id)->first();
+
+        if ($employe) {
+            $admins = Employe::where('droit_admin', 'oui')->get();
+            foreach ($admins as $admin) {
+                $notificationData = [
+                    'formName' => $notif->nom_Form,
+                    'date' => now(), // or format your own date
+                    'employeNom' => $employe->prenom . ' ' . $employe->nom,
+                    'superieurNom' => $superieur->prenom . ' ' . $superieur->nom,
+                ];
+
+                Mail::to($admin->email)->send(new ReadBySupervisorMail($notificationData));
+            }
+        }
+    }
 
 
      
