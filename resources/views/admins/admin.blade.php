@@ -94,26 +94,34 @@
 <div class="mesForms">
     @if (count($allForms) > 0)
     @foreach ($allForms as $detail)
-        <a href="" class="card-link monForm">
+        <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
             <div class="card">
                 <i class="fa-solid fa-list-check logo my-1"></i>
+                <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
                 <div class="card-body">    
                         <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                            <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+                            <div class ="noms">
+                                <p>Employe :  <b>{{ $detail['nom_employe'] }}</b></p>
+                                <p>Superieur :  <b>{{ $detail['nom_superieur'] }}</b></p>
+                            </div>
+
                             @if ($detail['statut_admin'] == 'lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
                             @if ($detail['statut_admin'] == 'non lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
 
                             @if ($detail['statut_superieur'] == 'lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             @if ($detail['statut_superieur'] == 'non lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             <p class="date_form">{{ $detail['date'] }}</p>
+                      
+                        
                         </a>
                         
                     </div>
@@ -130,26 +138,33 @@
 <div class="mesForms">
     @if (count($luParAdmin) > 0)
     @foreach ($luParAdmin as $detail)
-        <a href="" class="card-link monForm">
+        <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
             <div class="card">
                 <i class="fa-solid fa-list-check logo my-1"></i>
+                <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
                 <div class="card-body">    
                         <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                            <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
+                            
+                            <p>Employe :  <b>{{ $detail['nom_employe'] }}</b></p>
+                            <p>Superieur :  <b>{{ $detail['nom_superieur'] }}</b></p>
+
                             @if ($detail['statut_admin'] == 'lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
                             @if ($detail['statut_admin'] == 'non lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
 
                             @if ($detail['statut_superieur'] == 'lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             @if ($detail['statut_superieur'] == 'non lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             <p class="date_form">{{ $detail['date'] }}</p>
+
                         </a>
                         
                     </div>

@@ -30,15 +30,37 @@
 .admin_lu, .superieur_lu {
     color: var(--green) !important;
     text-transform: capitalize;
+    font-size: 16px !important;
+
 }
 
 .admin_non_lu, .superieur_non_lu {
     color: var(--red) !important;
     text-transform: uppercase;
+    font-size: 16px !important;
+
 }
 
+.titre_card{
+    font-size: 16px !important;   
+}
 
+.card-body{
+    text-align: justify ;
+    padding-top: 5px;
+}
+.noms{
+    margin: 1px;
+}
+.nom_form{
+    font-size: 20px !important;
+    text-align: center ;
+    margin-bottom: 2px;
+}
 
+.date_form{
+    text-align: center;
+}
 @media screen and (max-width: 768px) {
 
     .remplir-form{

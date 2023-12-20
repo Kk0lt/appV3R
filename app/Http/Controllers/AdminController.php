@@ -70,6 +70,7 @@ class AdminController extends Controller
                     $allForms[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -84,6 +85,7 @@ class AdminController extends Controller
                     $formulaireDetails[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -98,6 +100,7 @@ class AdminController extends Controller
                     $luParAdmin[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -112,6 +115,7 @@ class AdminController extends Controller
                     $nonluParSuperieur[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -126,6 +130,7 @@ class AdminController extends Controller
                     $luParSuperieur[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,

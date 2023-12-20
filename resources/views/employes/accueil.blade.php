@@ -68,12 +68,13 @@
 
             @if (count($empForms) > 0)
             @foreach ($empForms as $detail)
-                <a href="" class="card-link monForm">
+                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}"> class="card-link monForm">
                     <div class="card">
                         <i class="fa-solid fa-list-check logo my-1"></i>
+                        <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
                         <div class="card-body">    
                                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                                    <p class="nom_f orm">{{ $detail['nom_Form'] }}</p>
                                     <p>rempli le</p>
                                     <p class="date_form">{{ $detail['date'] }}</p>
                                 </a>
@@ -98,13 +99,13 @@
 
             @if (count($formsLu) > 0)
             @foreach ($formsLu as $detail)
-                <a href="" class="card-link monForm">
+                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
                     <div class="card">
                         <i class="fa-solid fa-list-check logo my-1"></i>
+                        <p class="nom_form">{{ $detail['nom_Form'] }}</p>
                         <div class="card-body">    
                                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
-                                    <p>Employé: {{ $detail['nom_employe'] }}</p>
+                                    <p>Employé: <b>{{ $detail['nom_employe'] }}</b></p>
                                     <p class="date_form">{{ $detail['date'] }}</p>
                                 </a>
                                 
