@@ -158,7 +158,7 @@ Route::post('/procedures/store',
 [ProceduresController::class, 'store'])->name('procedures.store');
 
 
-// Ajouter une procedure en tant qu'admin
+// Supprimer une procedure en tant qu'admin
 Route::delete('/procedures/{id}',
 [ProceduresController::class, 'destroy'])->name('procedures.destroy');
 
