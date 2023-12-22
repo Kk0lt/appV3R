@@ -53,7 +53,7 @@
         </a>
     @endforeach
     @else
-    <p class ="aucun-form">Aucune procedure </p>
+    <p class ="aucun-form">Aucune nouveauté </p>
     @endif
     </div>
 
