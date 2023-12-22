@@ -4,6 +4,7 @@
 <head>
 <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
 <link rel="stylesheet" href="{{ asset('css/documents.css') }}">
+
 </head>
 
 <body class="bg">
@@ -19,7 +20,12 @@
 @if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
 <a class="remplir-form" data-toggle="modal" data-target="#exampleModal">
 <i class="fa-sharp fa-solid fa-file-pen"></i>  Ajouter une nouvelle.
-</a>
+</a><br>
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Rechercher...">
+    <button id="searchButton" class="btn btn-search"><i class="fa-solid fa-search"></i> Rechercher</button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -42,7 +48,7 @@
         </div>
         <div class="form-group mt-2">
             <label for="lien">Lien: </label><br>
-            <input type="text" id="lien" name="lien" required>
+            <input type="text" id="case-lien" name="lien" required>
         </div>
       </div>
 
@@ -87,8 +93,23 @@
 <!-- Fin card les formulaires -->
   
 
+   <script>
+        function searchProcedures() {
+            var searchText = document.getElementById('searchInput').value.toLowerCase();
+            var procedureLinks = document.querySelectorAll('.procedure-link');
 
+            procedureLinks.forEach(function (link) {
+                var text = link.textContent.toLowerCase();
+                var parentLi = link.closest('li');
 
+                if (text.includes(searchText)) {
+                    parentLi.style.display = 'block';
+                } else {
+                    parentLi.style.display = 'none';
+                }
+            });
+        }
+    </script>
 @endsection
 
 

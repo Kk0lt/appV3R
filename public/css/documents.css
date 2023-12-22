@@ -31,17 +31,29 @@
     color: var(--blue);
 }
 
+.search-container{
+        margin-top: 10px;
 
+}
 .create-procedure{
     background-color: var(--blue) ;
 }
 .create-procedure:hover{
     background-color: var(--orange) ;
 }
+.btn-search{
+    background-color: var(--blue) ;
+    color: #ffffff;
+    margin-left: 5px;
+}
 
+.btn-search:hover{
+    background-color: var(--orange) ;
+}
 #lien{
     color: var(--darkBeige);
-    word-wrap: break-word;
+    word-wrap:break-word;
+    
 }
 
 .aucun-procedure{
@@ -76,4 +88,9 @@
     #titre-procedure{
         font-size: 22px;
     }
+
+    .btn-search{
+   margin-top: 5px;
+   margin-left: 0px ;
+}
 }
