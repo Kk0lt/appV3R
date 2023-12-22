@@ -77,11 +77,26 @@ class ProceduresController extends Controller
         //
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            // Trouver la procédure par son identifiant
+            $procedure = Procedure::findOrFail($id);
+
+            // Supprimer la procédure
+            $procedure->delete();
+
+            // Rediriger l'utilisateur avec un message de succès
+            return redirect()->route('procedures.index')->with('success', 'Procédure supprimée avec succès.');
+        } catch (\Throwable $e) {
+            // En cas d'erreur, enregistrez l'erreur dans les journaux et redirigez l'utilisateur avec un message d'erreur
+            Log::debug($e);
+            return redirect()->route('procedures.index')->with('error', 'La suppression a échoué.');
+        }
     }
+
 }

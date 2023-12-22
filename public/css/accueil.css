@@ -132,7 +132,7 @@ html
 .coms-container {    
     
     min-width: 100%; /* Ajustez la largeur de la bande à votre convenance */
-    border: 1px solid var(--grey); /* Bordure pour la bande (facultatif) */
+    border: 1px solid var(--grey); 
     padding: 10px; /* Espace intérieur (facultatif) */
     padding-right: 25px; 
     display: flex;

@@ -69,6 +69,12 @@
             <li>
             <a id="titre-procedure" href="{{ $procedure['lien'] }}">{{ $procedure['titre'] }}</a><br>
             <a id="lien" href="{{ $procedure['lien'] }}">{{ $procedure['lien'] }}</a>
+             <!-- Bouton de suppression -->
+                        <form class="delete-form" action="{{ route('procedures.destroy', $procedure->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn-delete" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette procédure ?')"><i class="fa-solid fa-trash"></i></button>
+                        </form>
             </li>
             @endforeach
         @else

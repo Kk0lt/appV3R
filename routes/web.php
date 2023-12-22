@@ -156,3 +156,9 @@ Route::get('/employes/documents',
 // Ajouter une procedure en tant qu'admin
 Route::post('/procedures/store',
 [ProceduresController::class, 'store'])->name('procedures.store');
+
+
+// Ajouter une procedure en tant qu'admin
+Route::delete('/procedures/{id}',
+[ProceduresController::class, 'destroy'])->name('procedures.destroy');
+
