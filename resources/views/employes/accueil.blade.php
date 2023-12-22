@@ -68,7 +68,7 @@
 
             @if (count($empForms) > 0)
             @foreach ($empForms as $detail)
-                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}"> class="card-link monForm">
+                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
                     <div class="card">
                         <i class="fa-solid fa-list-check logo my-1"></i>
                         <p class="nom_form">{{ $detail['nom_Form'] }}</p>
