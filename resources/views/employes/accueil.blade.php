@@ -18,7 +18,8 @@
     <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
     </div>
     <div class="navigationRapide">
-        <h3>Notifications :</h3>
+    <h3 class ="titre-notif"><a href="{{ route('employes.notifications') }}">
+            <i class="fa-solid fa-bell"></i>  Notifications</a></h3>
         <ul>
             @if (count($formulaireDetails) > 0)
                 @foreach ($formulaireDetails as $detail)
@@ -36,72 +37,24 @@
 <div class="container">
     
     <!-- Début card mes formulaires -->
+    <h5><a href="{{ route('formulaires.listesForm') }}" class="remplir-form"><i class="fa-sharp fa-solid fa-file-pen"></i>  Remplir un formulaire</a></h5>
 
     <h5 class="communications">Communiqués</h5>
     <div class="horizontal-scroll">
-        
-        <a href="#" class="card-link">
+    @if (count($procedures) > 0)
+    @foreach ($procedures as $procedure)
+        <a href="{{ $procedure['lien'] }}" class="card-link">
             <div class="card">
                 <i class="fa-solid fa-clipboard-list logo my-1"></i>
                 <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
+                    <h6 class="">{{ $procedure['titre'] }}</h6>
                 </div>
             </div>
         </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-clipboard-list logo my-1"></i>
-                <div class="card-body">
-                    <h6 class="">Nouveau formulaire disponible</h6>
-                </div>
-            </div>
-        </a>
+    @endforeach
+    @else
+    <p class ="aucun-form">Aucune nouveauté </p>
+    @endif
     </div>
 
 
@@ -115,12 +68,13 @@
 
             @if (count($empForms) > 0)
             @foreach ($empForms as $detail)
-                <a href="" class="card-link monForm">
+                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
                     <div class="card">
                         <i class="fa-solid fa-list-check logo my-1"></i>
+                        <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
                         <div class="card-body">    
                                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
                                     <p>rempli le</p>
                                     <p class="date_form">{{ $detail['date'] }}</p>
                                 </a>
@@ -145,13 +99,13 @@
 
             @if (count($formsLu) > 0)
             @foreach ($formsLu as $detail)
-                <a href="" class="card-link monForm">
+                <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
                     <div class="card">
                         <i class="fa-solid fa-list-check logo my-1"></i>
+                        <p class="nom_form">{{ $detail['nom_Form'] }}</p>
                         <div class="card-body">    
                                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                                    <p class="nom_form">{{ $detail['nom_Form'] }}</p>
-                                    <p>Employé: {{ $detail['nom_employe'] }}</p>
+                                    <p>Employé: <b>{{ $detail['nom_employe'] }}</b></p>
                                     <p class="date_form">{{ $detail['date'] }}</p>
                                 </a>
                                 

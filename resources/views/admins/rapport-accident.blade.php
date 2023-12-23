@@ -35,6 +35,7 @@
             <div class="blocVide">
             </div>
             <div class="submitbtn-container">
+                <button class="btn btn-retour" href="{{ url()->previous() }}">Retour</button>
                 <input type="submit" value="Marqué comme lu">
             </div>
         </div>

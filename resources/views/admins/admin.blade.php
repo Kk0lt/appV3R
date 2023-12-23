@@ -13,11 +13,12 @@
     </div>
 
     <div class="liste-notifications">
-    <div class="bjr_container">
-    <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
-    </div>
+        <div class="bjr_container">
+            <h6 class="bonjour">Bonjour @auth {{ Auth::user()->prenom }} @endauth</h6>
+        </div>
     <div class="navigationRapide">
-        <h3>Notifications :</h3>
+        <h3 class ="titre-notif"><a href="{{ route('employes.notifications') }}">
+            <i class="fa-solid fa-bell"></i>  Notifications</a></h3>
         <ul>
             @if (count($formulaireDetails) > 0)
                 @foreach ($formulaireDetails as $detail)
@@ -30,44 +31,97 @@
                 @foreach ($notifAdminParSuperieurLu as $detail)
                 <li>
                 <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                {{ $notification->superieur->prenom }}  {{ $notification->superieur->nom }} a lu le formulaire de {{ $detail['nom_employe'] }}
+                {{ $detail['nom_superieur'] }} a lu le formulaire de {{ $detail['nom_employe'] }}
                 </a>
                 </li>
                 @endforeach
             @endif
 
             @else
-                <p>Aucune Notification.</p>
+                <li>Aucune Notification.</li>
             @endif
         </ul>
     </div>
 </div>
 
 <div class="container">
+
+
+<!-- Button trigger modal -->
+<a class="remplir-form" data-toggle="modal" data-target="#exampleModal">
+<i class="fa-sharp fa-solid fa-file-pen"></i>  Ajouter une nouvelle.
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Créer une nouvelle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+         <form method="POST" action="{{ route('procedures.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group mt-2">
+            <label for="titre">Titre: </label><br>
+            <input type="text" id="titre" name="titre" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="lien">Liens: </label><br>
+            <input type="text" id="lien" name="lien" required>
+        </div>
+      </div>
+
+    <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+          <button type="submit" class="btn btn-primary create-procedure ">Créer</button>
+    </div>
+
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Fin du modal -->
+
+
 <h3 class="titreForm">Listes des formulaires:</h3>
 <div class="mesForms">
     @if (count($allForms) > 0)
     @foreach ($allForms as $detail)
-        <a href="" class="card-link monForm">
+        <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
             <div class="card">
                 <i class="fa-solid fa-list-check logo my-1"></i>
+                <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
                 <div class="card-body">    
                         <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                            <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+                            <div class ="noms">
+                                <p>Employe :  <b>{{ $detail['nom_employe'] }}</b></p>
+                                <p>Superieur :  <b>{{ $detail['nom_superieur'] }}</b></p>
+                            </div>
+
                             @if ($detail['statut_admin'] == 'lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
                             @if ($detail['statut_admin'] == 'non lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
 
                             @if ($detail['statut_superieur'] == 'lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             @if ($detail['statut_superieur'] == 'non lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             <p class="date_form">{{ $detail['date'] }}</p>
+                      
+                        
                         </a>
                         
                     </div>
@@ -84,26 +138,33 @@
 <div class="mesForms">
     @if (count($luParAdmin) > 0)
     @foreach ($luParAdmin as $detail)
-        <a href="" class="card-link monForm">
+        <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}" class="card-link monForm">
             <div class="card">
                 <i class="fa-solid fa-list-check logo my-1"></i>
+                <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
                 <div class="card-body">    
                         <a href="{{ route($detail['type'] . '.show', ['id' => $detail['id']]) }}">
-                            <p class="nom_form">{{ $detail['nom_Form'] }}</p>
+
+                            
+                            <p>Employe :  <b>{{ $detail['nom_employe'] }}</b></p>
+                            <p>Superieur :  <b>{{ $detail['nom_superieur'] }}</b></p>
+
                             @if ($detail['statut_admin'] == 'lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
                             @if ($detail['statut_admin'] == 'non lu')
-                            <p class="titre_card">Validation admin:</p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation admin: </p><p class = "admin_non_lu">{{ $detail['statut_admin'] }}</p></div>
                             @endif
 
                             @if ($detail['statut_superieur'] == 'lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             @if ($detail['statut_superieur'] == 'non lu')
-                            <p class="titre_card">Validation superieur:</p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p>
+                            <div class ="d-inline-flex"><p class="titre_card">Validation superieur: </p><p class = "superieur_non_lu">{{ $detail['statut_superieur'] }}</p></div>
                             @endif
                             <p class="date_form">{{ $detail['date'] }}</p>
+
                         </a>
                         
                     </div>

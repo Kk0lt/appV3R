@@ -10,7 +10,8 @@ use App\Models\Formulaire;
 use App\Models\Notification;
 use App\Models\Employe;
 
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationMail; 
 class FormAccidentTravailController extends Controller
 {
     /**
@@ -73,9 +74,14 @@ class FormAccidentTravailController extends Controller
         $formAccidentTravail->blessure_jambe = $request->blessure_jambe;
         $formAccidentTravail->blessure_pied = $request->blessure_pied;
         $formAccidentTravail->blessure_autre = $request->blessure_autre;
-        $formAccidentTravail->description_blessure = $request->description_blessure;
-        
-        $formAccidentTravail->violence = $request->violence;
+        // Concatenate the selected checkboxes into an array
+        $selectedBlessures = (array) $request->input('description_blessure', []);
+        $formAccidentTravail->description_blessure = implode(', ', $selectedBlessures);
+
+        // Concatenate the selected checkboxes into an array
+        $selectedViolence = (array) $request->input('violence', []);
+        $formAccidentTravail->violence = implode(', ', $selectedViolence);
+                    
         $formAccidentTravail->tache = $request->tache;
         $formAccidentTravail->soin = $request->soin;
         $formAccidentTravail->secouriste = $request->secouriste;
@@ -102,6 +108,18 @@ class FormAccidentTravailController extends Controller
         $notification->form_id = $formAccidentTravail->id;
         $notification->save();
 
+        // Envoie par email
+        $supervisor = Employe::where('id', $superviseurId)->first();
+
+        if ($supervisor) {
+            $notificationData = [
+                'formName' => "Formulaire d'accident de travail",
+                'date' => now(), // or format your own date
+                'employeNom' => $employeNom,
+            ];
+
+            Mail::to($supervisor->email)->send(new NotificationMail($notificationData));
+        }
 
         // Redirigez l'utilisateur vers une page de confirmation ou de succès
         } catch(\Throwable $e) {

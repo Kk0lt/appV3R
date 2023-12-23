@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Procedure;
 use App\Models\Formulaire;
 use App\Models\Notification;
 use App\Models\Employe;
@@ -14,7 +14,10 @@ use App\Models\GrilleAuditSst;
 use App\Models\RapportAccident;
 use App\Models\FormSituationDangereuse;
 
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationMail; 
+use App\Mail\ReadBySupervisorMail;
+ 
 class EmployesController extends Controller
 {
     /**
@@ -27,6 +30,7 @@ class EmployesController extends Controller
     public function accueil(Request $request)
     {
         try {
+            $procedures = Procedure::all();
 
             $notifications = Notification::all();
             $formulaireDetails = [];
@@ -74,7 +78,7 @@ class EmployesController extends Controller
                 }
             }
             
-            return view('employes.accueil', compact('formulaireDetails', 'empForms', 'formsLu'  ));
+            return view('employes.accueil', compact('formulaireDetails', 'empForms', 'formsLu','procedures'  ));
 
         } catch (\Throwable $th) {
             Log::debug($th);
@@ -85,6 +89,125 @@ class EmployesController extends Controller
     public function documents()
     {
         return view('employes.documents');
+    }
+
+    
+    public function notifications()
+    { try {
+
+            $notifications = Notification::all();
+             $formulaireDetails = [];
+            $allForms = [];
+            $luParAdmin = [];
+            $nonluParSuperieur = [];
+            $luParSuperieur = [];
+            $notifAdminParSuperieurLu = [];
+     
+            
+            foreach ($notifications as $notification) {
+                $type = $this->getFormulaireType($notification->nom_Form);
+                $statut_admin = $notification->statut_admin;
+                $statut_superieur = $notification->statut_superieur;
+                $superieur_id = $notification->superieur_id;
+                
+                $superieur = Employe::where('id', $superieur_id)->first();
+                $nom_superieur = $notification->nom_employe;
+
+
+                //Tous les forms
+                if ($type ) {
+                    $allForms[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms non lu par admin
+                if ($type &&  $statut_admin == "non lu"  ) {
+                    $formulaireDetails[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms lu par admin
+                if ($type &&  $statut_admin == "lu"  ) {
+                    $luParAdmin[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms non lu par les superieurs
+                if ($type &&  $statut_superieur == "non lu"  ) {
+                    $nonluParSuperieur[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms lu par les superieurs
+                if ($type &&  $statut_superieur == "lu"  ) {
+                    $luParSuperieur[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+                //Forms lu par les superieurs mais pas les admins
+                if ($type &&  $statut_superieur == "lu" && $statut_admin == "non lu"  ) {
+                    $notifAdminParSuperieurLu[] = [
+                        'type' => $type,
+                        'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
+                        'nom_Form' => $notification->nom_Form,
+                        'nom_employe' => $notification->nom_employe,
+                        'statut_superieur' => $notification->statut_superieur,
+                        'statut_admin' => $notification->statut_admin,
+                        'date' => $notification->created_at->format('d F Y'),
+
+                    ];
+                }
+
+
+            }
+            
+            return view('employes.notifications', compact('notification','allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur', 'notifAdminParSuperieurLu'));
+
+        } catch (\Throwable $th) {
+            Log::debug($th);
+            return redirect()->back()->withErrors(['Une erreur est survenue']);
+        }
     }
 
     /**
@@ -120,7 +243,6 @@ class EmployesController extends Controller
 
             // Accéder au formulaire associé à la notification
             $formulaire = $notification->formSituationDangereuse;
-            Log::debug("allo");
 
             return view('superieurs.formulaire-situation-dangereuse', compact('formulaire'));
         } catch (\Throwable $th) {
@@ -223,23 +345,22 @@ class EmployesController extends Controller
     public function markNotificationAsRead($formID)
     {
         try {
-            // Trouver le formulaire par son ID
-            $formulaire = FormSituationDangereuse::find($formID);
-    
-            if ($formulaire) {
-                // Trouver la notification associée à ce formulaire
-                $notification = Notification::where('form_id', $formID)->first();
-    
+            $notification = Notification::find($formID);
+
                 if ($notification) {
                     // Mettre à jour le champ statut_superieur à "lu"
                     $notification->update(['statut_superieur' => 'lu']);
-                    Log::info('Notification marquée comme "lu" avec succès');
+                    Log::info('Notification marquée comme "lu" avec succès, id: ');
+
+                    // Call notifyAdmin with the form instance and form name
+                    $this->notifyAdmin($notification);
+
+
                     return redirect()->route('employes.accueil');
                 }
     
                 Log::info("Notification non trouvée");
                 return redirect()->back()->with('error', 'Notification non trouvée');
-            }
     
             Log::info("Formulaire non trouvé");
             return redirect()->back()->with('error', 'Formulaire non trouvé');
@@ -250,7 +371,26 @@ class EmployesController extends Controller
     }
     
 
+    protected function notifyAdmin($notif)
+    {
 
+        $employe = Employe::where('id', $notif->employe_id)->first();
+        $superieur = Employe::where('id', $notif->superieur_id)->first();
+
+        if ($employe) {
+            $admins = Employe::where('droit_admin', 'oui')->get();
+            foreach ($admins as $admin) {
+                $notificationData = [
+                    'formName' => $notif->nom_Form,
+                    'date' => now(), // or format your own date
+                    'employeNom' => $employe->prenom . ' ' . $employe->nom,
+                    'superieurNom' => $superieur->prenom . ' ' . $superieur->nom,
+                ];
+
+                Mail::to($admin->email)->send(new ReadBySupervisorMail($notificationData));
+            }
+        }
+    }
 
 
      

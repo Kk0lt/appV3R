@@ -8,10 +8,10 @@ use App\Http\Controllers\FormAccidentTravailController;
 use App\Http\Controllers\FormSituationDangereuseController;
 use App\Http\Controllers\GrilleAuditSstController;
 use App\Http\Controllers\RapportAccidentController;
-
+use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\FormulairesController;
-
 use App\Http\Controllers\EmployesController;
+use App\Http\Controllers\ProceduresController;
 
 
 
@@ -100,6 +100,8 @@ Route::get('/accueil',
 Route::get('/documents', 
 [EmployesController::class, 'documents'])->name('employes.documents');
 
+Route::get('/notifications', 
+[EmployesController::class, 'notifications'])->name('employes.notifications');
 /*-----------------------Superieurs------------------------*/
 
 Route::post('/mark-notification-as-read/{formId}', 
@@ -146,3 +148,17 @@ Route::get('/grille-audit-sst/{id}',
 // Route pour le rapport accident
 Route::get('/rapport-accident/{id}', 
 [AdminController::class, 'showRapportAccident'])->name('rapport-accident.show');
+
+
+Route::get('/employes/documents', 
+[ProceduresController::class, 'index'])->name('procedures.index');
+
+// Ajouter une procedure en tant qu'admin
+Route::post('/procedures/store',
+[ProceduresController::class, 'store'])->name('procedures.store');
+
+
+// Supprimer une procedure en tant qu'admin
+Route::delete('/procedures/{id}',
+[ProceduresController::class, 'destroy'])->name('procedures.destroy');
+

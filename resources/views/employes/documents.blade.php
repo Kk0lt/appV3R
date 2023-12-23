@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('title', 'documents')
 @section('contenuDuMilieu')
+<head>
+<link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
+<link rel="stylesheet" href="{{ asset('css/documents.css') }}">
+
+</head>
 
 <body class="bg">
 <div>
@@ -10,78 +15,101 @@
 
   <!-- Début card les formulaires -->        
 <div class="container">
-<h3 class="titreForm mt-5">Liste des documents:</h3>
-<div class="mesForms row">
 
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-                <i class="fa-solid fa-file-lines black isize2 mb-1 mt-2 "></i>
-                <div class="card-body">    
-                    <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
+<!-- Button trigger modal -->
+@if(!auth()->check() || (auth()->check() && auth()->user()->type == 'admin'))
+<a class="remplir-form" data-toggle="modal" data-target="#exampleModal">
+<i class="fa-sharp fa-solid fa-file-pen"></i>  Ajouter une nouvelle.
+</a><br>
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Rechercher...">
+    <button id="searchButton" class="btn btn-search"><i class="fa-solid fa-search"></i> Rechercher</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Créer une nouvelle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+         <form method="POST" action="{{ route('procedures.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group mt-2">
+            <label for="titre">Titre: </label><br>
+            <input type="text" id="titre" name="titre" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="lien">Lien: </label><br>
+            <input type="text" id="case-lien" name="lien" required>
+        </div>
+      </div>
+
+    <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+          <button type="submit" class="btn btn-primary create-procedure ">Créer</button>
     </div>
 
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-            <i class="fa-solid fa-file-lines black isize2 mb-1 mt-2"></i>
-                <div class="card-body">    
-                <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
+    </form>
     </div>
+  </div>
+</div>
 
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-            <i class="fa-solid fa-file-lines black size2 mb-1 mt-2"></i>
-                <div class="card-body">    
-                <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
-    </div>
+<!-- Fin du modal -->
+@endif
 
-    <div class="col-md-6">
-        <a href="" class="card-link">
-            <div class="card">
-            <i class="fa-solid fa-file-lines black size2 mb-1 mt-2"></i>
-                <div class="card-body">    
-                <h6 class="card-title">Description...</h6>
-                </div>
-            </div>
-        </a>
-    </div>
 
-    
+<div class="procedures">
+    <ul>
+        @if (count($procedures) > 0)
+<h3 class="titreForm titreProcedure ">Liste des liens:</h3>
+
+            @foreach ($procedures as $procedure)
+            <li>
+            <a id="titre-procedure" href="{{ $procedure['lien'] }}">{{ $procedure['titre'] }}</a><br>
+            <a id="lien" href="{{ $procedure['lien'] }}">{{ $procedure['lien'] }}</a>
+             <!-- Bouton de suppression -->
+                        <form class="delete-form" action="{{ route('procedures.destroy', $procedure->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn-delete" type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette procédure ?')"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+            </li>
+            @endforeach
+        @else
+            <h5 class="aucun-procedure">Aucune procedure.</h5>
+
+        @endif
+    </ul>
 </div>
 </div>
 <!-- Fin card les formulaires -->
   
 
-   
-<!-- FOOTER -->
-<footer class="custom-footer text-center ">
-<div class="row">
-      <div class="col-xl-3 offset-xl-2 ">
-        <h3>Liens:</h3>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="https://www.v3r.net/" class="nav-link p-0 v3rLink">v3r.net</a></li>
-        </ul>
-      </div>
+   <script>
+        function searchProcedures() {
+            var searchText = document.getElementById('searchInput').value.toLowerCase();
+            var procedureLinks = document.querySelectorAll('.procedure-link');
 
-      <div class="col-xl-3 offset-xl-1">
-          <h3>Besoin d'aide ? </h3>
-          <h6>Contactez-nous : 311 <i class="fa-solid fa-phone"></i></h6>
-      </div>
-    </div>
-      <p class="padFoot">© Ville de Trois-Rivières. Tous droits réservés.</p>
-</footer>
+            procedureLinks.forEach(function (link) {
+                var text = link.textContent.toLowerCase();
+                var parentLi = link.closest('li');
 
+                if (text.includes(searchText)) {
+                    parentLi.style.display = 'block';
+                } else {
+                    parentLi.style.display = 'none';
+                }
+            });
+        }
+    </script>
 @endsection
 
 

@@ -55,9 +55,7 @@
         <a class="nav-link white my-2" href="{{ route('employes.accueil') }}">
         @endif
               <img class="img-fluid logoUser" src="{{ asset('img/user.png') }}" alt="">
-              <h5 class="nom-user">@auth {{ Auth::user()->prenom }} {{ Auth::user()->nom }} @endauth</h5>
-              <h6 class="poste-user grey">Poste de l'employé</h6>
-          
+              <h5 class="nom-user">@auth {{ Auth::user()->prenom }} {{ Auth::user()->nom }} @endauth</h5>          
         </a>
 
         <hr>
@@ -77,16 +75,16 @@
         <hr>
         <div href="#" class="nav-link ">
         <i class="fa-solid fa-file-lines white"></i>
-            <a class="white titreNav" href="{{ route('employes.documents') }}"><span class="mx-2">Documents:</span></a>
+            <a class="white titreNav" href="{{ route('procedures.index') }}"><span class="mx-2">Documents:</span></a>
             <div class="mt-3 mx-3">
-                <h6><a class="liens" href="">Procédures de travail</a></h6>
+                <h6><a class="liens" href="{{ route('procedures.index') }}">Procédures de travail</a></h6>
             </div>
         </div>
         <hr> 
         
         <div class="mx-3">
         @if(auth()->check())
-        <form method="GET" action="{{ route('logout') }}">
+        <form class="form-btndisconnect" method="GET" action="{{ route('logout') }}">
           @csrf
           <button class="btnD disconnect">Fermer la session</button>
          </form>

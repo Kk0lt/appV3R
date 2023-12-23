@@ -10,7 +10,7 @@ use App\Models\FormAccidentTravail;
 use App\Models\GrilleAuditSst;
 use App\Models\RapportAccident;
 use App\Models\FormSituationDangereuse;
-
+use App\Models\Departement;
 
 class FormulairesController extends Controller
 {
@@ -41,7 +41,9 @@ class FormulairesController extends Controller
     }
     public function rapportAccident()
     {
-        return view ('formulaires.rapportAccident' );
+        $departements = Departement::pluck('nom', 'id'); // Récupérer la liste des départements depuis la base de données
+    
+        return view('formulaires.rapportAccident', ['departements' => $departements]);
     }
     /**
      * Show the form for creating a new resource.

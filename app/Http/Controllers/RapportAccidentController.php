@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Notification;
 use App\Models\Employe;
 use App\Http\Requests\RapportAccidentRequest;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificationMail; 
 
 
 class RapportAccidentController extends Controller
@@ -49,10 +50,12 @@ class RapportAccidentController extends Controller
 
             // Enregistrer les autres champs du rapport d'accident
             $rapportAccident->noUnite = $request->noUnite;
-            $rapportAccident->departement = "departement";
+            $rapportAccident->departement = $request->departement;
             $rapportAccident->noPermis = $request->noPermis;
             $rapportAccident->autres_vehicule = $request->input('checkbox_autre_vehicule');
 
+            // Récupérer l'ID du superviseur de l'employé qui remplit le formulaire
+            $superviseurId = $employe->superieur_id;
             // Notifier superviseur direct
             $notification = new Notification();
             $notification->superieur_id = $superviseurId;
@@ -66,6 +69,18 @@ class RapportAccidentController extends Controller
             $rapportAccident->save();
             $notification->form_id = $rapportAccident->id;
             $notification->save();
+            // Envoie par email
+            $supervisor = Employe::where('id', $superviseurId)->first();
+    
+            if ($supervisor) {
+                $notificationData = [
+                    'formName' => "Rapport d'accidentt",
+                    'date' => now(), // or format your own date
+                    'employeNom' => $employeNom,
+                ];
+    
+                Mail::to($supervisor->email)->send(new NotificationMail($notificationData));
+            }
 
             // Redirigez l'utilisateur vers une page de confirmation ou de succès
             } catch (\Throwable $e) {

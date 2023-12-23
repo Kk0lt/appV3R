@@ -1,0 +1,96 @@
+
+:root
+{
+    --orange: #ED8C00;
+    --blue: #0B2341;
+    --white: #ffffff;
+    --black: #000000;
+    --darkGrey: #100901;
+    --beige: #D9D9D8;
+    --darkBeige: #b4b4b4cc;
+}
+
+
+
+.procedures li{
+    border: 1px solid var(--grey) ;  
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.procedures li:hover{
+    background-color: var(--orange);
+}
+.procedures ul{
+    list-style-type: none;
+
+}
+.procedures a{
+    color: var(--blue);
+}
+
+.search-container{
+        margin-top: 10px;
+
+}
+.create-procedure{
+    background-color: var(--blue) ;
+}
+.create-procedure:hover{
+    background-color: var(--orange) ;
+}
+.btn-search{
+    background-color: var(--blue) ;
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+.btn-search:hover{
+    background-color: var(--orange) ;
+}
+#lien{
+    color: var(--darkBeige);
+    word-wrap:break-word;
+    
+}
+
+.aucun-procedure{
+    border: 1px solid var(--grey) ;  
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-delete{
+    border: 0px solid var(--grey); 
+    background-color: transparent;
+    color: red;
+    
+}
+.delete-form {
+    text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+    #lien{
+        font-size: 16px;
+    }
+    .titreProcedure{
+        font-size: 20px ;
+        margin-top: 30px;
+
+    }
+    .remplir-form{
+        font-size: 20px;
+    }
+    #titre-procedure{
+        font-size: 22px;
+    }
+
+    .btn-search{
+   margin-top: 5px;
+   margin-left: 0px ;
+}
+}

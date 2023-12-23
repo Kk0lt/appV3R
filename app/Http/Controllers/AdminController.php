@@ -62,7 +62,7 @@ class AdminController extends Controller
                 $superieur_id = $notification->superieur_id;
                 
                 $superieur = Employe::where('id', $superieur_id)->first();
-                $nom_superieur = $superieur->nom_employe;
+                $nom_superieur = $superieur->prenom . ' ' . $superieur->nom;
 
 
                 //Tous les forms
@@ -70,6 +70,7 @@ class AdminController extends Controller
                     $allForms[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -84,6 +85,7 @@ class AdminController extends Controller
                     $formulaireDetails[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -98,6 +100,7 @@ class AdminController extends Controller
                     $luParAdmin[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -112,6 +115,7 @@ class AdminController extends Controller
                     $nonluParSuperieur[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -126,6 +130,7 @@ class AdminController extends Controller
                     $luParSuperieur[] = [
                         'type' => $type,
                         'id' => $notification->id,
+                        'nom_superieur' => $nom_superieur,
                         'nom_Form' => $notification->nom_Form,
                         'nom_employe' => $notification->nom_employe,
                         'statut_superieur' => $notification->statut_superieur,
@@ -152,7 +157,7 @@ class AdminController extends Controller
 
 
             }
-            return view('admins.admin', compact('notification','allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur', 'notifAdminParSuperieurLu'));
+            return view('admins.admin', compact('notifications','allForms','formulaireDetails', 'luParAdmin', 'nonluParSuperieur', 'luParSuperieur', 'notifAdminParSuperieurLu'));
 
         } catch (\Throwable $th) {
             Log::debug($th);
@@ -316,26 +321,19 @@ class AdminController extends Controller
     public function markAsReadByAdmin($formID)
     {
         try {
-            // Trouver le formulaire par son ID
-            $formulaire = FormSituationDangereuse::find($formID);
-    
-            if ($formulaire) {
-                // Trouver la notification associée à ce formulaire
-                $notification = Notification::where('form_id', $formID)->first();
-    
+            $notification = Notification::find($formID);
+
                 if ($notification) {
                     // Mettre à jour le champ statut_admin à "lu"
                     $notification->update(['statut_admin' => 'lu']);
                     Log::info('statut_admin = lu ');
+                    Log::info($notification->id);
+
                     return redirect()->route('admins.admin');
                 }
     
                 Log::info("Notification non trouvée");
                 return redirect()->back()->with('error', 'Notification non trouvée');
-            }
-    
-            Log::info("Formulaire non trouvé");
-            return redirect()->back()->with('error', 'Formulaire non trouvé');
         } catch (\Exception $e) {
             Log::error($e);
             return redirect()->back()->with('error', 'Une erreur est survenue lors du marquage de la notification comme "lu"');
